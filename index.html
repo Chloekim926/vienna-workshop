@@ -222,9 +222,9 @@ const NAV = {
   sched: {ko:'일정',        de:'Programm',        en:'Schedule'},
 };
 const FOOTER = {
-  ko:'남산 남사면 협업 설계 워크샵',
-  de:'Namsan Südhangentwurfs-Workshop',
-  en:'Namsan South Slope Design Workshop',
+  ko:'SNU-TUW 2026 Workshop',
+  de:'SNU-TUW 2026 Workshop',
+  en:'SNU-TUW 2026 Workshop',
 };
 
 function tl(o){ return o && (o[LANG] || o.en || ''); }
@@ -553,7 +553,7 @@ const SCHED_DETAIL = [
  {d:{ko:'4/8 수',de:'8.4 Mi',en:'4/8 Wed'}, room:'82-405',
   phase:{ko:'현장 답사일',de:'Geländetag',en:'Site visit day'},
   blocks:[
-   {t:'09:00–13:00', type:'field', ko:'설계 대상지 조별 답사 (남산 남사면 — 7개 스팟)', de:'Teamweise Geländebegehung (Namsan-Südhang — 7 Entwurfs-Spots)', en:'Site visit by team (Namsan south slope — 7 design spots)'},
+   {t:'09:00–13:00', type:'field', ko:'설계 대상지 조별 답사 (남산일대)', de:'Teamweise Geländebegehung (The vicinity of Namsan)', en:'Site visit by team (The vicinity of Namsan)'},
    {t:'14:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업 (비엔나 전문가팀 세종시 KOTI 방문 예정)', de:'Gruppenplanung (TU-Wien-Expertenteam: KOTI-Besuch, Sejong)', en:'Group design work (Vienna expert team: KOTI visit, Sejong City)'},
   ]},
  {d:{ko:'4/9 목',de:'9.4 Do',en:'4/9 Thu'}, room:'82-405',
@@ -582,20 +582,20 @@ function etag(type){
 /* ── RENDER FUNCTIONS ── */
 function renderHome(){
   const L={
-    ko:{label:'SNU × TU Wien · April 2026',h1:'남산 남사면\n협업 설계 워크샵',
-      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 도시계획학과 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
+    ko:{label:'SNU × TU Wien · April 2026',h1:'협업 설계 워크샵',
+      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
       s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'설계 Spots',s5:'참여 대학',
       venue:'서울대학교 환경대학원 (82동)',
       site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
       schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →'},
-    de:{label:'SNU × TU Wien · April 2026',h1:'Namsan Südhangentwurfs-\nWorkshop',
-      desc:'Gemeinsamer Workshop der Seoul National University (GSES) und der TU Wien (Stadtplanung). Entwurfsgebiet: Namsan-Südhang — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themen: Hangbebauung, organische Nutzungsmischung, Grünraumtrennung und multikulturelles Gewerbe.',
+    de:{label:'SNU × TU Wien · April 2026',h1:'The vicinity of Namsan-\nWorkshop',
+      desc:'Gemeinsamer Workshop der Seoul National University (GSES) und der TU Wien. Entwurfsgebiet: Namsan-Südhang — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themen: Hangbebauung, organische Nutzungsmischung, Grünraumtrennung und multikulturelles Gewerbe.',
       s1:'Workshop-Zeitraum',s2:'Stadtexkursion',s3:'Ort',s4:'Entwurfs-Spots',s5:'Partneruniversitäten',
       venue:'SNU Graduate School of Environmental Studies, Gebäude 82',
       site:'Namsan-Südhang — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
       schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →'},
-    en:{label:'SNU × TU Wien · April 2026',h1:'Namsan South Slope\nDesign Workshop',
-      desc:'Joint workshop between Seoul National University (GSES) and TU Wien (Urban Planning). Design site: Namsan south slope — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themes: hillside residential, spontaneous mixed-use, green space severance, and multicultural commercial streets.',
+    en:{label:'SNU × TU Wien · April 2026',h1:'The vicinity of Namsan\nDesign Workshop',
+      desc:'Joint workshop between Seoul National University (GSES) and TU Wien. Design site: Namsan south slope — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themes: hillside residential, spontaneous mixed-use, green space severance, and multicultural commercial streets.',
       s1:'Workshop Period',s2:'Field Trips',s3:'Venue',s4:'Design Spots',s5:'Universities',
       venue:'SNU Graduate School of Environmental Studies, Building 82',
       site:'Namsan South Slope — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
