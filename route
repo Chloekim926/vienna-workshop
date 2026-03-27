@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>남산 남사면 협업 설계 워크샵 — Namsan South Slope Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FAF8F4;--bg2:#F0EDE6;--bg3:#E8E4DC;
+  --tx:#1A1A1A;--tx2:#4A4A4A;--tx3:#8A8A8A;
+  --team-a:#D63B3A;--team-b:#C4501E;--team-c:#A66A10;
+  --team-d:#0D7A5F;--team-e:#4A3FA5;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Noto Sans KR','Helvetica Neue',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* Language toggle */
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;border:1px solid var(--tx);border-radius:2px;overflow:hidden;font-size:12px;letter-spacing:.05em;backdrop-filter:blur(12px)}
+.lang-btn{padding:6px 14px;cursor:pointer;background:transparent;color:var(--tx);transition:all .2s;font-family:var(--mono);border:none;font-size:12px}
+.lang-btn.active{background:var(--tx);color:var(--bg)}
+.hero-area .lang-toggle{border-color:rgba(255,255,255,.4)}
+.hero-area .lang-btn{color:rgba(255,255,255,.7)}
+.hero-area .lang-btn.active{background:rgba(255,255,255,.9);color:#1A1A1A}
+
+/* Hero */
+.hero{background:#1A1E2E;color:#fff;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,30,46,.95),rgba(26,30,46,.7));z-index:1}
+.hero>*{position:relative;z-index:2}
+.hero-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-bottom:24px;text-transform:uppercase}
+.hero h1{font-family:var(--serif);font-size:clamp(36px,6vw,64px);font-weight:400;line-height:1.15;margin-bottom:16px;max-width:700px}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,.5)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.45);max-width:550px;line-height:1.8;margin-bottom:48px}
+.hero-teams{display:flex;gap:16px;flex-wrap:wrap}
+.hero-team{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.5);font-family:var(--mono)}
+.hero-team .dot{width:10px;height:10px;border-radius:50%}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.1em;font-family:var(--mono);animation:float 2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+
+/* Map section */
+.map-section{padding:80px 40px;background:#1A1E2E}
+.map-section h2{font-family:var(--serif);font-size:28px;color:#fff;margin-bottom:6px}
+.map-section .sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:32px;font-family:var(--mono)}
+.map-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.map-img{width:100%;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.map-legend{display:flex;flex-direction:column;gap:12px}
+.legend-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border-left:3px solid;border-radius:0 6px 6px 0;transition:background .2s}
+.legend-item:hover{background:rgba(255,255,255,.08)}
+.legend-item h4{font-size:13px;color:#fff;font-weight:500;margin-bottom:2px}
+.legend-item p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+.legend-item .spots{font-size:10px;color:rgba(255,255,255,.25);font-family:var(--mono);margin-top:4px}
+
+/* Content */
+.content{max-width:900px;margin:0 auto;padding:80px 40px}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--tx3);margin-bottom:32px;text-transform:uppercase}
+
+/* Team card */
+.team-card{margin-bottom:64px;border-top:1px solid var(--bg3);padding-top:40px}
+.team-header{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+.team-badge{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#fff;padding:3px 10px;border-radius:2px}
+.team-title-kr{font-family:var(--serif);font-size:28px}
+.team-title-en{font-size:14px;color:var(--tx3);font-style:italic;margin-bottom:24px}
+.team-spots{font-size:12px;color:var(--tx3);margin-bottom:28px;padding:10px 14px;background:var(--bg2);border-radius:4px;line-height:1.8}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px}
+.col-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--bg3)}
+.issue-kr{font-size:14px;color:var(--tx);line-height:1.8;margin-bottom:12px}
+.issue-en{font-size:13px;color:var(--tx3);line-height:1.8;font-style:italic}
+
+.question-list{display:flex;flex-direction:column;gap:12px}
+.q-item{padding:14px 16px;background:var(--bg2);border-radius:4px;position:relative}
+.q-num{font-family:var(--mono);font-size:11px;position:absolute;top:14px;left:16px}
+.q-kr{font-size:13px;margin-left:28px;margin-bottom:4px;line-height:1.7}
+.q-en{font-size:12px;color:var(--tx3);margin-left:28px;font-style:italic;line-height:1.6}
+
+.refs{font-size:11px;color:var(--tx3);font-family:var(--mono);padding-top:16px;border-top:1px solid var(--bg3);letter-spacing:.01em}
+
+/* Connections section */
+.connections{margin-bottom:64px;border-top:1px solid var(--bg3);padding-top:40px}
+.connections h3{font-family:var(--serif);font-size:24px;margin-bottom:6px}
+.connections .sub{font-size:13px;color:var(--tx3);font-style:italic;margin-bottom:28px}
+.conn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.conn-item{padding:16px;background:var(--bg2);border-radius:4px;border-left:3px solid var(--bg3)}
+.conn-item .kr{font-size:13px;margin-bottom:4px}
+.conn-item .en{font-size:12px;color:var(--tx3);font-style:italic}
+.conn-item .link{font-size:10px;color:var(--tx3);font-family:var(--mono);margin-top:6px}
+
+/* Footer */
+footer{background:#1A1E2E;color:rgba(255,255,255,.3);padding:40px;text-align:center;font-size:12px;line-height:1.8}
+footer a{color:rgba(255,255,255,.5)}
+
+/* Language switching */
+[data-lang="en"]{display:none}
+body.en [data-lang="ko"]{display:none}
+body.en [data-lang="en"]{display:block}
+body.en [data-lang="en-inline"]{display:inline}
+body.en [data-lang="ko-inline"]{display:none}
+[data-lang="en-inline"]{display:none}
+
+/* Mobile */
+@media(max-width:768px){
+  .hero{padding:60px 24px 40px}
+  .map-wrap{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .content{padding:48px 24px}
+  .map-section{padding:48px 24px}
+  .conn-grid{grid-template-columns:1fr}
+  .lang-toggle{top:12px;right:12px}
+}
+
+/* Print */
+@media print{
+  .lang-toggle,.scroll-hint{display:none}
+  .hero{min-height:auto;padding:40px;page-break-after:always}
+  .team-card{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle hero-area" id="langToggle">
+  <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-label">Collaborative Urban Design Workshop — Vienna 2026</div>
+  <h1>
+    <span data-lang="ko">남산 남사면<br>협업 설계 워크샵</span>
+    <span data-lang="en">Namsan South Slope<br><em>Collaborative Design</em></span>
+  </h1>
+  <p class="hero-sub">
+    <span data-lang="ko">용산구 후암동 · 해방촌 · 이태원2동 · 한남동 경계<br>5개 팀 × 7개 설계 스팟 — 남산 남사면 전체를 하나의 시스템으로</span>
+    <span data-lang="en">Yongsan-gu: Huam-dong · Haebangchon · Itaewon 2-dong · Hannam boundary<br>5 teams × 7 design spots — the entire south slope as one interconnected system</span>
+  </p>
+  <div class="hero-teams">
+    <div class="hero-team"><div class="dot" style="background:var(--team-a)"></div>Team A</div>
+    <div class="hero-team"><div class="dot" style="background:var(--team-b)"></div>Team B</div>
+    <div class="hero-team"><div class="dot" style="background:var(--team-c)"></div>Team C</div>
+    <div class="hero-team"><div class="dot" style="background:var(--team-d)"></div>Team D</div>
+    <div class="hero-team"><div class="dot" style="background:var(--team-e)"></div>Team E</div>
+  </div>
+  <div class="scroll-hint">↓ SCROLL</div>
+</section>
+
+<!-- Map -->
+<section class="map-section">
+  <h2>
+    <span data-lang="ko">답사 루트 · 설계 스팟</span>
+    <span data-lang="en">Field Route · Design Spots</span>
+  </h2>
+  <div class="sub">7 spots across the Namsan south slope</div>
+  <div class="map-wrap">
+    <img src="map_annotated.png" alt="Annotated map of Namsan south slope with 7 design spots" class="map-img">
+    <div class="map-legend">
+      <div class="legend-item" style="border-color:var(--team-a)">
+        <div>
+          <h4>Team A — <span data-lang="ko-inline">경사지 보행</span><span data-lang="en-inline">Hillside Mobility</span></h4>
+          <p data-lang="ko">108계단 경사형 승강기 + 한남·하얏트 경계부의 수직 접근성 문제</p>
+          <p data-lang="en">Vertical accessibility at the 108 Stairs inclined elevator and the Hannam/Hyatt boundary</p>
+          <div class="spots">Spot 1 + Spot 6</div>
+        </div>
+      </div>
+      <div class="legend-item" style="border-color:var(--team-b)">
+        <div>
+          <h4>Team B — <span data-lang="ko-inline">도시재생 vs 젠트리피케이션</span><span data-lang="en-inline">Regeneration vs Gentrification</span></h4>
+          <p data-lang="ko">해방촌 오거리·신흥시장 — 공공 재생이 촉발한 상업화의 역설</p>
+          <p data-lang="en">Haebangchon 5-way & Sinheung Market — the paradox of public-led regeneration</p>
+          <div class="spots">Spot 2</div>
+        </div>
+      </div>
+      <div class="legend-item" style="border-color:var(--team-c)">
+        <div>
+          <h4>Team C — <span data-lang="ko-inline">경사지 주거정비</span><span data-lang="en-inline">Housing Renewal on Slopes</span></h4>
+          <p data-lang="ko">후암동 노후주거지 — 특별계획구역 내 전면 철거 vs 점진적 재생</p>
+          <p data-lang="en">Huam-dong deteriorated housing — total demolition vs incremental regeneration</p>
+          <div class="spots">Spot 3</div>
+        </div>
+      </div>
+      <div class="legend-item" style="border-color:var(--team-d)">
+        <div>
+          <h4>Team D — <span data-lang="ko-inline">녹지축 · 생태경계</span><span data-lang="en-inline">Green Axis + Ecological Boundary</span></h4>
+          <p data-lang="ko">남산 그린웨이 축 + 소월길 13m 옹벽 — 단절된 생태축 복원</p>
+          <p data-lang="en">Namsan Greenway axis + Sowol-gil 13m retaining wall — restoring the severed green corridor</p>
+          <div class="spots">Spot 4 + Spot 7</div>
+        </div>
+      </div>
+      <div class="legend-item" style="border-color:var(--team-e)">
+        <div>
+          <h4>Team E — <span data-lang="ko-inline">가로 활력 · 용도 전환</span><span data-lang="en-inline">Street Vitality + Use Transition</span></h4>
+          <p data-lang="ko">이태원2동·디지텍고 일대 — 코로나 이후 상권 위축과 빈 점포</p>
+          <p data-lang="en">Itaewon 2-dong area — post-COVID commercial decline and vacant storefronts</p>
+          <div class="spots">Spot 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Details -->
+<div class="content">
+  <div class="section-label">
+    <span data-lang="ko">팀별 설계 브리프</span>
+    <span data-lang="en">Team Design Briefs</span>
+  </div>
+
+  <!-- Team A -->
+  <div class="team-card">
+    <div class="team-header">
+      <span class="team-badge" style="background:var(--team-a)">TEAM A</span>
+      <span class="team-title-kr" data-lang="ko">경사지 보행</span>
+      <span class="team-title-kr" data-lang="en">Hillside Mobility</span>
+    </div>
+    <div class="team-title-en">
+      <span data-lang="ko">Hillside Mobility</span>
+      <span data-lang="en">경사지 보행</span>
+    </div>
+    <div class="team-spots">
+      <span data-lang="ko">Spot 1 — 108계단 · 경사형 승강기 &nbsp;|&nbsp; Spot 6 — 한남 · 하얏트 경계</span>
+      <span data-lang="en">Spot 1 — 108 Stairs + Inclined Elevator &nbsp;|&nbsp; Spot 6 — Hannam / Grand Hyatt Boundary</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label" style="color:var(--team-a)">
+          <span data-lang="ko">핵심 이슈 Core Issue</span>
+          <span data-lang="en">Core Issue 핵심 이슈</span>
+        </div>
+        <div class="issue-kr" data-lang="ko">두 지점 모두 극심한 표고차(108계단: 53m 구간 / 한남 지하차도: 11m 낙차)로 보행 네트워크가 단절된 곳. 1943년 일제 신사 참배길이었던 108계단에는 2018년 서울 주택가 최초의 경사형 승강기(28억원)가 설치됨. 한남 경계부는 하얏트 슈퍼블록이 지역 가로 네트워크를 차단하는 전형적 사례.</div>
+        <div class="issue-kr" data-lang="en">Both spots share extreme elevation gaps severing pedestrian networks. The 108 Stairs — originally a 1943 Japanese shrine path — received Seoul's first residential inclined elevator in 2018 (2.8B KRW). The Hannam boundary shows how the Hyatt superblock fragments the local street grid.</div>
+      </div>
+      <div>
+        <div class="col-label" style="color:var(--team-a)">
+          <span data-lang="ko">설계 질문 Design Questions</span>
+          <span data-lang="en">Design Questions 설계 질문</span>
+        </div>
+        <div class="question-list">
+          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q1</div><div class="q-kr" data-lang="ko">경사형 승강기 모델이 다른 구릉지 마을로 확장 가능한가, 아니면 단발성 개입인가?</div><div class="q-kr" data-lang="en">Can the inclined elevator model scale to other hillside neighborhoods, or is it a one-off intervention?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q2</div><div class="q-kr" data-lang="ko">하얏트 슈퍼블록이 만든 가로 단절을 어떻게 재연결할 수 있는가?</div><div class="q-kr" data-lang="en">How would you reconnect the street grid fragmented by the Hyatt superblock?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q3</div><div class="q-kr" data-lang="ko">차량 인프라와 보행자 우선 경사지 설계의 적정 균형점은?</div><div class="q-kr" data-lang="en">What is the right balance between vehicular infrastructure and pedestrian-first hillside design?</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="refs">cf. Lisbon — Elevador da Bica &nbsp;|&nbsp; Medellín — Escaleras Eléctricas &nbsp;|&nbsp; Vienna — Strudlhofstiege</div>
+  </div>
+
+  <!-- Team B -->
+  <div class="team-card">
+    <div class="team-header">
+      <span class="team-badge" style="background:var(--team-b)">TEAM B</span>
+      <span class="team-title-kr" data-lang="ko">도시재생 vs 젠트리피케이션</span>
+      <span class="team-title-kr" data-lang="en">Regeneration vs Gentrification</span>
+    </div>
+    <div class="team-title-en">
+      <span data-lang="ko">Regeneration vs Gentrification</span>
+      <span data-lang="en">도시재생 vs 젠트리피케이션</span>
+    </div>
+    <div class="team-spots">
+      <span data-lang="ko">Spot 2 — 해방촌 오거리 · 신흥시장</span>
+      <span data-lang="en">Spot 2 — Haebangchon 5-way Intersection & Sinheung Market</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label" style="color:var(--team-b)">
+          <span data-lang="ko">핵심 이슈 Core Issue</span>
+          <span data-lang="en">Core Issue 핵심 이슈</span>
+        </div>
+        <div class="issue-kr" data-lang="ko">170억원 투입 도시재생(8대 마중물사업), 신흥시장 클라우드 지붕(2024 서울시 건축상 대상). 그러나 상가 월세 3배 폭등(2015년 50만→2018년 150만원). 2~3층 휴먼스케일은 유지되나, 원주민 상업·주거 이탈 가속. 상생협약(2016) 체결에도 실효성 논란.</div>
+        <div class="issue-kr" data-lang="en">170B KRW public regeneration with 8 anchor projects; Sinheung Market's cloud canopy won the 2024 Seoul Architecture Award. Yet rents tripled (500K→1.5M KRW/month, 2015–2018). Human-scale 2–3 story fabric survives, but original residents/businesses are displaced. Mutual-benefit agreements (2016) face effectiveness questions.</div>
+      </div>
+      <div>
+        <div class="col-label" style="color:var(--team-b)">
+          <span data-lang="ko">설계 질문 Design Questions</span>
+          <span data-lang="en">Design Questions 설계 질문</span>
+        </div>
+        <div class="question-list">
+          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q1</div><div class="q-kr" data-lang="ko">공간설계(정책이 아닌)로 젠트리피케이션을 늦출 수 있는가?</div><div class="q-kr" data-lang="en">Can spatial design (not just policy) slow gentrification — e.g. mixed-use zoning, community land trusts?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q2</div><div class="q-kr" data-lang="ko">시장의 '클라우드 지붕'이 관광 경험과 동네 기능 사이를 어떻게 매개해야 하는가?</div><div class="q-kr" data-lang="en">How should the 'cloud roof' mediate between curated tourist experience and neighborhood functions?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q3</div><div class="q-kr" data-lang="ko">공공 재생 사업 종료 후의 자생적 운영 모델은?</div><div class="q-kr" data-lang="en">What does a post-regeneration stewardship model look like when public funding ends?</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="refs">cf. Vienna — Brunnenmarkt Regeneration &nbsp;|&nbsp; Berlin — Kreuzberg Anti-displacement &nbsp;|&nbsp; Seoul — Seongsu Sangsaeng Agreement</div>
+  </div>
+
+  <!-- Team C -->
+  <div class="team-card">
+    <div class="team-header">
+      <span class="team-badge" style="background:var(--team-c)">TEAM C</span>
+      <span class="team-title-kr" data-lang="ko">경사지 주거정비</span>
+      <span class="team-title-kr" data-lang="en">Housing Renewal on Slopes</span>
+    </div>
+    <div class="team-title-en">
+      <span data-lang="ko">Housing Renewal on Slopes</span>
+      <span data-lang="en">경사지 주거정비</span>
+    </div>
+    <div class="team-spots">
+      <span data-lang="ko">Spot 3 — 후암동 노후주거지 (특별계획구역 2구역)</span>
+      <span data-lang="en">Spot 3 — Huam-dong Deteriorated Housing Zone (Special Planning Zone #2)</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label" style="color:var(--team-c)">
+          <span data-lang="ko">핵심 이슈 Core Issue</span>
+          <span data-lang="en">Core Issue 핵심 이슈</span>
+        </div>
+        <div class="issue-kr" data-lang="ko">서울역·남산·용산공원 인접 최고 입지에도 수십 년 정비 부재. 2010년 특별계획구역 지정 후 3개 구역 분할. 동후암 일대는 신속통합기획 대상지 선정(2023). 표고차 극심한 구릉지에 무허가·노후 건물 밀집. 남산 조망축 고도제한이 건축 형태를 제약.</div>
+        <div class="issue-kr" data-lang="en">Despite prime location (Seoul Station, Namsan, future Yongsan Park), decades of planning indecision. Designated Special Planning Zone in 2010, split into 3 sub-districts. East Huam selected for fast-track integrated planning (2023). Steep hillside with unauthorized/deteriorated buildings; Namsan view corridor height limits constrain building form.</div>
+      </div>
+      <div>
+        <div class="col-label" style="color:var(--team-c)">
+          <span data-lang="ko">설계 질문 Design Questions</span>
+          <span data-lang="en">Design Questions 설계 질문</span>
+        </div>
+        <div class="question-list">
+          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q1</div><div class="q-kr" data-lang="ko">경사지에서의 공동주택 설계 — 단면 스테핑, 테라스 중정, 공유 포디움?</div><div class="q-kr" data-lang="en">How do you design collective housing on a slope — stepped sections, terraced courtyards, shared podiums?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q2</div><div class="q-kr" data-lang="ko">'결합개발'이 구릉지 커뮤니티를 진정 보호하는가, 이주를 재배치할 뿐인가?</div><div class="q-kr" data-lang="en">Can 'coupled development' genuinely protect hillside communities, or does it just relocate displacement?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q3</div><div class="q-kr" data-lang="ko">극단적 지형 + 고도제한을 만족시키는 건축 유형은?</div><div class="q-kr" data-lang="en">What building typology satisfies both extreme topography AND strict height limits?</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="refs">cf. Vienna — Karl-Marx-Hof &nbsp;|&nbsp; Porto — SAAL Housing &nbsp;|&nbsp; Hong Kong — Hillside Escalator Link</div>
+  </div>
+
+  <!-- Team D -->
+  <div class="team-card">
+    <div class="team-header">
+      <span class="team-badge" style="background:var(--team-d)">TEAM D</span>
+      <span class="team-title-kr" data-lang="ko">녹지축 · 생태경계</span>
+      <span class="team-title-kr" data-lang="en">Green Axis + Ecological Boundary</span>
+    </div>
+    <div class="team-title-en">
+      <span data-lang="ko">Green Axis + Ecological Boundary</span>
+      <span data-lang="en">녹지축 · 생태경계</span>
+    </div>
+    <div class="team-spots">
+      <span data-lang="ko">Spot 4 — 남산 그린웨이 축 &nbsp;|&nbsp; Spot 7 — 소월길 · 남산순환도로 (옹벽 13m)</span>
+      <span data-lang="en">Spot 4 — Namsan Greenway Axis &nbsp;|&nbsp; Spot 7 — Sowol-gil Ring Road (13m Retaining Wall)</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label" style="color:var(--team-d)">
+          <span data-lang="ko">핵심 이슈 Core Issue</span>
+          <span data-lang="en">Core Issue 핵심 이슈</span>
+        </div>
+        <div class="issue-kr" data-lang="ko">대구상: 북한산~남산~용산공원~한강을 잇는 남북녹지축(폭 100~190m, 길이 900m). 소월길 건설 시 생긴 13m 옹벽이 남산 녹지와 주거지를 물리적으로 단절. 원래 그린웨이 계획(전면 철거 방식)은 주민 반대로 무산, 도시재생으로 전환. 무허가 건물·토지 세분화가 추가 장벽.</div>
+        <div class="issue-kr" data-lang="en">Grand vision: connect Bugaksan–Namsan–Yongsan Park–Han River as a continuous N-S green corridor (100–190m wide, 900m long). A 13m retaining wall from the Sowol-gil construction severs Namsan greenery from the settlement. Original clearance-based Greenway plan shelved after resident opposition; shifted to regeneration.</div>
+      </div>
+      <div>
+        <div class="col-label" style="color:var(--team-d)">
+          <span data-lang="ko">설계 질문 Design Questions</span>
+          <span data-lang="en">Design Questions 설계 질문</span>
+        </div>
+        <div class="question-list">
+          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q1</div><div class="q-kr" data-lang="ko">전면 철거 그린웨이의 대안은? 생태와 주거가 한 경사면에서 공존 가능한가?</div><div class="q-kr" data-lang="en">What alternatives exist to the shelved clearance greenway — can ecology and settlement coexist on one slope?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q2</div><div class="q-kr" data-lang="ko">13m 콘크리트 옹벽을 생활 가능한 인터페이스로 전환 — 녹화 테라스, 프로그램된 선반, 브릿징?</div><div class="q-kr" data-lang="en">How do you transform a 13m concrete wall into a livable interface — green terracing, programmed ledges, bridging?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q3</div><div class="q-kr" data-lang="ko">차량 중심 소월길(남산순환도로)의 보행·생태 우선 전환이 가능한가?</div><div class="q-kr" data-lang="en">Can the car-dominated Sowol-gil be deprioritized for vehicles to restore the ecological corridor?</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="refs">cf. Vienna — Gürtel Green Corridor &nbsp;|&nbsp; Seoul — Seun Sangga Green Axis &nbsp;|&nbsp; NYC — High Line (infra → ecology)</div>
+  </div>
+
+  <!-- Team E -->
+  <div class="team-card">
+    <div class="team-header">
+      <span class="team-badge" style="background:var(--team-e)">TEAM E</span>
+      <span class="team-title-kr" data-lang="ko">가로 활력 · 용도 전환</span>
+      <span class="team-title-kr" data-lang="en">Street Vitality + Use Transition</span>
+    </div>
+    <div class="team-title-en">
+      <span data-lang="ko">Street Vitality + Use Transition</span>
+      <span data-lang="en">가로 활력 · 용도 전환</span>
+    </div>
+    <div class="team-spots">
+      <span data-lang="ko">Spot 5 — 이태원2동 · 서울디지텍고 일대</span>
+      <span data-lang="en">Spot 5 — Itaewon 2-dong / Seoul Digitech High School Area</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label" style="color:var(--team-e)">
+          <span data-lang="ko">핵심 이슈 Core Issue</span>
+          <span data-lang="en">Core Issue 핵심 이슈</span>
+        </div>
+        <div class="issue-kr" data-lang="ko">코로나 이후 이태원 상권 위축이 배후 주거지로 파급. 학교(용암초·서울디지텍고) 밀집으로 주간 통행은 있으나 야간 사각지대. 빈 점포 증가로 가로 활력 저하. 경사지 이면도로 보차혼용, 인도 부재, 만성적 주차 부족. 상주인구 감소 추세.</div>
+        <div class="issue-kr" data-lang="en">Post-COVID Itaewon commercial decline ripples into this residential hinterland. Schools create daytime traffic but evening dead zones. Vacant storefronts accumulate on hillside back streets. Mixed car-pedestrian roads with no sidewalks, chronic parking shortage, declining resident population.</div>
+      </div>
+      <div>
+        <div class="col-label" style="color:var(--team-e)">
+          <span data-lang="ko">설계 질문 Design Questions</span>
+          <span data-lang="en">Design Questions 설계 질문</span>
+        </div>
+        <div class="question-list">
+          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q1</div><div class="q-kr" data-lang="ko">학교 캠퍼스가 수업 시간 외에도 동네 생활 촉매가 될 수 있는가?</div><div class="q-kr" data-lang="en">Can school campuses catalyze neighborhood life beyond school hours — shared facilities, evening programs?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q2</div><div class="q-kr" data-lang="ko">경사지 이면도로를 활성화하는 가로 설계 — 공유공간(Woonerf), 전술적 도시주의, 팝업 마켓?</div><div class="q-kr" data-lang="en">What street design activates hillside back streets — Woonerf, tactical urbanism, pop-up markets?</div></div>
+          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q3</div><div class="q-kr" data-lang="ko">성장이 아닌 축소에 대응하는 '축소 도시주의' 전략이 여기서 유효한가?</div><div class="q-kr" data-lang="en">Is there a viable 'shrinkage urbanism' strategy — designing for fewer people rather than chasing growth?</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="refs">cf. Vienna — Mariahilfer Straße Shared Space &nbsp;|&nbsp; Japan — Shrinking City Strategies &nbsp;|&nbsp; Barcelona — Superilles</div>
+  </div>
+
+  <!-- Inter-team Connections -->
+  <div class="connections">
+    <h3>
+      <span data-lang="ko">팀 간 연결 관계</span>
+      <span data-lang="en">Inter-team Connections</span>
+    </h3>
+    <div class="sub">
+      <span data-lang="ko">남산 남사면 전체를 하나의 시스템으로 — 개별 해법이 아닌 협업 설계</span>
+      <span data-lang="en">The entire south slope as one system — collaborative design, not isolated solutions</span>
+    </div>
+    <div class="conn-grid">
+      <div class="conn-item" style="border-color:var(--team-a)">
+        <div class="kr" data-lang="ko">보행 인프라가 녹지축 접근을 연다</div>
+        <div class="kr" data-lang="en">Mobility infra enables green axis access</div>
+        <div class="link">Team A → Team D</div>
+      </div>
+      <div class="conn-item" style="border-color:var(--team-a)">
+        <div class="kr" data-lang="ko">접근성이 시장 이용자를 결정한다</div>
+        <div class="kr" data-lang="en">Accessibility shapes who can access the market</div>
+        <div class="link">Team A → Team B</div>
+      </div>
+      <div class="conn-item" style="border-color:var(--team-b)">
+        <div class="kr" data-lang="ko">재생 압력이 주거지로 밀려든다</div>
+        <div class="kr" data-lang="en">Regeneration pressure pushes into housing zone</div>
+        <div class="link">Team B → Team C</div>
+      </div>
+      <div class="conn-item" style="border-color:var(--team-b)">
+        <div class="kr" data-lang="ko">상업 유출이 가로활력에 영향</div>
+        <div class="kr" data-lang="en">Commercial spillover affects street vitality</div>
+        <div class="link">Team B → Team E</div>
+      </div>
+      <div class="conn-item" style="border-color:var(--team-d)">
+        <div class="kr" data-lang="ko">녹지축 활성화에 가로 활력 필요</div>
+        <div class="kr" data-lang="en">Green corridor needs active street edges</div>
+        <div class="link">Team D ↔ Team E</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <span data-lang="ko">남산 남사면 협업 설계 워크샵 — 비엔나 2026</span>
+  <span data-lang="en">Namsan South Slope Collaborative Design Workshop — Vienna 2026</span>
+  <br>
+  <span data-lang="ko">용산구 후암동 · 해방촌 · 이태원2동 · 한남동</span>
+  <span data-lang="en">Yongsan-gu: Huam-dong · Haebangchon · Itaewon 2-dong · Hannam-dong</span>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.classList.toggle('en', lang === 'en');
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+  });
+  localStorage.setItem('lang', lang);
+}
+// Restore saved language
+const saved = localStorage.getItem('lang');
+if (saved) setLang(saved);
+</script>
+</body>
+</html>
