@@ -11,10 +11,14 @@ html{scroll-behavior:smooth;}
 body{background:#fff;color:#000;font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.6;}
 nav{background:#000;position:sticky;top:0;z-index:200;height:48px;display:flex;align-items:center;padding:0 40px;justify-content:space-between;gap:12px;}
 .logo{font-size:10px;letter-spacing:.15em;color:#fff;text-transform:uppercase;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;}
-.nav-center{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
-.nl{font-size:9px;letter-spacing:.1em;padding:4px 12px;cursor:pointer;color:rgba(255,255,255,.4);transition:all .15s;text-transform:uppercase;font-weight:700;border-radius:2px;white-space:nowrap;}
-.nl:hover{color:#fff;}
-.nl.on{color:#000;background:#fff;}
+.hamburger-btn{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
+.hamburger-btn span{display:block;width:20px;height:2px;background:#fff;transition:all .2s;}
+.drop-menu{position:fixed;top:48px;left:0;right:0;background:#000;z-index:199;display:none;border-top:1px solid rgba(255,255,255,.1);}
+.drop-menu.open{display:block;}
+.drop-item{display:block;width:100%;padding:16px 40px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;text-align:left;transition:all .15s;border-bottom:1px solid rgba(255,255,255,.07);}
+.drop-item:last-child{border-bottom:none;}
+.drop-item:hover{color:#fff;background:rgba(255,255,255,.05);}
+.drop-item.on{color:#000;background:#fff;}
 .lang-group{display:flex;gap:3px;flex-shrink:0;}
 .lang-btn{font-size:9px;letter-spacing:.08em;padding:4px 9px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4);cursor:pointer;font-weight:700;text-transform:uppercase;transition:all .15s;border-radius:2px;font-family:'Inter',sans-serif;background:transparent;}
 .lang-btn.on{background:#fff;color:#000;border-color:#fff;}
@@ -138,7 +142,6 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
 .f1{font-size:9px;letter-spacing:.12em;color:#888;text-transform:uppercase;font-weight:700;}
 @media(max-width:720px){
   nav{padding:0 16px;}
-  .nav-center{display:none;}
   .logo{font-size:9px;}
   .hero,.map-section,.spots-section,.spot-top,.spot-wrap,.dark-hero,.gloss-wrap,.sch-content,footer{padding-left:20px;padding-right:20px;}
   .spots-grid,.two-col{grid-template-columns:1fr;}
@@ -152,18 +155,22 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
 
 <nav>
   <span class="logo" onclick="go('home')">SNU × TUW 2026</span>
-  <div class="nav-center">
-    <span class="nl" id="nl-home"  onclick="go('home')"></span>
-    <span class="nl" id="nl-site"  onclick="go('site')"></span>
-    <span class="nl" id="nl-gloss" onclick="go('gloss')"></span>
-    <span class="nl" id="nl-sched" onclick="go('sched')"></span>
-  </div>
+  <button class="hamburger-btn" id="ham-btn" onclick="toggleMenu()" aria-label="menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="lang-group">
     <span class="lang-btn on" id="lb-ko" onclick="setLang('ko')">KO</span>
     <span class="lang-btn"    id="lb-de" onclick="setLang('de')">DE</span>
     <span class="lang-btn"    id="lb-en" onclick="setLang('en')">EN</span>
   </div>
 </nav>
+
+<div class="drop-menu" id="drop-menu">
+  <button class="drop-item" id="dm-home"  onclick="menuGo('home')"></button>
+  <button class="drop-item" id="dm-site"  onclick="menuGo('site')"></button>
+  <button class="drop-item" id="dm-sched" onclick="menuGo('sched')"></button>
+  <button class="drop-item" id="dm-gloss" onclick="menuGo('gloss')"></button>
+</div>
 
 <div id="app"></div>
 
@@ -620,12 +627,27 @@ function schView(v){
 /* ── ROUTER ── */
 function go(id){ location.hash=id; }
 function updateNav(){
-  ['home','site','gloss','sched'].forEach(k=>{
-    const el=document.getElementById('nl-'+k);
+  const DM_ORDER=['home','site','sched','gloss'];
+  DM_ORDER.forEach(k=>{
+    const el=document.getElementById('dm-'+k);
     if(el) el.textContent=NAV[k][LANG]||NAV[k].en;
   });
   document.getElementById('f-right').textContent=FOOTER[LANG]||FOOTER.en;
 }
+function toggleMenu(){
+  document.getElementById('drop-menu').classList.toggle('open');
+}
+function menuGo(id){
+  document.getElementById('drop-menu').classList.remove('open');
+  go(id);
+}
+document.addEventListener('click',function(e){
+  const menu=document.getElementById('drop-menu');
+  const btn=document.getElementById('ham-btn');
+  if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
 function setLang(l){
   LANG=l;
   ['ko','de','en'].forEach(x=>document.getElementById('lb-'+x).classList.toggle('on',x===l));
@@ -646,8 +668,8 @@ function render(){
   else html=renderHome();
   document.getElementById('app').innerHTML=html;
   window.scrollTo(0,0);
-  ['home','site','gloss','sched'].forEach(id=>{
-    const el=document.getElementById('nl-'+id);
+  ['home','site','sched','gloss'].forEach(id=>{
+    const el=document.getElementById('dm-'+id);
     if(el) el.classList.toggle('on', hash===id||(id==='site'&&!!spot));
   });
 }
