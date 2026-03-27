@@ -138,6 +138,16 @@ nav{background:#000;position:sticky;top:0;z-index:200;height:48px;display:flex;a
 .dv-note{font-size:10px;color:#888;line-height:1.5;margin-top:2px;font-weight:300;}
 .dv-break .dv-time{color:#ccc;}
 .dv-break .dv-name{color:#bbb;font-size:11px;}
+.contact-section{border-top:2px solid #000;background:#f5f5f5;padding:28px 40px;}
+.contact-inner{max-width:960px;margin:0 auto;}
+.contact-title{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #d0d0d0;}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d0d0d0;border:1px solid #d0d0d0;}
+.contact-card{background:#f5f5f5;padding:14px 16px;}
+.contact-role{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:6px;}
+.contact-name{font-size:12px;font-weight:700;color:#000;margin-bottom:4px;}
+.contact-info{font-size:11px;color:#555;line-height:1.7;font-weight:300;}
+.contact-info a{color:#555;text-decoration:none;}
+.contact-info a:hover{color:#000;}
 footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .f1{font-size:9px;letter-spacing:.12em;color:#888;text-transform:uppercase;font-weight:700;}
 @media(max-width:720px){
@@ -147,6 +157,8 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
   .spots-grid,.two-col{grid-template-columns:1fr;}
   .stat-cell{flex:0 0 50%;}
   .dv-block{grid-template-columns:76px 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .contact-section{padding-left:20px;padding-right:20px;}
   footer{flex-direction:column;gap:4px;text-align:center;}
 }
 </style>
@@ -174,6 +186,28 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
 
 <div id="app"></div>
 
+<div class="contact-section" id="contact-section">
+  <div class="contact-inner">
+    <div class="contact-title" id="contact-title">문의사항</div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role" id="ct-role1">워크샵 운영 (SNU)</div>
+        <div class="contact-name">김정혜</div>
+        <div class="contact-info">+82 10 5181 5115<br><a href="mailto:rlawjdfod@snu.ac.kr">rlawjdfod@snu.ac.kr</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role" id="ct-role2">워크샵 운영 (TUW)</div>
+        <div class="contact-name">윤다운 Da.Yun</div>
+        <div class="contact-info">+43 1 58801 23132<br><a href="mailto:da.yun@tuwien.ac.at">da.yun@tuwien.ac.at</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role" id="ct-role3">성수동 투어</div>
+        <div class="contact-name">권혜인</div>
+        <div class="contact-info">+82 8488 0328<br><a href="mailto:hein93328@snu.ac.kr">hein93328@snu.ac.kr</a></div>
+      </div>
+    </div>
+  </div>
+</div>
 <footer>
   <span class="f1">Seoul National University × TU Wien · Urban Planning Workshop 2026</span>
   <span class="f1" id="f-right"></span>
@@ -375,7 +409,8 @@ const SCHED_P1 = [
  ]},
  {d:'3', w:{ko:'금',de:'FR',en:'FRI'}, items:[
   {t:'PM',  type:'field', ko:'성수동 워킹투어 (14:00–16:00)', de:'Seongsu Stadtrundgang (14:00–16:00)', en:'Seongsu walking tour (14:00–16:00)',
-   route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest'},
+   route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest',
+   contact:'문의: 권혜인 · +82 8488 0328 · hein93328@snu.ac.kr'},
   {t:'EVE', type:'field', ko:'경의선숲길 + 홍대', de:'Gyeongui Line Forest + Hongdae', en:'Gyeongui Line Forest + Hongdae'},
  ]},
  {d:'4', w:{ko:'토',de:'SA',en:'SAT'}, items:[
@@ -407,34 +442,34 @@ const SCHED_DETAIL = [
  {d:{ko:'4/7 화',de:'7.4 Di',en:'4/7 Tue'}, room:'82-113',
   phase:{ko:'인트로 + 설계 시작',de:'Intro + Planungsstart',en:'Intro + design start'},
   blocks:[
-   {t:'09:00–09:10', type:'intro', ko:'프로그램 소개', de:'Programmvorstellung', en:'Program introduction'},
-   {t:'09:10–09:40', type:'intro', ko:'환경대학원 / 비엔나 공대 소개 (각 10분)', de:'SNU GSES / TU Wien Vorstellung (je 10 Min.)', en:'SNU GSES / TU Wien introduction (10 min each)'},
-   {t:'09:40–10:30', type:'intro', ko:'참여자 전체 소개', de:'Vorstellungsrunde', en:'All participants self-introduction'},
+   {t:'09:00–09:10', type:'intro', ko:'프로그램 소개', de:'Programmvorstellung', en:'Program introduction', host:'양지슬·김경동 (박사과정)'},
+   {t:'09:10–09:40', type:'intro', ko:'환경대학원 / 비엔나 공대 소개 (각 10분)', de:'SNU GSES / TU Wien Vorstellung (je 10 Min.)', en:'SNU GSES / TU Wien introduction (10 min each)', host:'양지슬·김경동 (박사과정)'},
+   {t:'09:40–10:30', type:'intro', ko:'참여자 전체 소개', de:'Vorstellungsrunde', en:'All participants self-introduction', host:'양지슬·김경동 (박사과정)'},
    {t:'10:30–10:45', type:'break', ko:'쉬는시간', de:'Pause', en:'Break'},
-   {t:'10:45–11:55', type:'intro', ko:'환경대학원 / 비엔나 공대 최근 연구 소개 (각 35분)', de:'Forschungspräsentationen (je 35 Min.)', en:'Recent research presentations (35 min each)'},
-   {t:'12:00–12:30', type:'field', ko:'설계 대상지 소개', de:'Vorstellung des Entwurfsgebiets', en:'Design site briefing'},
+   {t:'10:45–11:55', type:'intro', ko:'환경대학원 / 비엔나 공대 최근 연구 소개 (각 35분)', de:'Forschungspräsentationen (je 35 Min.)', en:'Recent research presentations (35 min each)', host:'양지슬·김경동 (박사과정)'},
+   {t:'12:00–12:30', type:'field', ko:'설계 대상지 소개', de:'Vorstellung des Entwurfsgebiets', en:'Design site briefing', host:'양지슬·김경동 (박사과정)'},
    {t:{ko:'점심',de:'Mittagessen',en:'Lunch'}, type:'break', ko:'', de:'', en:''},
-   {t:'14:00–17:30', type:'work', ko:'팀별 주제결정 + 그룹 워크 및 설계 작업', de:'Themenwahl + Gruppenplanung', en:'Topic selection + group design work'},
+   {t:'14:00–17:30', type:'work', ko:'팀별 주제결정 + 그룹 워크 및 설계 작업', de:'Themenwahl + Gruppenplanung', en:'Topic selection + group design work', host:'김정혜 (박사과정)'},
    {t:'17:30–19:20', type:'break', ko:'저녁식사', de:'Abendessen', en:'Dinner'},
   ]},
  {d:{ko:'4/8 수',de:'8.4 Mi',en:'4/8 Wed'}, room:'82-405',
   phase:{ko:'현장 답사일',de:'Geländetag',en:'Site visit day'},
   blocks:[
    {t:'09:00–13:00', type:'field', ko:'설계 대상지 조별 답사 (남산일대)', de:'Teamweise Geländebegehung', en:'Site visit by team (vicinity of Namsan)'},
-   {t:'14:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업 (비엔나 전문가팀 세종시 KOTI 방문 예정)', de:'Gruppenplanung (TU-Wien-Expertenteam: KOTI-Besuch)', en:'Group design work (Vienna expert team: KOTI visit, Sejong)'},
+   {t:'14:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업 (비엔나 전문가팀 세종시 KOTI 방문 예정)', de:'Gruppenplanung (TU-Wien-Expertenteam: KOTI-Besuch)', en:'Group design work (Vienna expert team: KOTI visit, Sejong)', host:'김정혜 (박사과정)'},
   ]},
  {d:{ko:'4/9 목',de:'9.4 Do',en:'4/9 Thu'}, room:'82-405',
   phase:{ko:'집중 설계 + 멘토링',de:'Intensivplanung + Mentoring',en:'Design + mentoring'},
   blocks:[
-   {t:'09:00–11:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 비엔나 공대)', de:'Gruppenplanung + offene Sprechstunde (TU Wien)', en:'Group design work + open mentoring (TU Wien)'},
-   {t:'13:00–15:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 환경대학원)', de:'Gruppenplanung + offene Sprechstunde (SNU GSES)', en:'Group design work + open mentoring (SNU GSES)'},
+   {t:'09:00–11:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 비엔나 공대)', de:'Gruppenplanung + offene Sprechstunde (TU Wien)', en:'Group design work + open mentoring (TU Wien)', host:'Dr. Shibayama · Dr. Shaoo · Mr. Brezina · Mr. Kostka · Ms. Yun'},
+   {t:'13:00–15:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 환경대학원)', de:'Gruppenplanung + offene Sprechstunde (SNU GSES)', en:'Group design work + open mentoring (SNU GSES)', host:'김세훈 교수 · 임저스틴 교수 · 한상진 교수 · 김현주 (박사과정)'},
    {t:'15:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업', de:'Gruppenplanung', en:'Group design work'},
   ]},
  {d:{ko:'4/10 금',de:'10.4 Fr',en:'4/10 Fri'}, room:'82-113',
   phase:{ko:'최종 발표',de:'Abschlusspräsentationen',en:'Final presentations'},
   blocks:[
-   {t:'09:00–13:30', type:'work', ko:'그룹 워크 및 설계 작업 (마무리)', de:'Gruppenplanung (Abschluss)', en:'Group design work (wrap-up)'},
-   {t:'14:00–17:00', type:'pres', ko:'각 그룹 최종발표 및 질의응답 (발표 15분 + 질의 20분)', de:'Abschlusspräsentation + Diskussion (15 + 20 Min.)', en:'Final presentations & Q&A (15 min + 20 min = 35 min/team)'},
+   {t:'09:00–13:30', type:'work', ko:'그룹 워크 및 설계 작업 (마무리)', de:'Gruppenplanung (Abschluss)', en:'Group design work (wrap-up)', host:'양지슬·김정혜 (박사과정)'},
+   {t:'14:00–17:00', type:'pres', ko:'각 그룹 최종발표 및 질의응답 (발표 15분 + 질의 20분)', de:'Abschlusspräsentation + Diskussion (15 + 20 Min.)', en:'Final presentations & Q&A (15 min + 20 min = 35 min/team)', host:'김현주·김정혜 (박사과정)'},
   ]},
 ];
 
@@ -604,8 +639,8 @@ function renderSched(){
     de:{label:'SNU × TU Wien — April 2026',h1:'Vollständiges Programm',sub:'2.–5.4. Seoul Stadtexkursion → 7.–10.4. SNU×TUW Workshop',btn1:'Exkursion + Gesamtprogramm',btn2:'Workshop-Details',ph1:'Seoul Stadtexkursion',ph2:'SNU × TUW Workshop'},
     en:{label:'SNU × TU Wien — April 2026',h1:'Full Schedule',sub:'4/2–5 Seoul field trips → 4/7–10 SNU×TUW joint workshop',btn1:'Field trips + full schedule',btn2:'Workshop detailed schedule',ph1:'Seoul field trips',ph2:'SNU × TUW Workshop'}
   }[LANG];
-  const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
-  const mkDetail=()=>SCHED_DETAIL.map(day=>`<div class="dv-day"><div class="dv-head"><span class="dv-date">${tl(day.d)}</span><span class="dv-room">${day.room}</span><span class="dv-phase-tag">${tl(day.phase)}</span></div>${day.blocks.map(b=>`<div class="dv-block${b.type==='break'?' dv-break':''}"><div class="dv-time">${typeof b.t==='object'?tl(b.t):b.t}</div><div class="dv-info"><div class="dv-name">${b.type!=='break'?etag(b.type):''}${tl(b)}</div></div></div>`).join('')}</div>`).join('');
+  const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''  }${item.contact?`<div class="sv-route" style="color:#555;border-left-color:#888;">📞 ${item.contact}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
+  const mkDetail=()=>SCHED_DETAIL.map(day=>`<div class="dv-day"><div class="dv-head"><span class="dv-date">${tl(day.d)}</span><span class="dv-room">${day.room}</span><span class="dv-phase-tag">${tl(day.phase)}</span></div>${day.blocks.map(b=>`<div class="dv-block${b.type==='break'?' dv-break':''}"><div class="dv-time">${typeof b.t==='object'?tl(b.t):b.t}</div><div class="dv-info"><div class="dv-name">${b.type!=='break'?etag(b.type):''}${tl(b)}</div>${b.host?`<div class="dv-note">👤 ${b.host}</div>`:''}</div></div>`).join('')}</div>`).join('');
   return `<div class="dark-hero"><div class="hero-label">${SL.label}</div><h1>${SL.h1}</h1><p style="font-size:13px;color:rgba(255,255,255,.45);font-weight:300;margin-top:10px;">${SL.sub}</p></div>
   <div class="sch-content">
     <div class="view-toggle">
