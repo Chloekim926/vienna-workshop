@@ -231,13 +231,14 @@ function tl(o){ return o && (o[LANG] || o.en || ''); }
 
 /* ── MAP DOTS (Spots 1,2,3,5,6,8,9) ── */
 const MDOTS=[
-  {n:1, ko:'후암동 경사 주거지',   de:'Hangwohngebiet Huam-dong',  en:'Huam-dong Hillside', x:27,y:14},
-  {n:2, ko:'두텁바위로',           de:'Duteopbawi-ro',              en:'Duteopbawi-ro',       x:26,y:32},
-  {n:3, ko:'해방촌 신흥시장',      de:'Haebangchon Markt',         en:'Haebangchon Market',  x:27,y:52},
-  {n:5, ko:'용산2가동 주민센터',   de:'Gemeinschaftszentrum',       en:'Community Center',    x:37,y:53},
-  {n:6, ko:'해방촌↔이태원 전이',  de:'Übergangszone',              en:'Transition Zone',     x:47,y:57},
-  {n:8, ko:'이태원2동',            de:'Itaewon 2-dong',             en:'Itaewon 2-dong',      x:58,y:63},
-  {n:9, ko:'소월로',               de:'Sowol-ro',                   en:'Sowol-ro',            x:68,y:60},
+  {n:1, ko:'후암동 경사 주거지',          de:'Hangwohngebiet Huam-dong',          en:'Huam-dong Hillside',           x:22,y:15},
+  {n:2, ko:'해방촌 108계단 + 오거리',     de:'108 Stufen + Fünfwegkreuzung',      en:'108 Steps + Five-way Junction', x:25,y:33},
+  {n:3, ko:'신흥시장 + 해방촌 골목',      de:'Sinheung-Markt + Gassen',           en:'Sinheung Market + Alleys',     x:29,y:49},
+  {n:4, ko:'녹사평대로/두텁바위로 교차',  de:'Kreuzung Noksapyeong/Duteopbawi',   en:'Noksapyeong / Duteopbawi',     x:37,y:40},
+  {n:5, ko:'경리단길',                    de:'Gyeongnidan-gil',                   en:'Gyeongnidan-gil',              x:46,y:54},
+  {n:6, ko:'이태원로 메인 스트리트',      de:'Itaewon-ro Hauptstraße',            en:'Itaewon-ro Main Street',       x:57,y:62},
+  {n:7, ko:'소월로',                      de:'Sowol-ro',                          en:'Sowol-ro',                     x:68,y:56},
+  {n:8, ko:'용산공원 접면부',             de:'Yongsan-Park Randzone',             en:'Yongsan Park Interface',       x:51,y:76},
 ];
 
 /* ── SPOTS ── */
@@ -249,140 +250,201 @@ const SPOTS=[
     de:['Stadtmorphologie','Hangbebauung','Parzellenstruktur','Stadterneuerung'],
     en:['Urban Morphology','Hillside Development','Lot Pattern','Redevelopment']},
   char:{
-    ko:'남산 북사면에 형성된 저층 경사 주거지. 평균 경사 15~25도의 구릉지에 불규칙한 소규모 필지와 막다른 골목이 얽혀 있으며 차량 접근이 극도로 제한된다. 일제강점기 삼판통 일본인 고급 주택단지로 개발되었다가 해방 후 피란민 등이 정착하며 현재의 저층 고밀 조직으로 변화하였다.',
-    de:'Niedriggeschossiges Hanglage-Wohnviertel am Nordhang des Namsan. Auf dem mit durchschnittlich 15–25° geneigten Gelände wechseln sich unregelmäßige Kleinstparzellen mit Sackgassen ab; die fahrzeugseitige Erschließung ist stark eingeschränkt. Die Siedlung entstand ursprünglich als japanisches Villenviertel; nach 1945 prägten Flüchtlinge die heutige dichte Niedrigbaustruktur.',
-    en:'A low-rise hillside residential area on the northern slope of Namsan. Irregular small-scale lots and dead-end alleys on slopes averaging 15–25°, with extremely limited vehicle access. Originally an upscale Japanese colonial residential district, later settled by post-liberation refugees, transforming into the current dense low-rise urban fabric.'},
+    ko:'남산 북사면에 형성된 저층 경사 주거지. 평균 경사 15~25도의 구릉지에 불규칙한 소규모 필지와 막다른 골목이 얽혀 있으며 차량 접근이 극도로 제한된다. 일제강점기 삼판통 일본인 고급 주택단지로 개발되었다가 해방 후 피란민이 정착하며 저층 고밀 조직으로 변화하였다. 2024년 특별계획구역 재정비로 최고 100m 개발이 허용되면서 재개발 압력과 원주민 이주 문제가 핵심 쟁점으로 부상.',
+    de:'Niedriggeschossiges Hanglage-Wohnviertel am Nordhang des Namsan. Unregelmäßige Kleinstparzellen und Sackgassen auf 15–25° geneigtem Gelände; Kfz-Zufahrt stark eingeschränkt. Ursprünglich japanisches Villenviertel, nach 1945 zur heutigen dichten Niedrigbaustruktur gewandelt. Die 2024 genehmigte Sonderbaugebietsrevision erlaubt Hochbauten bis 100 m — Entwicklungsdruck und Verdrängung sind nun die Kernthemen.',
+    en:'A low-rise hillside residential area on the northern slope of Namsan. Irregular small-scale lots and dead-end alleys on 15–25° slopes with extremely limited vehicle access. Originally an upscale Japanese colonial district, later settled by post-liberation refugees into today\'s dense low-rise fabric. The 2024 special planning zone revision permitting up to 100m development has brought redevelopment pressure and displacement to the fore.'},
   update:{
     ko:'2024년 9월 후암동 특별계획구역 재정비안 수정가결. 32만 1,281㎡에 최고 100m(주거 33층) 개발 허용. 폭 20m 공공 보행통로 및 남산-용산공원 녹지축 연결 계획 포함.',
-    de:'Im September 2024 wurde die Überarbeitung des Sonderbaugebiets genehmigt: Bebauung bis 100 m (33 Etagen) auf 321.281 m²; 20-m-Fußweg sowie Grünraumachse Namsan–Yongsan-Park geplant.',
-    en:'In September 2024, the Huam-dong Special Planning Zone revision was approved: development up to 100m over 321,281m², with a 20m public pedestrian corridor and Namsan–Yongsan Park green axis.'},
+    de:'September 2024: Revision des Sonderbaugebiets genehmigt — Bebauung bis 100 m auf 321.281 m²; 20-m-Fußweg und Grünachse Namsan–Yongsan-Park geplant.',
+    en:'September 2024: Huam-dong special planning zone revision approved — up to 100m over 321,281m², with a 20m pedestrian corridor and Namsan–Yongsan Park green axis included.'},
   stats:[
     {n:'32만㎡', l:{ko:'특별계획구역',de:'Sonderbaugebiet',en:'Special Planning Zone'}},
     {n:'100m',   l:{ko:'허용 최고 높이',de:'Max. Gebäudehöhe',en:'Max Height'}},
-    {n:'2024',   l:{ko:'지구단위계획 수정',de:'Plan verabschiedet',en:'Plan Approved'}}],
+    {n:'2024',   l:{ko:'재정비안 가결',de:'Plan verabschiedet',en:'Plan Approved'}}],
   issues:{
-    ko:['보행 접근성 단절 — 급경사로 고령자·장애인 이동 불가 구간 다수. 계단만 있는 필지 접근로 존재.','기반시설 노후화 — 상하수도·전기 매설 40년 이상, 소방차 진입 불가 골목 비율 높음.','개발 압력 vs 원주민 이주 — 특별계획구역 지정으로 지가 상승. 장기 거주 고령 가구 재정착 가능성 불투명.','공공기여 설계 — 보행통로·공원 기부채납의 실효성. 녹지축 연결 실현 가능성.'],
-    de:['Eingeschränkte Fußgängererschließung — Viele Abschnitte für Ältere und Behinderte unzugänglich; manche Parzellen nur über Treppen erreichbar.','Alternde Infrastruktur — Versorgungsleitungen über 40 Jahre alt; hoher Anteil von Gassen, die für Feuerwehr nicht befahrbar sind.','Entwicklungsdruck vs. Verdrängung — Steigende Grundstückswerte nach Ausweisung des Sonderbaugebiets; Umsiedlungsperspektiven für langjährige ältere Bewohner unklar.','Gestaltung der öffentlichen Beiträge — Wirksamkeit der Wegewidmungen; Realisierbarkeit der Grünraumachse.'],
-    en:['Severed pedestrian access — many sections impassable for elderly/disabled; some lots accessible only via stairways.','Aging infrastructure — 40+ year-old utility lines; high proportion of alleys inaccessible to fire trucks.','Development pressure vs. displacement — land values rising post-designation; uncertain resettlement for long-term elderly households.','Design of public contribution — effectiveness of pedestrian corridor dedications; feasibility of realizing the green axis.']},
+    ko:['보행 접근성 단절 — 급경사로 고령자·장애인 이동 불가 구간 다수. 계단만 있는 필지 접근로 존재.','재개발 vs 원주민 재정착 — 특별계획구역 지정으로 지가 상승. 장기 거주 고령 가구 재정착 불투명.','공공기여 실효성 — 보행통로·공원 기부채납 방식 및 남산-용산 녹지축 실현 가능성.','기반시설 노후화 — 상하수도·전기 40년 이상, 소방차 진입 불가 골목 비율 높음.'],
+    de:['Erschließung — Viele Steilabschnitte für Ältere/Behinderte unpassierbar; manche Parzellen nur über Treppen erreichbar.','Entwicklung vs. Verdrängung — Steigende Grundstückswerte nach Ausweisung; Umsiedlung für ältere Langzeitbewohner ungewiss.','Öffentliche Beiträge — Wirksamkeit der Wegewidmungen; Realisierbarkeit der Grünraumachse.','Alternde Infrastruktur — Versorgungsleitungen >40 Jahre; hoher Anteil feuerwehrunzugänglicher Gassen.'],
+    en:['Severed pedestrian access — many sections impassable for elderly/disabled; some lots accessible via stairways only.','Redevelopment vs. displacement — rising land values post-designation; uncertain resettlement for long-term elderly households.','Public contribution effectiveness — pedestrian corridor dedications and feasibility of the green axis.','Aging infrastructure — 40+ year-old utilities; high proportion of fire-inaccessible alleys.']},
   stakeholders:{
     ko:[{role:'장기 거주 원주민',desc:'30~40년 이상 거주 고령 가구. 재개발 시 임대주택 배정 대상이나 인근 재정착 가능성 낮음.'},{role:'서울시 / 용산구',desc:'지구단위계획 수립 주체. 2024년 재정비안으로 개발 촉진 기조 전환.'},{role:'민간 시행사 / 조합',desc:'특별계획구역 내 정비사업 추진 주체. 공공기여 협상의 핵심 당사자.'}],
-    de:[{role:'Langjährige Bewohner',desc:'Überwiegend ältere Haushalte (30–40+ Jahre). Bei Neubebauung für Sozialwohnungen vorgesehen, lokale Umsiedlung jedoch kaum möglich.'},{role:'Stadt Seoul / Yongsan-gu',desc:'Zuständige Planungsbehörde; mit der Revision 2024 auf Entwicklungsförderung umgeschwenkt.'},{role:'Privatentwickler / Baugenossenschaften',desc:'Umsetzungsträger im Sonderbaugebiet; Schlüsselpartner bei Verhandlungen über öffentliche Beiträge.'}],
-    en:[{role:'Long-term residents',desc:'Predominantly elderly households (30–40+ years). Eligible for public rental rehousing, but local resettlement unlikely.'},{role:'Seoul City / Yongsan-gu',desc:'District unit plan authority; shifted to pro-development stance with the 2024 revision.'},{role:'Developers / Associations',desc:'Implementing entities for the special zone; key parties in public contribution negotiations.'}]},
-  quote:'"Organically grown hillside residential fabric — irregular lot pattern, poor accessibility, and aging infrastructure make this a textbook case for urban morphology analysis."'},
+    de:[{role:'Langjährige Bewohner',desc:'Ältere Haushalte (30–40+ Jahre); für Sozialwohnungen vorgesehen, lokale Umsiedlung kaum möglich.'},{role:'Stadt Seoul / Yongsan-gu',desc:'Planungsbehörde; mit Revision 2024 auf Entwicklungsförderung umgeschwenkt.'},{role:'Privatentwickler / Genossenschaften',desc:'Umsetzungsträger im Sonderbaugebiet; Schlüsselpartner bei öffentlichen Beitragsverhandlungen.'}],
+    en:[{role:'Long-term residents',desc:'Mostly elderly households (30–40+ years); eligible for public rental housing, but local resettlement unlikely.'},{role:'Seoul City / Yongsan-gu',desc:'District unit plan authority; shifted to pro-development stance with 2024 revision.'},{role:'Developers / Associations',desc:'Implementing entities; key parties in public contribution negotiations.'}]},
+  quote:'"Classic hillside redevelopment dilemma — steep access barriers, aging fabric, and a 100m ceiling that rewrites the neighborhood\'s future."'},
 
  {id:'spot2',num:2,
-  ko:'두텁바위로 — 경사 간선도로',de:'Duteopbawi-ro: Steile Hauptstraße',en:'Duteopbawi-ro: Steep Arterial Road',
-  tags:{ko:['차로 다이어트','가로위계','보행 안전','라스트 마일'],de:['Straßenraumreduzierung','Straßenhierarchie','Fußgängersicherheit','Letzte Meile'],en:['Road Diet','Street Hierarchy','Pedestrian Safety','Last Mile']},
+  ko:'해방촌 108계단 + 오거리',de:'108 Stufen + Fünfwegkreuzung Haebangchon',en:'Haebangchon 108 Steps + Five-way Junction',
+  tags:{
+    ko:['수직 보행','공공공간','비정형 교차로','경사지 접근성'],
+    de:['Vertikale Erschließung','Öffentlicher Raum','Irreguläre Kreuzung','Hangzugänglichkeit'],
+    en:['Vertical Pedestrian Access','Public Space','Irregular Intersection','Hillside Accessibility']},
   char:{
-    ko:'남산에서 용산 방향으로 내려오는 대표 경사 간선도로. 왕복 2~4차로로 차량 통행 우선 설계. 보도 폭이 협소하거나 단절된 구간이 있으며 경사로 인해 보행자·자전거 이용이 사실상 불가능한 구간을 포함한다.',
-    de:'Die wichtigste steile Hauptstraße vom Namsan in Richtung Yongsan. Mit 2–4 Fahrspuren auf den Kfz-Verkehr ausgelegt. Gehwege sind stellenweise schmal oder unterbrochen; starkes Gefälle macht Radfahren und Zufußgehen auf einigen Abschnitten praktisch unmöglich.',
-    en:'The representative steep arterial road descending from Namsan toward Yongsan. Designed for 2–4 lanes of vehicular priority with narrow or broken sidewalks. Steep gradient makes cycling and pedestrian use practically impossible in some sections.'},
+    ko:'해방촌의 상징적 수직 보행 결절점. 108계단은 경사지 필지를 잇는 유일한 공공 보행로로 일부 필지는 계단 없이는 접근 자체가 불가능하다. 오거리는 5개 골목이 만나는 비정형 광장으로, 보행자·차량·배달 오토바이가 뒤엉키는 자연발생적 공공공간이다. "경사지에서 공공공간이란 무엇인가"를 물을 수 있는 핵심 지점.',
+    de:'Der symbolische vertikale Erschließungsknoten Haebangchons. Die 108 Stufen sind der einzige öffentliche Fußweg für mehrere Hangparzellen — ohne Treppe kein Zugang. Die Fünfwegkreuzung ist ein informeller Platz, wo fünf Gassen zusammentreffen: Fußgänger, Autos und Lieferroller teilen ungeplanten Raum. Dieser Ort stellt die Frage: Was ist öffentlicher Raum am Hang?',
+    en:'The symbolic vertical pedestrian node of Haebangchon. The 108 steps are the sole public footpath for several hillside lots — some parcels are inaccessible without them. The five-way junction is an informal square where five alleys converge: pedestrians, cars, and delivery bikes share an unplanned public space. The key site for asking: "What is public space on a hillside?"'},
   update:{ko:null,de:null,en:null},
-  stats:[{n:'2~4차로',l:{ko:'왕복 차로 수',de:'Fahrspuren',en:'Lanes'}},{n:'Road Diet',l:{ko:'개혁 검토 대상',de:'Reformkandidat',en:'Reform Candidate'}}],
+  stats:[
+    {n:'108',   l:{ko:'계단 수',de:'Treppenstufen',en:'Steps'}},
+    {n:'5-way', l:{ko:'오거리 교차로',de:'Fünfwegkreuzung',en:'Five-way Junction'}},
+    {n:'무장벽', l:{ko:'접근성 설계 과제',de:'Barrierefreiheit gesucht',en:'Barrier-free access needed'}}],
   issues:{
-    ko:['보행-차량 갈등 — 경사 구간 차량 속도 증가로 횡단보도 사고 위험. 신호 없는 횡단지점 다수.','Road Diet 가능성 — 차로 수 축소 및 PM 전용 구간 설치 검토 대상.','생활권 단절 — 후암동-해방촌 사이의 물리적 장벽 역할.'],
-    de:['Fußgänger-Fahrzeug-Konflikt — Erhöhtes Unfallrisiko an Zebrastreifen; viele Querungsstellen ohne Ampel.','Road-Diet-Potenzial — Prüfung von Fahrspurreduzierung und Mikromobilitätsspuren.','Quartierstrennwirkung — Physische Barriere zwischen Huam-dong und Haebangchon.'],
-    en:['Pedestrian-vehicle conflict — vehicle speeds increase downhill, raising crosswalk risk; many unsignalized crossings.','Road diet potential — candidate for lane reduction and micro-mobility lanes.','Neighborhood severance — acts as a physical barrier between Huam-dong and Haebangchon.']},
+    ko:['수직 접근 불평등 — 계단이 유일 접근로인 필지에서 고령자·장애인 이동 완전 단절.','오거리 교통 혼재 — 신호 없는 5방향 교차점에서 보행자·차량·오토바이 충돌 위험 상시 존재.','계단의 공공공간화 — 계단을 단순 이동로로 볼 것인가, 공공공간으로 재설계할 것인가.','필지 접근 제도 — 계단만이 접근로인 필지에 대한 건축 허가·지원 방향.'],
+    de:['Vertikale Ungleichheit — Ältere und Gehbehinderte können treppenerschlossene Parzellen gar nicht erreichen.','Verkehrschaos — Kollisionsrisiko an der ampellosen Fünfwegkreuzung.','Treppe als öffentlicher Raum — Nur Durchgang oder umgestaltbarer Aufenthaltsort?','Baurecht für Treppenparzellen — Regulierungs- und Fördermöglichkeiten klären.'],
+    en:['Vertical access inequality — elderly/disabled residents completely cut off from stair-only parcels.','Five-way traffic chaos — constant pedestrian-vehicle-motorbike collision risk at unsignalized junction.','Steps as public space — treat as mere corridor or redesign as public realm?','Regulatory framework — building control and support mechanisms for stair-access lots.']},
   stakeholders:{
-    ko:[{role:'보행 주민 / 고령자',desc:'급경사 구간 낙상 위험 및 대중교통 접근 어려움 호소.'},{role:'배달·택배 근로자',desc:'차량 진입 불가 구간 도보 배달 비중 높음. 경사 이동 노동 강도 문제.'}],
-    de:[{role:'Fußgänger / Ältere',desc:'Berichten von Sturzgefahr auf steilen Abschnitten und erschwertem ÖPNV-Zugang.'},{role:'Kurier- und Paketzusteller',desc:'Hoher Anteil an Fußzustellungen in fahrzeugfreien Bereichen; körperliche Belastung durch Steigung.'}],
-    en:[{role:'Pedestrians / Elderly',desc:'Report fall risks on steep sections and difficulty accessing public transit.'},{role:'Delivery workers',desc:'High proportion of on-foot deliveries in no-vehicle zones; physical burden from steep gradient.'}]},
-  quote:'"A steep arterial road designed for vehicles — a prime candidate for road diet and pedestrianization discussion."'},
+    ko:[{role:'경사지 필지 거주자',desc:'계단이 유일 접근로. 이사·생필품 운반 모두 계단 의존.'},{role:'배달 오토바이 기사',desc:'오거리 통과 빈도 높음. 보행자와 상시 충돌 위험.'},{role:'용산구 도시재생팀',desc:'해방촌 뉴딜 사업 담당. 계단 정비 및 소규모 공공공간 개선 진행 중.'}],
+    de:[{role:'Bewohner treppenerschlossener Parzellen',desc:'Sämtliche Wege und Transporte über Treppe.'},{role:'Lieferkuriere auf Rollern',desc:'Häufige Kreuzungsnutzung; ständiges Kollisionsrisiko.'},{role:'Stadtentwicklungsteam Yongsan-gu',desc:'Zuständig für Haebangchon New Deal; laufende Treppensanierung und Kleinstplatz-Aufwertung.'}],
+    en:[{role:'Stair-access lot residents',desc:'All daily travel and goods transport via the 108 steps.'},{role:'Delivery riders',desc:'Frequent five-way junction users; constant collision risk.'},{role:'Yongsan-gu urban regeneration team',desc:'Overseeing Haebangchon New Deal; ongoing stair renovation and small public space improvements.'}]},
+  quote:'"108 steps and a five-way junction — the hill makes access a design problem, and the informal crossing makes it a safety one too."'},
 
  {id:'spot3',num:3,
-  ko:'해방촌 신흥시장 & 골목',de:'Haebangchon Sinheung-Markt & Gassen',en:'Haebangchon — Spontaneous Mixed-use Community',
-  tags:{ko:['자연발생 혼합용도','역사적 정착지','도시재생','다문화'],de:['Organische Nutzungsmischung','Historische Siedlung','Stadterneuerung','Multikulturalität'],en:['Spontaneous Mixed-use','Historic Settlement','Urban Regeneration','Multicultural']},
+  ko:'신흥시장 + 해방촌 골목',de:'Sinheung-Markt + Haebangchon Gassen',en:'Sinheung Market + Haebangchon Alleys',
+  tags:{
+    ko:['자연발생 혼합용도','전통시장','도시재생','젠트리피케이션'],
+    de:['Organische Nutzungsmischung','Traditioneller Markt','Stadterneuerung','Gentrifizierung'],
+    en:['Spontaneous Mixed-use','Traditional Market','Urban Regeneration','Gentrification']},
   char:{
-    ko:'1945년 해방 후 일본군 시설 철거 부지에 피란민·귀환동포가 무허가 정착하며 형성(행정구역: 용산2가동). 2019년 도시재생 뉴딜사업 지정. 전통시장, 루프탑 카페, 다국적 음식점, 게스트하우스가 좁은 골목에 공존하는 자연발생 혼합용도의 전형.',
-    de:'Nach 1945 ließen sich Flüchtlinge auf einstigem japanischen Militärgelände nieder (Yongsan 2-ga-dong). 2019 als Stadterneuerungsgebiet ausgewiesen. Traditioneller Markt, Dachterrassenklubs, internationale Restaurants und Gästehäuser teilen enge Gassen — ein Paradebeispiel organischer Nutzungsmischung.',
-    en:'Formed after 1945 as refugees settled informally on former Japanese military land (Yongsan 2-ga-dong). Designated Urban Regeneration New Deal area in 2019. Textbook case of spontaneous mixed-use: traditional market, rooftop cafés, multinational restaurants, and guesthouses coexist in narrow alleys.'},
+    ko:'1945년 해방 후 피란민·귀환동포가 형성한 신흥시장을 핵으로, 루프탑 카페·다국적 식당·게스트하우스가 좁은 골목에 공존하는 자연발생 혼합용도의 전형. 2019년 도시재생 뉴딜 지정 이후 임대료 상승과 젠트리피케이션 압력이 가중되고 있어 "재생의 수혜자가 누구인가"라는 질문을 던질 수 있다.',
+    de:'Der 1945 von Flüchtlingen gegründete Sinheung-Markt bildet den Kern eines organisch gewachsenen Viertels, in dem Dachterrassenklubs, internationale Restaurants und Gästehäuser in engen Gassen koexistieren. Seit der New-Deal-Ausweisung 2019 steigen Mieten und Gentrifizierungsdruck — die Frage lautet: Wer profitiert von der Stadterneuerung?',
+    en:'The Sinheung Market, formed by post-1945 refugees, anchors a spontaneous mixed-use environment where rooftop cafés, multinational restaurants, and guesthouses coexist in narrow alleys. Since the 2019 Urban Regeneration New Deal designation, rent increases and gentrification pressure have intensified — the site to ask: "Who benefits from regeneration?"'},
   update:{ko:null,de:null,en:null},
-  stats:[{n:'16%',l:{ko:'외국인 거주 비율 (2025)',de:'Ausländeranteil (2025)',en:'Foreign Resident Rate (2025)'}},{n:'2019',l:{ko:'도시재생 뉴딜 지정',de:'New Deal Ausweisung',en:'New Deal Designation'}},{n:'1945',l:{ko:'해방촌 형성 시작',de:'Gründungsjahr',en:'Settlement Origin'}}],
+  stats:[
+    {n:'1945',  l:{ko:'시장 형성 시작',de:'Marktgründung',en:'Market origin'}},
+    {n:'2019',  l:{ko:'도시재생 뉴딜 지정',de:'New Deal Ausweisung',en:'New Deal Designated'}},
+    {n:'16%',   l:{ko:'외국인 거주 비율(2025)',de:'Ausländeranteil (2025)',en:'Foreign residents (2025)'}}],
   issues:{
-    ko:['임차인 이동 불안정 — 재생사업 이후 임대료 상승. 상업 임차인 젠트리피케이션 압력 지속.','외국인 주민 행정 접근성 — 외국어 서비스 부족. 2025년 영어 소통 프로그램 및 1:1 헬퍼 서비스 신설.','역사경관 보전 vs 재생 — 피란민 정착의 역사성 보전이냐 물리적 정비 우선이냐의 방향 갈등.','야간 소음·쓰레기 — 관광객 증가로 거주 환경 악화.'],
-    de:['Mietpreisanstieg und Verdrängung — Steigende Mieten nach der Stadterneuerung; anhaltender Gentrifizierungsdruck.','Behördenzugang für ausländische Bewohner — Unzureichende Mehrsprachigkeit; 2025 eingeführte Englisch-Sprechstunden und 1:1-Helfer.','Denkmalschutz vs. Erneuerung — Konflikt zwischen Erhalt des Flüchtlingscharakters und baulicher Modernisierung.','Nachtlärm und Abfall — Zunehmender Tourismus verschlechtert das Wohnumfeld.'],
-    en:['Tenant instability — rent increases post-regeneration; ongoing gentrification pressure on commercial tenants.','Administrative access for foreign residents — insufficient multilingual services; 2025: English programs and 1:1 helper services launched.','Historic preservation vs. renewal — tension between honoring refugee settlement heritage and physical improvement.','Night noise and waste — deteriorating residential environment due to tourism growth.']},
+    ko:['젠트리피케이션 — 재생 사업 이후 임대료 상승. 원주민 상업 임차인 이탈 가속.','전통시장 존속 — 루프탑 카페 등 신규 업종과의 공존 방식, 고령 상인 후계 문제.','외국인 주민 포용 — 행정 서비스 언어 장벽, 커뮤니티 거버넌스 참여 구조 미비.','야간 소음·쓰레기 — 관광객 증가로 거주 환경 악화.'],
+    de:['Gentrifizierung — Steigende Mieten nach Stadterneuerung; Verdrängung alteingesessener Gewerbetreibender.','Traditioneller Markt — Koexistenz mit neuen Formaten; Nachfolgeproblem älterer Händler.','Inklusion ausländischer Bewohner — Sprachbarrieren im Behördenzugang; fehlende Partizipationsstrukturen.','Nachtlärm und Abfall — Touristenzustrom verschlechtert Wohnqualität.'],
+    en:['Gentrification — rising rents post-regeneration; accelerating displacement of original commercial tenants.','Traditional market survival — coexistence with rooftop cafés and new formats; succession problem among elderly vendors.','Inclusion of foreign residents — language barriers in admin services; inadequate governance participation.','Night noise and waste — deteriorating residential environment as tourism grows.']},
   stakeholders:{
-    ko:[{role:'장기 거주 한국인 주민',desc:'노후 주거지 개선 요구. 커뮤니티 유지 및 재생사업 참여 의지 보유.'},{role:'외국인 거주자',desc:'용산2가동 인구의 16%. 생활정보 접근·언어 장벽이 주요 애로사항.'},{role:'상업 임차인',desc:'카페·식당 등 소상공인. 임대료 인상 및 권리금 문제에 취약.'},{role:'관광객',desc:'인스타그램 명소화로 방문객 증가. 거주지와 관광지 갈등 유발.'}],
-    de:[{role:'Langjährige koreanische Bewohner',desc:'Wünschen Sanierung; engagiert in Gemeinschaft und Erneuerungsprojekten.'},{role:'Ausländische Bewohner',desc:'16 % der Einwohner; Hauptprobleme: Sprachbarriere und eingeschränkter Behördenzugang.'},{role:'Gewerbliche Mieter',desc:'Kleinbetriebe; anfällig für Mietpreissteigerungen und Goodwill-Konflikte.'},{role:'Touristen',desc:'Durch Instagram-Popularität steigende Besucherzahlen; Nutzungskonflikte mit Wohnfunktion.'}],
-    en:[{role:'Long-term Korean residents',desc:'Seek housing improvement; willing to participate in regeneration programs.'},{role:'Expat residents',desc:'16% of Yongsan 2-ga-dong population; main challenges: language barriers and admin access.'},{role:'Commercial tenants',desc:'Small-business operators; vulnerable to rent increases and goodwill disputes.'},{role:'Tourists',desc:'Increasing footfall due to Instagram popularity; conflicts between residential and tourist use.'}]},
-  quote:'"Haebangchon is a case of unplanned, spontaneous mixed-use development — traditional market, rooftop cafés, and multicultural residents coexist in a wartime refugee settlement."'},
+    ko:[{role:'신흥시장 상인',desc:'고령 상인 중심. 시장 현대화 및 후계자 부재 문제.'},{role:'외국인 거주자',desc:'용산2가동 인구의 16%. 언어 장벽 및 생활정보 접근이 주요 애로.'},{role:'루프탑 카페·게스트하우스 사업자',desc:'재생 이후 유입된 새 상업 세력. 임대료 상승의 수혜자이자 동인.'},{role:'용산구 도시재생팀',desc:'뉴딜 사업 운영. 외국인 헬퍼 프로그램 등 포용 서비스 신설.'}],
+    de:[{role:'Sinheung-Markthändler',desc:'Überwiegend ältere Generation; Modernisierungs- und Nachfolgeprobleme.'},{role:'Ausländische Bewohner',desc:'16 % der Einwohner; Haupthindernisse: Sprachbarriere und Behördenzugang.'},{role:'Dachterrassenklubs / Gästehäuser',desc:'Neuzugänge nach Stadterneuerung; profitieren von Mietdynamik.'},{role:'Stadtentwicklungsteam Yongsan-gu',desc:'Betreibt New-Deal-Programm; 2025 Helfer-Programm eingeführt.'}],
+    en:[{role:'Sinheung Market vendors',desc:'Mostly elderly traders; modernization and succession challenges.'},{role:'Foreign residents',desc:'16% of Yongsan 2-ga-dong; main issues: language barrier and admin access.'},{role:'Rooftop café / guesthouse operators',desc:'Post-regeneration newcomers; drivers and beneficiaries of rent dynamics.'},{role:'Yongsan-gu urban regeneration team',desc:'Manages New Deal program; launched foreign resident helper service in 2025.'}]},
+  quote:'"Traditional market, rooftop cafés, multinational restaurants in one alley block — and the open question of who regeneration actually serves."'},
+
+ {id:'spot4',num:4,
+  ko:'녹사평대로 / 두텁바위로 교차구간',de:'Kreuzung Noksapyeong-daero / Duteopbawi-ro',en:'Noksapyeong-daero / Duteopbawi-ro Crossing',
+  tags:{
+    ko:['경사 간선도로','차로 다이어트','가로 장벽','보행 안전'],
+    de:['Steile Hauptstraße','Straßenraumreduzierung','Stadtteilbarriere','Fußgängersicherheit'],
+    en:['Steep Arterial Road','Road Diet','Street Barrier','Pedestrian Safety']},
+  char:{
+    ko:'남산에서 용산 방향으로 내려오는 왕복 4차로 경사 간선도로. 차량 우선 설계로 좌우 해방촌-이태원 주거지를 물리적으로 단절시키는 장벽 역할을 한다. 내리막에서 차량 속도가 높아져 횡단 위험이 크고, 보도는 협소하거나 단절된 구간이 존재한다. 차로 다이어트(road diet)와 공유가로(shared street) 논의를 꺼낼 수 있는 대표 구간.',
+    de:'Eine 4-spurige Hauptstraße, die steil vom Namsan nach Yongsan abfällt. Die fahrzeugpriorisierte Gestaltung schafft eine physische Barriere zwischen den Wohngebieten Haebangchon und Itaewon. Bergab steigende Fahrzeuggeschwindigkeiten erhöhen die Querungsgefahr; Gehwege sind stellenweise schmal oder unterbrochen. Prüfkandidat für Road Diet und Shared-Street-Konzepte.',
+    en:'A 4-lane arterial road descending steeply from Namsan toward Yongsan. Vehicle-priority design physically severs Haebangchon from Itaewon. Downhill speeds increase pedestrian crossing danger; sidewalks are narrow or broken in sections. The representative candidate for road diet and shared street discussions in this area.'},
+  update:{ko:null,de:null,en:null},
+  stats:[
+    {n:'4차로',     l:{ko:'왕복 차로 수',de:'Fahrspuren (gesamt)',en:'Total lanes'}},
+    {n:'Road Diet', l:{ko:'개혁 검토 대상',de:'Reformkandidat',en:'Reform candidate'}},
+    {n:'단절',      l:{ko:'해방촌-이태원 물리적 분리',de:'Stadtteilbarriere',en:'Neighborhood severance'}}],
+  issues:{
+    ko:['보행-차량 갈등 — 경사 구간 차량 속도 증가로 횡단보도 사고 위험. 신호 없는 횡단지점 다수.','생활권 단절 — 해방촌과 이태원 사이의 물리적 장벽. 좌우 주거지 연결 단절.','Road Diet 가능성 — 차로 수 축소 및 PM 전용 구간 설치, 보행 공간 확보 방안 검토.','경사지 속도 관리 — 내리막 과속 억제를 위한 교통정온화 설계 대안.'],
+    de:['Fußgänger-Fahrzeug-Konflikt — Erhöhtes Unfallrisiko bergab; viele Übergänge ohne Ampel.','Stadtteilbarriere — Physische Trennung von Haebangchon und Itaewon.','Road-Diet-Potenzial — Fahrspurreduzierung, Mikromobilitätsstreifen, Fußgängerflächengewinn.','Geschwindigkeitsmanagement — Verkehrsberuhigung für die Gefällestrecke.'],
+    en:['Pedestrian-vehicle conflict — downhill vehicle speeds raise crosswalk accident risk; many unsignalized crossings.','Neighborhood severance — physical barrier between Haebangchon and Itaewon.','Road diet potential — lane reduction, micro-mobility lanes, pedestrian space reclamation.','Downhill speed management — traffic calming design alternatives for steep gradient sections.']},
+  stakeholders:{
+    ko:[{role:'보행 주민 / 고령자',desc:'급경사 횡단 위험 및 신호등·횡단보도 개선 요구.'},{role:'배달·택배 기사',desc:'차량 진입 불가 골목 도보 배달 많음. 경사 이동 노동 강도 과중.'},{role:'서울시 도로·보행 정책팀',desc:'Road diet 정책 검토 주체. 간선도로 보행화 우선순위 결정.'}],
+    de:[{role:'Fußgänger / Ältere',desc:'Berichten von Sturzgefahr; fordern Ampeln und Zebrastreifen.'},{role:'Lieferdienste',desc:'Viele Zielgebiete nur zu Fuß erreichbar; körperliche Belastung durch Steigung.'},{role:'Straßen- und Fußgängerpolitik Seoul',desc:'Träger von Road-Diet-Überlegungen; priorisiert Hauptstraßen.'}],
+    en:[{role:'Pedestrians / elderly',desc:'Report dangerous crossings; demand improved signals and crosswalks.'},{role:'Delivery workers',desc:'Many destinations reachable only on foot; physical burden on steep gradient.'},{role:'Seoul road & pedestrian policy team',desc:'Body reviewing road diet options; decides arterial pedestrianization priority.'}]},
+  quote:'"A 4-lane steep arterial that splits two neighborhoods — a classic road diet candidate and a live study in pedestrian-vehicle conflict on a slope."'},
 
  {id:'spot5',num:5,
-  ko:'용산2가동 주민센터',de:'Gemeinschaftszentrum Yongsan 2-ga-dong',en:'Community Center — Urban Regeneration Hub',
-  tags:{ko:['공공주도 개발','주민 참여','생활 인프라','공공-민간 협력'],de:['Öffentlich geführte Entwicklung','Bürgerbeteiligung','Soziale Infrastruktur','ÖPP'],en:['Public-led Development','Community Participation','Social Infrastructure','PPP']},
+  ko:'경리단길',de:'Gyeongnidan-gil',en:'Gyeongnidan-gil — Post-gentrification Street',
+  tags:{
+    ko:['소필지 자생 상업가로','젠트리피케이션 이후','도시 형태 분석','상업화 사이클'],
+    de:['Organische Kleinparzellenstraße','Post-Gentrifizierung','Morphologieanalyse','Kommerzialisierungszyklus'],
+    en:['Organic Small-lot Commercial Street','Post-gentrification','Morphology Analysis','Commercialization Cycle']},
   char:{
-    ko:'해방촌 도시재생 뉴딜사업(2019~)의 행정 거점. 주민참여 프로그램, 외국인 소통 서비스, 생활SOC 복합화 사업을 운영. 소규모 공공시설이 지역 재생의 앵커 역할을 수행하는 실천 사례.',
-    de:'Verwaltungszentrum des Haebangchon Stadterneuerungs-New-Deal-Projekts (seit 2019). Betreibt Bürgerbeteiligungsprogramme, mehrsprachige Dienstleistungen und gebündelte Sozialinfrastruktur. Praxisbeispiel einer kleinen öffentlichen Einrichtung als Quartierserneuerungsanker.',
-    en:'Administrative hub of the Haebangchon Urban Regeneration New Deal project (2019–). Operates resident participation programs, multilingual services, and consolidated social infrastructure. A practical example of a small public facility serving as an anchor for neighborhood regeneration.'},
+    ko:'이태원 메인 상권과 성격이 다른 소필지 기반 자생적 상업가로. 젠트리피케이션이 해방촌보다 한 사이클 앞서 진행되어 "상업화 이후" 단계를 관찰할 수 있다. 필지 규모와 건물 유형이 급변하는 경계부가 여럿 존재하여 도시 형태(urban morphology) 분석에 적합하다. 2010년대 붐 이후 일부 구간은 공실화·업종 전환 중.',
+    de:'Eine selbst gewachsene Kleinparzellenstraße mit eigenem Charakter — deutlich verschieden von Itaewons Hauptachse. Der Gentrifizierungszyklus ist gegenüber Haebangchon einen Schritt weiter; die Post-Gentrifizierungsphase ist hier direkt beobachtbar. Mehrere Übergangszonen mit abruptem Parzellenmaßstabs- und Gebäudetypenwechsel machen den Ort ideal für Stadtmorphologieanalysen. Nach dem Boom der 2010er-Jahre zeigen einzelne Abschnitte Leerstand und Nutzungswandel.',
+    en:'An organically grown small-lot commercial street distinct from Itaewon\'s main strip. Gentrification progressed a full cycle ahead of Haebangchon, making the "post-gentrification" phase directly observable. Multiple transition zones with abrupt lot-scale and building-type shifts make this ideal for urban morphology analysis. After the 2010s boom, some sections show vacancy and business-type conversion.'},
   update:{ko:null,de:null,en:null},
-  stats:[{n:'2019',l:{ko:'뉴딜사업 지정',de:'New Deal Ausweisung',en:'New Deal Designated'}},{n:'1:1',l:{ko:'외국인 헬퍼 프로그램',de:'Helfer-Programm',en:'Foreign Resident Helper'}}],
+  stats:[
+    {n:'소필지',       l:{ko:'자생 상업 필지 기반',de:'Kleinteilige Parzellenstruktur',en:'Small-lot commercial base'}},
+    {n:'1사이클 선행', l:{ko:'젠트리피케이션 진행',de:'Gentrifizierung voraus',en:'Gentrification cycle ahead'}}],
   issues:{
-    ko:['재생 효과의 분배 — 혜택이 원주민에게 귀속되는지, 임대료 상승으로 상쇄되는지.','외국인 주민 포용 — 동 인구의 16%인 외국인을 거버넌스에 어떻게 포함시킬 것인가.','재생 종료 이후 자생성 — 뉴딜 사업 기간 종료 후 자생적 커뮤니티 운영 가능성.'],
-    de:['Verteilung der Erneuerungsgewinne — Kommen Verbesserungen den ursprünglichen Bewohnern zugute oder werden sie durch Mietsteigerungen neutralisiert?','Inklusion ausländischer Bewohner — Wie lassen sich die 16 % ausländischen Einwohner in lokale Governance einbinden?','Nachhaltigkeit nach Projektende — Fähigkeit zur selbsttragenden Gemeinschaftsarbeit nach Auslaufen des New-Deal-Programms.'],
-    en:['Distribution of regeneration benefits — whether improvements benefit original residents or are offset by rising rents.','Inclusion of foreign residents — how to incorporate the 16% foreign resident population into local governance.','Post-regeneration sustainability — capacity for self-sustaining community operations after the New Deal period ends.']},
+    ko:['상업화 이후 공실 — 2010년대 붐 이후 임대료 고점에서 수요 이탈, 일부 구간 공실 증가.','소필지 합필 압력 — 대규모 개발 시도와 기존 소규모 필지 조직의 충돌.','보행 환경 — 협소 가로폭과 주차 차량으로 보행·자전거 이동 어려움.','업종 균질화 — 개성 있던 자생 상권이 프랜차이즈·관광 업종으로 대체되는 경향.'],
+    de:['Post-Boom-Leerstand — Mietrückgang und Leerstand in einigen Abschnitten nach dem Preishoch der 2010er.','Zusammenlegungsdruck — Großflächige Entwicklungsvorhaben kollidieren mit der Kleinstparzellenstruktur.','Fußgängerqualität — Enge Straße und Parkfahrzeuge behindern Fuß- und Radverkehr.','Nutzungsvereinheitlichung — Individuelles Kleingewerbe wird durch Franchise verdrängt.'],
+    en:['Post-boom vacancy — after the 2010s rent peak, demand retreated and vacancies increased in some sections.','Small-lot consolidation pressure — large-scale development attempts collide with the fine-grained lot structure.','Pedestrian environment — narrow road width and parked vehicles impede walking and cycling.','Use homogenization — distinctive organic businesses being replaced by franchise and tourism-oriented formats.']},
   stakeholders:{
-    ko:[{role:'용산2가동 주민센터',desc:'2025년 외국인 1:1 헬퍼 프로그램, 직원 영어 동아리 운영. 외국어 안내문 배포.'},{role:'주민 자치 조직',desc:'마을계획단 등. 사업 방향 결정에 참여하는 주민 대표 조직.'}],
-    de:[{role:'Gemeinschaftszentrum Yongsan 2-ga-dong',desc:'Betreibt seit 2025 1:1-Helfer-Programm und englischsprachige Sprechstunden; verteilt mehrsprachige Informationsmaterialien.'},{role:'Selbstverwaltungsorganisationen',desc:'Dorfplanungskommissionen u. Ä.; Bewohnervertretungen mit Einfluss auf Projektrichtung.'}],
-    en:[{role:'Yongsan 2-ga-dong Community Center',desc:'Launched 1:1 foreign resident helper program and staff English club in 2025; distributing multilingual information.'},{role:'Resident self-governance organizations',desc:'Village planning committees, etc.; participating in project direction.'}]},
-  quote:'"The community center anchors the urban regeneration program — a site for public-led development and participatory planning."'},
+    ko:[{role:'소규모 자영업자',desc:'소필지 임차 상인. 임대료 부담 및 프랜차이즈 대비 경쟁 열위.'},{role:'건물주',desc:'합필·재건축 검토 중인 소유자와 현 임대 수익 유지 선호 소유자가 혼재.'},{role:'방문객·관광객',desc:'가로 활성화의 핵심 수요원. 주차·보행 혼잡 유발.'}],
+    de:[{role:'Kleingewerbetreibende',desc:'Kleinstparzellenmieter; Mietlastdruck und Wettbewerbsnachteil gegenüber Franchise.'},{role:'Grundstückseigentümer',desc:'Gemischt: Eigentümer mit Zusammenlegungsinteresse und solche, die Mietverhältnisse bevorzugen.'},{role:'Besucher / Touristen',desc:'Hauptnachfrageträger; verursachen Parkprobleme und Gedränge.'}],
+    en:[{role:'Small business operators',desc:'Small-lot tenants; high rent burden and competitive disadvantage vs. franchises.'},{role:'Property owners',desc:'Mixed: those considering consolidation/redevelopment vs. those preferring current rental income.'},{role:'Visitors / tourists',desc:'Main demand driver for street activation; cause parking and pedestrian congestion.'}]},
+  quote:'"Gyeongnidan-gil shows what happens one gentrification cycle later — vacancy, consolidation pressure, and the question of what comes next for an organic street."'},
 
  {id:'spot6',num:6,
-  ko:'해방촌 ↔ 이태원 전이구역',de:'Übergangszone Haebangchon ↔ Itaewon',en:'Transition Zone — Land Use Shift',
-  tags:{ko:['점이적 용도지역제','혼합용도','유기적 토지이용 변화'],de:['Zonierungsübergang','Nutzungsmischung','Organischer Wandel'],en:['Transitional Zoning','Mixed-use','Organic Land Use Change']},
+  ko:'이태원로 — 다문화 상업 가로',de:'Itaewon-ro — Multikulturelle Hauptstraße',en:'Itaewon-ro — Multicultural Main Street',
+  tags:{
+    ko:['다문화','가로 활성화','쇠퇴 후 재활성화','공공 안전'],
+    de:['Multikulturalität','Straßenaktivierung','Post-Decline Revitalisierung','Öffentliche Sicherheit'],
+    en:['Multicultural','Street Activation','Post-decline Revitalization','Public Safety Design']},
   char:{
-    ko:'저층 주거(해방촌)에서 다국적 상업·외국인 거주(이태원)로 전환되는 경계부. 한 블록 사이에서 용도지역 성격, 필지 규모, 가로 성격이 급격히 변화. 자연발생적 용도 전이와 계획적 용도지역제의 차이를 비교 설명하기 최적인 지점.',
-    de:'Grenzzone zwischen dem niedriggeschossigen Wohnviertel Haebangchon und dem multinationalen Handels- und Expatriate-Viertel Itaewon. Innerhalb eines Häuserblocks ändern sich Nutzungsart, Parzellenmaßstab und Straßencharakter abrupt — ideal zum Vergleich organischer Nutzungsverschiebung und formeller Zonierung.',
-    en:'The boundary zone where low-rise residential (Haebangchon) transitions to multicultural commercial (Itaewon). Within a single block, zoning character, lot scale, and street character shift dramatically. Ideal for comparing spontaneous land-use transition with formal zoning regulations.'},
+    ko:'다국적 음식점·상점·외국인 커뮤니티가 밀집한 활성 상업가로. 2022년 이태원 참사 이후 상권이 급격히 위축되었으나 2024~2025년부터 부분적 회복세. 1층 상업-상층 주거의 수직적 혼합용도가 자연발생적으로 형성된 사례. 협소 가로에 집중되는 인파 관리와 공공 안전 설계라는 시의성 있는 과제를 제공한다.',
+    de:'Belebter Gewerbestreifen mit internationaler Gastronomie, Einzelhandel und Expat-Gemeinschaften. Nach dem Unglück von 2022 brach das Geschäftsleben stark ein; seit 2024–25 partielle Erholung. Organisch entstandene vertikale Nutzungsmischung: Erdgeschoss Gewerbe, Obergeschosse Wohnen. Aktuelle Herausforderungen: Besucherlenkung auf engen Gassen und öffentliche Sicherheitsgestaltung.',
+    en:'A multinational commercial strip of restaurants, shops, and expat communities. Following the 2022 crowd crush, commercial activity contracted sharply; partial recovery emerging from 2024–25. Organically formed vertical mixed-use: ground-floor commercial with residential above. Provides timely design challenges in crowd management on a narrow street and public safety design.'},
   update:{ko:null,de:null,en:null},
-  stats:[{n:'1블록',l:{ko:'용도·가로 성격 급변 구간',de:'Dramatischer Wandel in 1 Block',en:'Dramatic shift in 1 block'}}],
+  stats:[
+    {n:'2022',   l:{ko:'이태원 참사 (상권 급위축)',de:'Massenpanik (Geschäftseinbruch)',en:'Crowd crush (contraction)'}},
+    {n:'회복 중', l:{ko:'2024~2025 부분 회복',de:'Teilweise Erholung 2024–25',en:'Partial recovery 2024–25'}}],
   issues:{
-    ko:['용도 혼재 갈등 — 주거-상업 경계부에서 야간 영업 소음, 주차 문제 집중.','필지 규모 불일치 — 소규모 해방촌 필지와 이태원 상업지 대형 필지의 접면에서 개발 방식 차이.'],
-    de:['Nutzungskonflikt — Nachtlärmbelästigung und Parkprobleme an der Wohn-Gewerbe-Grenze.','Parzellenmaßstab-Dissonanz — Unterschiedliche Bebauungsansätze an der Schnittstelle kleiner Haebangchon-Parzellen und großer Itaewon-Gewerbeflächen.'],
-    en:['Mixed-use conflicts — night-time commercial noise and parking issues concentrated at the residential-commercial boundary.','Lot scale mismatch — different development approaches where small Haebangchon lots meet large Itaewon commercial parcels.']},
+    ko:['참사 이후 상권 위축 — 방문객 급감, 공실 증가. 2024~2025년부터 부분 회복.','협소 가로 인파 관리 — 주요 이벤트 시 병목 현상. 공공 안전 설계 및 공간 재배치 논의.','상권 정체성 재정립 — 기존 다문화 정체성 유지 vs 새로운 상권 유치 방향.','수직 혼합용도 관리 — 상층 주거민과 하층 상업의 소음·프라이버시 갈등.'],
+    de:['Geschäftsrückgang nach 2022 — Starker Besucherschwund; Erholung ab 2024–25.','Besucherlenkung — Flaschenhälse bei Großveranstaltungen; Debatten über Sicherheitskonzepte.','Neupositionierung — Multikulturelles Profil bewahren oder neue Gewerbetypologien gewinnen?','Vertikale Nutzungsmischung — Lärmkonflikte zwischen Ober- und Erdgeschossnutzungen.'],
+    en:['Post-2022 commercial contraction — sharp visitor decline and rising vacancies; partial recovery from 2024–25.','Narrow street crowd management — bottlenecks during major events; public safety and spatial reconfiguration discussions.','Commercial identity repositioning — maintaining multicultural identity vs. attracting new commercial formats.','Vertical mixed-use management — noise and privacy conflicts between upper-floor residents and ground-floor commercial.']},
   stakeholders:{
-    ko:[{role:'주거 주민',desc:'상업가로 인접 주거지 소음·안전 문제 호소.'},{role:'상업 임차인',desc:'유동인구 밀집 입지를 활용한 다국적 음식점·상점 운영.'}],
-    de:[{role:'Anwohner',desc:'Beschwerden über Lärm und Sicherheitsmängel in der Nähe des Gewerbestreifens.'},{role:'Gewerbliche Mieter',desc:'Betreiben internationale Gastronomie und Läden an Standorten mit hohem Fußgängeraufkommen.'}],
-    en:[{role:'Residential inhabitants',desc:'Report noise and safety issues adjacent to the commercial street.'},{role:'Commercial tenants',desc:'Operate multinational restaurants and shops exploiting the high-footfall location.'}]},
-  quote:'"Within one block, the urban character shifts from low-rise residential to multicultural commercial — a live example of transitional zoning and organic land-use change."'},
+    ko:[{role:'상업 임차인 / 소상공인',desc:'참사 이후 매출 급감. 폐업 후 재입점 또는 업종 전환 사례 증가.'},{role:'이태원 상인연합',desc:'상권 회복 및 이미지 개선 캠페인 추진.'},{role:'외국인 거주·방문객',desc:'이태원 상권의 핵심 수요층. 문화적 다양성 유지 기대.'},{role:'용산구 / 서울시',desc:'안전 관리 인프라 강화 및 재활성화 지원 정책 수립.'}],
+    de:[{role:'Gewerbliche Mieter / Kleinbetriebe',desc:'Umsatzeinbrüche; Schließungen, Wiedereröffnungen und Branchenwechsel häufen sich.'},{role:'Itaewon Händlerverband',desc:'Kampagnen zur Geschäftsbelebung und Imageverbesserung.'},{role:'Ausländische Bewohner / Besucher',desc:'Kernnachfrage; erwarten Erhalt der kulturellen Vielfalt.'},{role:'Yongsan-gu / Stadt Seoul',desc:'Stärkt Sicherheitsinfrastruktur; formuliert Revitalisierungsförderung.'}],
+    en:[{role:'Commercial tenants / small businesses',desc:'Revenue collapse post-tragedy; increasing closures, re-entries, and business changes.'},{role:'Itaewon Merchants Association',desc:'Pursuing recovery and image improvement campaigns.'},{role:'Foreign residents / visitors',desc:'Core demand base; expect preservation of cultural diversity.'},{role:'Yongsan-gu / Seoul City',desc:'Strengthening safety infrastructure; formulating revitalization support policies.'}]},
+  quote:'"Itaewon-ro: multicultural commercial street navigating post-disaster recovery and the challenge of public safety design on a narrow, high-footfall corridor."'},
+
+ {id:'spot7',num:7,
+  ko:'소월로 — 남산 경계 가로',de:'Sowol-ro — Grünraum-Stadtgrenze',en:'Sowol-ro — Green Space Boundary Road',
+  tags:{
+    ko:['녹지 네트워크','녹지-도시 접면','보행 연결성','남산 르네상스'],
+    de:['Grünnetz','Grünraum-Stadt-Interface','Fußgängervernetzung','Namsan Renaissance'],
+    en:['Green Network','Green-Urban Interface','Pedestrian Connectivity','Namsan Renaissance']},
+  char:{
+    ko:'남산공원과 도시 주거·상업지 사이를 가르는 경계 가로. 차량 중심 도로가 녹지와 도시 생활권의 물리적 연결을 완전히 차단하여 "남산은 멀다"는 인식을 만들어낸다. 서울시 남산 르네상스 계획에서 보행 친화형 가로 전환 및 남산-용산공원 녹지축 연결의 핵심 구간으로 논의 중.',
+    de:'Grenzstraße zwischen dem Namsan-Park und den städtischen Wohn- und Gewerbegebieten. Die fahrzeugdominierte Straße kappt die physische Verbindung zwischen Grünraum und urbanem Leben — Namsan wirkt weit weg. Im Namsan-Renaissance-Projekt wird die Umgestaltung zur Fußgängerstraße und die Grünraumachsenverbindung Namsan–Yongsan-Park als Schlüsselaufgabe verhandelt.',
+    en:'The boundary road separating Namsan Park from urban residential and commercial fabric. Vehicle-dominated design completely cuts the physical link between greenery and urban life — creating the perception that "Namsan is far." Discussed as the key section in Seoul\'s Namsan Renaissance plan for pedestrian-friendly conversion and connecting the Namsan–Yongsan Park green axis.'},
+  update:{ko:null,de:null,en:null},
+  stats:[
+    {n:'녹지축',   l:{ko:'남산-용산공원 연결 핵심',de:'Namsan–Yongsan-Park-Achse',en:'Namsan–Yongsan Park axis'}},
+    {n:'르네상스', l:{ko:'남산 보행화 계획',de:'Namsan Renaissance Plan',en:'Namsan Renaissance Plan'}}],
+  issues:{
+    ko:['녹지 접근 단절 — 소월로가 보행자의 남산 접근을 차단. 횡단 시설 부족.','남산-용산공원 녹지축 — 용산공원 조성 본격화로 연결 축 형성이 서울시 핵심 과제로 부상.','보행화 타당성 — 소월로 차량 통행량 전환 대안 및 우회로 검토 필요.','경계부 도시 조직 — 소월로 양측 건물 배치·용도 변화가 녹지 접면 질 결정.'],
+    de:['Grünraumzugangssperre — Sowol-ro blockiert Fußgänger-Namsan-Zugang; unzureichende Querungsstellen.','Grünraumachse — Mit Voranschreiten der Yongsan-Park-Entwicklung ist die Verbindungsachse zur Kernaufgabe geworden.','Machbarkeit — Umleitung des Kfz-Verkehrs und Erschließungsalternativen prüfen.','Randzone-Stadtstruktur — Bebauung und Nutzung beiderseits prägen die Grünraumqualität.'],
+    en:['Green space access barrier — Sowol-ro blocks pedestrian access to Namsan; insufficient crossings.','Namsan–Yongsan Park green axis — with Yongsan Park development advancing, this connection is a Seoul City priority.','Pedestrianization feasibility — vehicle traffic diversion and alternative route assessment needed.','Boundary urban fabric — building layout and land use on both sides determine the quality of the green interface.']},
+  stakeholders:{
+    ko:[{role:'보행·등산 이용자',desc:'남산공원 접근 수요. 횡단보도 위치·간격 개선 요구.'},{role:'서울시 (남산 르네상스)',desc:'소월로 보행화·녹지축 연결 정책 수립 주체.'},{role:'인근 건물주',desc:'녹지 접면부 지가 상승 기대와 보행화에 따른 접근 방식 변화 우려 공존.'}],
+    de:[{role:'Fußgänger / Wanderer',desc:'Nachfrage nach Namsan-Zugang; fordern verbesserte Querungen.'},{role:'Stadt Seoul (Namsan Renaissance)',desc:'Zuständig für Fußgängerumgestaltung und Grünachsenplanung.'},{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung durch Grünraumnähe; besorgt um geänderte Fahrzeugzufahrt.'}],
+    en:[{role:'Pedestrians / hikers',desc:'Demand Namsan access; request improved crosswalk locations.'},{role:'Seoul City (Namsan Renaissance)',desc:'Policy authority for Sowol-ro pedestrianization and green axis connectivity.'},{role:'Adjacent property owners',desc:'Expect value gains from green proximity; concerned about changed vehicle access.'}]},
+  quote:'"Sowol-ro is the hard line between Namsan\'s green and the city — where a green axis vision meets the reality of a car-dominant boundary road."'},
 
  {id:'spot8',num:8,
-  ko:'이태원2동 — 다문화 상업 가로',de:'Itaewon 2-dong — Multikulturelle Handelsstraße',en:'Itaewon 2-dong — Multicultural Commercial Street',
-  tags:{ko:['혼합용도','가로 활성화','쇠퇴 후 재활성화'],de:['Nutzungsmischung','Straßenaktivierung','Post-Decline Revitalisierung'],en:['Mixed-use','Street Activation','Post-decline Revitalization']},
+  ko:'용산공원 접면부',de:'Yongsan-Park Randzone',en:'Yongsan Park Interface Zone',
+  tags:{
+    ko:['대규모 공원','녹지-도시 접면','도시 조직 변화','남산-용산 녹지축'],
+    de:['Großpark','Grünraum-Stadt-Interface','Stadtstrukturwandel','Namsan–Yongsan Grünachse'],
+    en:['Large-scale Park','Green-Urban Interface','Urban Fabric Change','Namsan–Yongsan Green Axis']},
   char:{
-    ko:'다국적 음식점·상점·외국인 커뮤니티가 밀집한 활성 상업가로. 2022년 이태원 참사 이후 상권이 급격히 위축되었으나 2024~2025년부터 부분적 회복세. 1층 상업-상층 주거의 수직적 혼합용도가 자연발생적으로 형성된 사례.',
-    de:'Belebter Gewerbestreifen mit internationaler Gastronomie, Einzelhandel und Expat-Gemeinschaften. Nach dem Unglück von 2022 brach das Geschäftsleben stark ein; seit 2024–25 partielle Erholung. Beispiel für organisch entstandene vertikale Nutzungsmischung: Erdgeschoss Gewerbe, Obergeschosse Wohnen.',
-    en:'A multinational commercial strip of restaurants, shops, and expat communities. Following the 2022 Itaewon crowd crush, commercial activity contracted sharply; partial recovery emerging from 2024–2025. A case of organically formed vertical mixed-use: ground-floor commercial with residential above.'},
-  update:{ko:null,de:null,en:null},
-  stats:[{n:'2022',l:{ko:'이태원 참사 (상권 급위축)',de:'Massenpanik (Geschäftseinbruch)',en:'Crowd Crush (commercial contraction)'}},{n:'회복 중',l:{ko:'2024~2025 부분 회복',de:'Teilweise Erholung 2024–25',en:'Partial Recovery 2024–25'}}],
+    ko:'용산미군기지 반환 부지에 조성 중인 용산공원(약 243만㎡)의 경계 남쪽. 공원 경계와 기존 주거·상업지가 만나는 접면부로, "대규모 공원이 주변 도시 조직에 어떤 영향을 미치는가"라는 질문을 던질 수 있는 자리다. 남산-용산공원 녹지축 연결 논의의 남쪽 종착점이기도 하다.',
+    de:'Südliche Randzone des Yongsan-Parks (ca. 2,43 Mio. m²), der auf dem einstigen US-Militärgelände entsteht. An der Schnittstelle von Parkgrenze und bestehendem Wohn- und Gewerbegebiet lässt sich fragen: Welchen Einfluss hat ein Großpark auf die umgebende Stadtstruktur? Dies ist zugleich der südliche Endpunkt der diskutierten Grünraumachse Namsan–Yongsan.',
+    en:'The southern edge of Yongsan Park (~2.43 million m²) being created on the returned US military base. At the interface of the park boundary and existing residential/commercial areas, this site raises the question: "How does a large-scale park transform surrounding urban fabric?" It is also the southern terminus of the Namsan–Yongsan Park green axis discussion.'},
+  update:{
+    ko:'용산공원 1단계 부분 개방 시작(2023~). 전면 개방 시기 및 주변 도시 계획 연계 방안은 아직 협의 중.',
+    de:'Yongsan-Park Phase 1 teilweise eröffnet (seit 2023); Vollöffnung und städtebauliche Verknüpfungskonzepte noch in Abstimmung.',
+    en:'Yongsan Park Phase 1 partial opening began (2023–). Full opening timeline and surrounding urban planning integration still under negotiation.'},
+  stats:[
+    {n:'243만㎡', l:{ko:'용산공원 전체 면적',de:'Gesamtfläche',en:'Total park area'}},
+    {n:'2023~',   l:{ko:'1단계 부분 개방',de:'Phase 1 Teilöffnung',en:'Phase 1 partial opening'}},
+    {n:'녹지축',  l:{ko:'남산-용산 연결 종착점',de:'Südendpunkt der Grünachse',en:'Green axis southern terminus'}}],
   issues:{
-    ko:['2022년 이태원 참사 이후 상권 위축 — 방문객 급감, 공실 증가. 회복세는 2024~2025년부터.','공공 공간 안전 관리 — 협소 가로에 집중되는 인파 관리. 안전 계획 및 공간 재설계 논의.','상권 재활성화 방향 — 기존 다문화 정체성 유지냐, 새로운 상권 유치냐.'],
-    de:['Geschäftsrückgang nach 2022 — Starker Besucherrückgang und steigende Leerstandsquoten; partielle Erholung ab 2024–25.','Öffentliche Raumsicherheit — Besucherlenkung auf engen Straßen; Debatten über Sicherheitskonzepte und Umgestaltung.','Revitalisierungsrichtung — Beibehaltung des multikulturellen Charakters oder Ansiedlung neuer Gewerbetypologien?'],
-    en:['Post-2022 commercial contraction — sharp visitor decline and rising vacancies; partial recovery from 2024–2025.','Public space safety management — crowd management on narrow streets; safety planning and spatial redesign discussions.','Direction of revitalization — whether to maintain multicultural identity or attract a new commercial character.']},
+    ko:['접면부 도시 조직 변화 — 공원 개방 이후 인접 주거·상업지 지가 상승 및 개발 압력.','공원 접근성 — 진입 게이트 위치 및 주변 가로(소월로·녹사평대로) 연계 방식.','남산-용산 녹지축 실현 — 소월로 횡단 문제 해결 없이는 녹지 연결이 불완전.','공원 접면 용도 관리 — 접면부에 어떤 용도·밀도를 배치할 것인가.'],
+    de:['Stadtstrukturwandel — Bodenwertsteigerung und Entwicklungsdruck in anliegenden Quartieren.','Parkerreichbarkeit — Lage der Eingangstore; Anbindung an Sowol-ro und Noksapyeong-daero.','Realisierung der Grünachse — Ohne Lösung der Sowol-ro-Querung bleibt die Verbindung unvollständig.','Nutzungssteuerung — Welche Nutzungen und Dichten sind an der Parkgrenze angemessen?'],
+    en:['Surrounding urban fabric change — rising land values and development pressure in adjacent areas post-opening.','Park accessibility — gate locations and connection to adjacent streets (Sowol-ro, Noksapyeong-daero).','Green axis realization — without solving the Sowol-ro crossing, the Namsan–Yongsan connection remains incomplete.','Land use management at interface — what uses and densities to allow adjacent to the park boundary.']},
   stakeholders:{
-    ko:[{role:'상업 임차인 / 소상공인',desc:'참사 이후 매출 급감. 폐업 후 재입점 또는 업종 전환 사례 증가.'},{role:'이태원 상인연합',desc:'상권 회복 및 이미지 개선 캠페인 추진.'},{role:'용산구 / 서울시',desc:'안전 관리 인프라 강화 및 상권 재활성화 지원 정책 수립.'}],
-    de:[{role:'Gewerbliche Mieter / Kleinbetriebe',desc:'Umsatzeinbrüche nach dem Unglück; zunehmende Schließungen, Wiedereröffnungen und Branchenwechsel.'},{role:'Itaewon Händlerverband',desc:'Führt Kampagnen zur Geschäftsbelebung und Imageverbesserung durch.'},{role:'Yongsan-gu / Stadt Seoul',desc:'Stärkt Sicherheitsinfrastruktur und formuliert Revitalisierungsförderung.'}],
-    en:[{role:'Commercial tenants / small businesses',desc:'Revenue collapse post-tragedy; increasing closures, re-entries, and business-type conversions.'},{role:'Itaewon Merchants Association',desc:'Pursuing commercial recovery and image improvement campaigns.'},{role:'Yongsan-gu / Seoul City',desc:'Strengthening safety infrastructure and formulating commercial revitalization support policies.'}]},
-  quote:'"Itaewon 2-dong shows organically formed vertical mixed-use — ground-floor commercial with residential above, now navigating post-decline revitalization."'},
-
- {id:'spot9',num:9,
-  ko:'소월로 — 남산 경계 가로',de:'Sowol-ro — Grünraumgrenze',en:'Sowol-ro — Green Edge Road',
-  tags:{ko:['녹지 네트워크','녹지-도시 접면','보행 연결성'],de:['Grünnetz','Grünraum-Stadt-Interface','Fußgängervernetzung'],en:['Green Network','Green-Urban Interface','Pedestrian Connectivity']},
-  char:{
-    ko:'남산공원과 도시 주거지·상업지 사이를 가르는 경계 가로. 차량 중심 도로로 녹지와 도시 생활권의 물리적 단절을 상징. 서울시 남산 르네상스 계획에서 보행 친화형 가로 전환 및 남산-용산공원 녹지축 연결의 핵심 구간으로 논의 중.',
-    de:'Grenzstraße zwischen dem Namsan-Park und den städtischen Wohn- und Gewerbegebieten. Als auf den Kfz-Verkehr ausgerichtete Straße symbolisiert sie die physische Trennung von Grünraum und urbanem Leben. Im Rahmen des Namsan-Renaissance-Projekts wird die Umgestaltung zur Fußgängerstraße und die Verbindung der Grünraumachse Namsan–Yongsan-Park diskutiert.',
-    en:'The boundary road separating Namsan Park from the urban residential and commercial fabric. A vehicle-oriented road symbolizing the physical disconnection between green space and urban life. Discussed as a key section in Seoul\'s Namsan Renaissance plan for pedestrian-friendly conversion and connecting the Namsan–Yongsan Park green axis.'},
-  update:{ko:null,de:null,en:null},
-  stats:[{n:'녹지축',l:{ko:'남산-용산공원 연결 핵심',de:'Namsan–Yongsan-Park-Achse',en:'Namsan–Yongsan Park Axis'}},{n:'르네상스',l:{ko:'남산 보행화 계획',de:'Namsan Renaissance Plan',en:'Namsan Renaissance Plan'}}],
-  issues:{
-    ko:['녹지 접근 단절 — 소월로가 보행자의 남산 접근을 차단. 횡단시설 부족.','남산-용산공원 녹지축 연결 — 용산공원 조성 본격화로 연결 녹지축 조성이 서울시 핵심 과제로 부상.'],
-    de:['Grünraum-Zugangssperre — Sowol-ro blockiert den Fußgängerzugang zum Namsan; unzureichende Querungsstellen.','Grünraumachse Namsan–Yongsan-Park — Mit dem Voranschreiten der Yongsan-Park-Entwicklung ist die Achsenverbindung zur zentralen Aufgabe der Stadt Seoul geworden.'],
-    en:['Green space access barrier — Sowol-ro blocks pedestrian access to Namsan; insufficient crossing facilities.','Namsan–Yongsan Park green axis — with Yongsan Park development advancing, connecting this axis is a key Seoul City priority.']},
-  stakeholders:{
-    ko:[{role:'보행·등산 이용자',desc:'남산공원 접근 수요. 횡단보도 위치·간격 개선 요구.'},{role:'서울시 (남산 르네상스)',desc:'소월로 보행화·녹지축 연결 정책 수립 주체.'}],
-    de:[{role:'Fußgänger / Wanderer',desc:'Nachfrage nach Namsan-Park-Zugang; fordern verbesserte Querungsstandorte.'},{role:'Stadt Seoul (Namsan Renaissance)',desc:'Planungsbehörde für Fußgängerumgestaltung und Grünraumachsenverbindung.'}],
-    en:[{role:'Pedestrians / hikers',desc:'Demand for Namsan Park access; requesting improved crosswalk locations.'},{role:'Seoul City (Namsan Renaissance)',desc:'Policy authority for Sowol-ro pedestrianization and green axis connectivity.'}]},
-  quote:'"Sowol-ro marks the hard boundary between Namsan\'s green belt and the urban residential fabric — a key site for green network connectivity proposals."'},
+    ko:[{role:'인근 주거·상업 건물주',desc:'공원 개방에 따른 지가 상승 기대. 일부는 접근로 변화에 우려.'},{role:'서울시 / 국토부',desc:'용산공원 조성 주체. 주변 지구단위계획과 연계한 접면부 관리 필요.'},{role:'환경·시민단체',desc:'공원의 생태적 기능 유지 및 상업화 방지 촉구.'},{role:'보행·자전거 이용자',desc:'공원을 거점으로 한 남산-한강 녹지축 연결 보행 수요.'}],
+    de:[{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung; teils besorgt über geänderte Erschließung.'},{role:'Stadt Seoul / Ministerium für Boden',desc:'Träger der Parkentwicklung; Randzonenmanagement mit Bebauungsplänen verknüpfen.'},{role:'Umwelt- und Bürgergruppen',desc:'Fordern Erhalt der Ökologie und Verhinderung der Kommerzialisierung.'},{role:'Fußgänger / Radfahrer',desc:'Nachfrage nach Grünachse Namsan–Han-Fluss mit Park als Verbindungsknoten.'}],
+    en:[{role:'Adjacent property owners',desc:'Expect value gains from park proximity; some concerned about changed access arrangements.'},{role:'Seoul City / Ministry of Land',desc:'Park development authority; needs interface zone management linked with district unit plans.'},{role:'Environmental / civic groups',desc:'Demand preservation of ecological function and prevention of commercialization.'},{role:'Pedestrians / cyclists',desc:'Demand for Namsan–Han River green axis using the park as connecting node.'}]},
+  quote:'"243 hectares of returned military land becoming urban park — the interface zone is where a once-closed city edge transforms into a green-urban frontier."'},
 ];
 
 /* ── GLOSSARY ── */
@@ -519,20 +581,82 @@ function etag(type){
 
 /* ── RENDER FUNCTIONS ── */
 function renderHome(){
-  const labels={ko:{label:'대상지 소개 · Field Survey Route',h1:'대상지',desc:'후암동 경사 주거지에서 출발해 해방촌·이태원을 거쳐 소월로까지 이어지는 설계 대상지. 구릉지 도시조직, 자연발생 혼합용도, 역사적 재생, 녹지 단절 문제를 한 루트에서 관찰합니다.',map:'대상지 계획도 — 핀을 클릭하면 Spot 설명으로 이동',spotttl:'설계 Spot 개요',s1:'외국인 거주 비율 (2025)',s2:'특별계획구역 대상 면적',s3:'허용 최고 높이',s4:'해방촌 형성 시작',s5:'설계 Spots · 도보 70분'},de:{label:'Entwurfsgebiet · Planungsgebiet',h1:'Entwurfsgebiet',desc:'Das Entwurfsgebiet erstreckt sich vom Hanglage-Wohnviertel Huam-dong über Haebangchon und Itaewon bis zur Sowol-ro. Es bietet Einblick in Hangbebauung, organisch gewachsene Nutzungsmischung, historische Stadterneuerung und Grünraumtrennung.',map:'Plangebietskarte — Auf einen Pin klicken für Details',spotttl:'Entwurfs-Spots Übersicht',s1:'Ausländeranteil (2025)',s2:'Sonderbaugebiet',s3:'Max. Gebäudehöhe',s4:'Entstehung Haebangchon',s5:'Entwurfs-Spots · ca. 70 Min.'},en:{label:'Design Site · Field Survey Route',h1:'Design Site',desc:'The design site extends from the hillside residential area of Huam-dong through Haebangchon and Itaewon to Sowol-ro. Observe hillside urban fabric, spontaneous mixed-use, historic regeneration, and green space disconnection.',map:'Site Plan — Click a pin to view spot details',spotttl:'Design Spot Overview',s1:'Foreign Resident Rate (2025)',s2:'Special Planning Zone',s3:'Max Height Permitted',s4:'Haebangchon Settlement Origin',s5:'Design Spots · ~70 min walk'}};
-  const L=labels[LANG];
-  const dots=MDOTS.map(d=>`<div class="map-dot" style="left:${d.x}%;top:${d.y}%;" onclick="go('spot${d.n}')"><span>${d.n}</span><div class="tip">Spot ${d.n} · ${tl(d)}</div></div>`).join('');
-  const cards=SPOTS.map(s=>`<div class="scard" onclick="go('${s.id}')"><div class="scard-num">Spot ${s.num}</div><div class="scard-main">${tl(s)}</div><div class="scard-sub">${LANG==='ko'?s.en:s.ko}</div><div class="scard-tags">${s.tags[LANG].slice(0,3).map(t=>`<span class="stag">${t}</span>`).join('')}<span class="scard-arr" style="margin-left:auto">→</span></div></div>`).join('');
-  return `<section class="hero"><div class="hero-label">${L.label}</div><h1>${L.h1}</h1><p class="hero-desc">${L.desc}</p></section>
-  <div class="stats-row"><div class="stat-cell"><div class="sn">16%</div><div class="sl">${L.s1}</div></div><div class="stat-cell"><div class="sn">32만㎡</div><div class="sl">${L.s2}</div></div><div class="stat-cell"><div class="sn">100m</div><div class="sl">${L.s3}</div></div><div class="stat-cell"><div class="sn">1945</div><div class="sl">${L.s4}</div></div><div class="stat-cell"><div class="sn">7</div><div class="sl">${L.s5}</div></div></div>
-  <div class="map-section"><div class="map-label">${L.map}</div><div class="map-wrap"><img src="${MURI}" alt="대상지 계획도">${dots}</div></div>
-  <div class="spots-section" style="padding-top:0;"><div class="sec-title">${L.spotttl}</div><div class="spots-grid">${cards}</div></div>`;
+  const L={
+    ko:{label:'SNU × TU Wien · April 2026',h1:'남산 남사면\n협업 설계 워크샵',
+      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 도시계획학과 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
+      s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'설계 Spots',s5:'참여 대학',
+      venue:'서울대학교 환경대학원 (82동)',
+      site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
+      schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →'},
+    de:{label:'SNU × TU Wien · April 2026',h1:'Namsan Südhangentwurfs-\nWorkshop',
+      desc:'Gemeinsamer Workshop der Seoul National University (GSES) und der TU Wien (Stadtplanung). Entwurfsgebiet: Namsan-Südhang — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themen: Hangbebauung, organische Nutzungsmischung, Grünraumtrennung und multikulturelles Gewerbe.',
+      s1:'Workshop-Zeitraum',s2:'Stadtexkursion',s3:'Ort',s4:'Entwurfs-Spots',s5:'Partneruniversitäten',
+      venue:'SNU Graduate School of Environmental Studies, Gebäude 82',
+      site:'Namsan-Südhang — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
+      schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →'},
+    en:{label:'SNU × TU Wien · April 2026',h1:'Namsan South Slope\nDesign Workshop',
+      desc:'Joint workshop between Seoul National University (GSES) and TU Wien (Urban Planning). Design site: Namsan south slope — Huam-dong, Haebangchon, Itaewon, Sowol-ro. Themes: hillside residential, spontaneous mixed-use, green space severance, and multicultural commercial streets.',
+      s1:'Workshop Period',s2:'Field Trips',s3:'Venue',s4:'Design Spots',s5:'Universities',
+      venue:'SNU Graduate School of Environmental Studies, Building 82',
+      site:'Namsan South Slope — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
+      schedtitle:'Full Schedule',detailbtn:'Detailed schedule →'},
+  }[LANG];
+
+  const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
+
+  return `
+  <section class="hero">
+    <div class="hero-label">${L.label}</div>
+    <h1 style="white-space:pre-line">${L.h1}</h1>
+    <p class="hero-desc">${L.desc}</p>
+  </section>
+  <div class="stats-row">
+    <div class="stat-cell"><div class="sn">Apr 7–10</div><div class="sl">${L.s1}</div></div>
+    <div class="stat-cell"><div class="sn">Apr 2–5</div><div class="sl">${L.s2}</div></div>
+    <div class="stat-cell"><div class="sn">82동</div><div class="sl">${L.s3}</div></div>
+    <div class="stat-cell"><div class="sn">8</div><div class="sl">${L.s4}</div></div>
+    <div class="stat-cell"><div class="sn">SNU × TUW</div><div class="sl">${L.s5}</div></div>
+  </div>
+  <div style="max-width:960px;margin:0 auto;padding:28px 40px 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#000;border:1px solid #000;margin-bottom:36px;">
+      <div style="background:#fff;padding:20px 24px;">
+        <div class="clabel">${L.s3}</div>
+        <p class="btext">${L.venue}</p>
+      </div>
+      <div style="background:#fff;padding:20px 24px;">
+        <div class="clabel">${L.site.split('—')[0].trim()}</div>
+        <p class="btext">${L.site.split('—')[1]?.trim()||L.site}</p>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:640px;margin:0 auto;padding:0 40px 12px;">
+    <div class="sec-title">${L.schedtitle}</div>
+  </div>
+  <div style="max-width:640px;margin:0 auto;padding:0 40px 60px;">
+    ${mkPhase(L.ph1||'서울 도시 답사','Phase 1',SCHED_P1)}
+    ${mkPhase(L.ph2||'SNU × TUW Workshop','Phase 2',SCHED_P2)}
+    <div style="margin-top:20px;padding-top:18px;border-top:2px solid #000;">
+      <button class="sncenter" onclick="go('sched')" style="cursor:pointer;font-family:'Inter',sans-serif;">${L.detailbtn}</button>
+    </div>
+  </div>`;
 }
 
 function renderSite(){
-  const L={ko:{label:'설계 대상지',h1:'대상지',desc:'총 7개 설계 Spot · 후암동 → 해방촌 → 이태원 → 소월로 · 도보 약 70분'},de:{label:'Entwurfsgebiet',h1:'Entwurfsgebiet',desc:'7 Entwurfs-Spots · Huam-dong → Haebangchon → Itaewon → Sowol-ro · ca. 70 Min.'},en:{label:'Design Site',h1:'Design Site',desc:'7 Design Spots · Huam-dong → Haebangchon → Itaewon → Sowol-ro · ~70 min walk'}}[LANG];
-  const cards=SPOTS.map(s=>`<div class="scard" onclick="go('${s.id}')"><div class="scard-num">Spot ${s.num}</div><div class="scard-main">${tl(s)}</div><div class="scard-sub">${LANG==='ko'?s.en:s.ko}</div><div class="scard-tags">${s.tags[LANG].map(t=>`<span class="stag">${t}</span>`).join('')}<span class="scard-arr" style="margin-left:auto">→</span></div></div>`).join('');
-  return `<section class="hero"><div class="hero-label">${L.label}</div><h1>${L.h1}</h1><p class="hero-desc">${L.desc}</p></section><div class="spots-section" style="padding-top:36px;"><div class="spots-grid">${cards}</div></div>`;
+  const L={
+    ko:{label:'설계 대상지',h1:'대상지',desc:'총 8개 설계 Spot · 후암동 → 해방촌 → 이태원 → 소월로 · 도보 약 80분',map:'대상지 계획도 — 핀을 클릭하면 Spot 설명으로 이동',spotttl:'설계 Spot 개요'},
+    de:{label:'Entwurfsgebiet',h1:'Entwurfsgebiet',desc:'8 Entwurfs-Spots · Huam-dong → Haebangchon → Itaewon → Sowol-ro · ca. 80 Min.',map:'Plangebietskarte — Auf einen Pin klicken für Details',spotttl:'Entwurfs-Spots Übersicht'},
+    en:{label:'Design Site',h1:'Design Site',desc:'8 Design Spots · Huam-dong → Haebangchon → Itaewon → Sowol-ro · ~80 min walk',map:'Site Plan — Click a pin to view spot details',spotttl:'Design Spot Overview'},
+  }[LANG];
+  const dots=MDOTS.map(d=>`<div class="map-dot" style="left:${d.x}%;top:${d.y}%;" onclick="go('spot${d.n}')"><span>${d.n}</span><div class="tip">Spot ${d.n} · ${tl(d)}</div></div>`).join('');
+  const cards=SPOTS.map(s=>`<div class="scard" onclick="go('${s.id}')"><div class="scard-num">Spot ${s.num}</div><div class="scard-main">${tl(s)}</div><div class="scard-sub">${LANG==='ko'?s.en:s.ko}</div><div class="scard-tags">${s.tags[LANG].slice(0,3).map(t=>`<span class="stag">${t}</span>`).join('')}<span class="scard-arr" style="margin-left:auto">→</span></div></div>`).join('');
+  return `
+  <section class="hero">
+    <div class="hero-label">${L.label}</div>
+    <h1>${L.h1}</h1>
+    <p class="hero-desc">${L.desc}</p>
+  </section>
+  <div class="map-section"><div class="map-label">${L.map}</div><div class="map-wrap"><img src="${MURI}" alt="대상지 계획도">${dots}</div></div>
+  <div class="spots-section" style="padding-top:0;"><div class="sec-title">${L.spotttl}</div><div class="spots-grid">${cards}</div></div>`;
 }
 
 function renderSpot(s){
