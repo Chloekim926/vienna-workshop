@@ -1,471 +1,439 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>남산 남사면 협업 설계 워크샵 — Namsan South Slope Workshop</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#FAF8F4;--bg2:#F0EDE6;--bg3:#E8E4DC;
-  --tx:#1A1A1A;--tx2:#4A4A4A;--tx3:#8A8A8A;
-  --team-a:#D63B3A;--team-b:#C4501E;--team-c:#A66A10;
-  --team-d:#0D7A5F;--team-e:#4A3FA5;
-  --serif:'DM Serif Display',Georgia,serif;
-  --sans:'Noto Sans KR','Helvetica Neue',sans-serif;
-  --mono:'JetBrains Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased}
+# 남산 일대 현장 답사 — Vienna Workshop 2025
+## Namsan Site Analysis · Field Survey Route
 
-/* Language toggle */
-.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;border:1px solid var(--tx);border-radius:2px;overflow:hidden;font-size:12px;letter-spacing:.05em;backdrop-filter:blur(12px)}
-.lang-btn{padding:6px 14px;cursor:pointer;background:transparent;color:var(--tx);transition:all .2s;font-family:var(--mono);border:none;font-size:12px}
-.lang-btn.active{background:var(--tx);color:var(--bg)}
-.hero-area .lang-toggle{border-color:rgba(255,255,255,.4)}
-.hero-area .lang-btn{color:rgba(255,255,255,.7)}
-.hero-area .lang-btn.active{background:rgba(255,255,255,.9);color:#1A1A1A}
+Seoul National University · Urban Planning · 2025
 
-/* Hero */
-.hero{background:#1A1E2E;color:#fff;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,30,46,.95),rgba(26,30,46,.7));z-index:1}
-.hero>*{position:relative;z-index:2}
-.hero-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-bottom:24px;text-transform:uppercase}
-.hero h1{font-family:var(--serif);font-size:clamp(36px,6vw,64px);font-weight:400;line-height:1.15;margin-bottom:16px;max-width:700px}
-.hero h1 em{font-style:italic;color:rgba(255,255,255,.5)}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.45);max-width:550px;line-height:1.8;margin-bottom:48px}
-.hero-teams{display:flex;gap:16px;flex-wrap:wrap}
-.hero-team{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.5);font-family:var(--mono)}
-.hero-team .dot{width:10px;height:10px;border-radius:50%}
-.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.1em;font-family:var(--mono);animation:float 2s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+---
 
-/* Map section */
-.map-section{padding:80px 40px;background:#1A1E2E}
-.map-section h2{font-family:var(--serif);font-size:28px;color:#fff;margin-bottom:6px}
-.map-section .sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:32px;font-family:var(--mono)}
-.map-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.map-img{width:100%;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
-.map-legend{display:flex;flex-direction:column;gap:12px}
-.legend-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border-left:3px solid;border-radius:0 6px 6px 0;transition:background .2s}
-.legend-item:hover{background:rgba(255,255,255,.08)}
-.legend-item h4{font-size:13px;color:#fff;font-weight:500;margin-bottom:2px}
-.legend-item p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
-.legend-item .spots{font-size:10px;color:rgba(255,255,255,.25);font-family:var(--mono);margin-top:4px}
+# PART 1. 현장 답사 루트 · Field Survey Route
 
-/* Content */
-.content{max-width:900px;margin:0 auto;padding:80px 40px}
-.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--tx3);margin-bottom:32px;text-transform:uppercase}
+후암동 경사 주거지에서 출발해 해방촌·이태원을 거쳐 소월로까지 이어지는 답사 루트. 구릉지 도시조직, 자연발생 혼합용도, 역사적 재생, 녹지 단절, 대형 개발의 공공성 문제를 한 흐름으로 관찰한다.
 
-/* Team card */
-.team-card{margin-bottom:64px;border-top:1px solid var(--bg3);padding-top:40px}
-.team-header{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap}
-.team-badge{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#fff;padding:3px 10px;border-radius:2px}
-.team-title-kr{font-family:var(--serif);font-size:28px}
-.team-title-en{font-size:14px;color:var(--tx3);font-style:italic;margin-bottom:24px}
-.team-spots{font-size:12px;color:var(--tx3);margin-bottom:28px;padding:10px 14px;background:var(--bg2);border-radius:4px;line-height:1.8}
+> Starting from the hillside residential area of Huam-dong, passing through Haebangchon and Itaewon to Sowol-ro. The route allows observation of hillside urban fabric, spontaneous mixed-use, historic regeneration, green disconnection, and the public interest issues of large-scale development — all in a single walk.
 
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px}
-.col-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--bg3)}
-.issue-kr{font-size:14px;color:var(--tx);line-height:1.8;margin-bottom:12px}
-.issue-en{font-size:13px;color:var(--tx3);line-height:1.8;font-style:italic}
+**총 10 Spots · 도보 약 90분 · 용산구 일대**
 
-.question-list{display:flex;flex-direction:column;gap:12px}
-.q-item{padding:14px 16px;background:var(--bg2);border-radius:4px;position:relative}
-.q-num{font-family:var(--mono);font-size:11px;position:absolute;top:14px;left:16px}
-.q-kr{font-size:13px;margin-left:28px;margin-bottom:4px;line-height:1.7}
-.q-en{font-size:12px;color:var(--tx3);margin-left:28px;font-style:italic;line-height:1.6}
+### 배경 통계 · Background Data
 
-.refs{font-size:11px;color:var(--tx3);font-family:var(--mono);padding-top:16px;border-top:1px solid var(--bg3);letter-spacing:.01em}
+| 지표 | 수치 | 비고 |
+|---|---|---|
+| 해방촌(용산2가동) 외국인 거주 비율 | 16% | 2025년 기준, 약 6명 중 1명 |
+| 후암동 특별계획구역 재정비 대상 면적 | 32만 1,281㎡ | 2024년 수정가결 |
+| 후암동 허용 최고 높이 | 100m (주거 33층) | 2024년 지구단위계획 변경 |
+| 해방촌 형성 시작 | 1945년 | 해방 후 피란민 정착 |
+| 도시재생 뉴딜사업 지정 | 2019년 | 일반근린형 |
 
-/* Connections section */
-.connections{margin-bottom:64px;border-top:1px solid var(--bg3);padding-top:40px}
-.connections h3{font-family:var(--serif);font-size:24px;margin-bottom:6px}
-.connections .sub{font-size:13px;color:var(--tx3);font-style:italic;margin-bottom:28px}
-.conn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.conn-item{padding:16px;background:var(--bg2);border-radius:4px;border-left:3px solid var(--bg3)}
-.conn-item .kr{font-size:13px;margin-bottom:4px}
-.conn-item .en{font-size:12px;color:var(--tx3);font-style:italic}
-.conn-item .link{font-size:10px;color:var(--tx3);font-family:var(--mono);margin-top:6px}
+---
 
-/* Footer */
-footer{background:#1A1E2E;color:rgba(255,255,255,.3);padding:40px;text-align:center;font-size:12px;line-height:1.8}
-footer a{color:rgba(255,255,255,.5)}
+## Spot 1 · 후암동 경사 주거지
+### Huam-dong Hillside Residential Area
 
-/* Language switching */
-[data-lang="en"]{display:none}
-body.en [data-lang="ko"]{display:none}
-body.en [data-lang="en"]{display:block}
-body.en [data-lang="en-inline"]{display:inline}
-body.en [data-lang="ko-inline"]{display:none}
-[data-lang="en-inline"]{display:none}
+**키워드** Urban Morphology · Hillside Development · Lot Pattern · Redevelopment
 
-/* Mobile */
-@media(max-width:768px){
-  .hero{padding:60px 24px 40px}
-  .map-wrap{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}
-  .content{padding:48px 24px}
-  .map-section{padding:48px 24px}
-  .conn-grid{grid-template-columns:1fr}
-  .lang-toggle{top:12px;right:12px}
-}
+### 공간 특징 · Spatial Character
 
-/* Print */
-@media print{
-  .lang-toggle,.scroll-hint{display:none}
-  .hero{min-height:auto;padding:40px;page-break-after:always}
-  .team-card{page-break-inside:avoid}
-}
-</style>
-</head>
-<body>
+남산 북사면에 형성된 저층 경사 주거지. 평균 경사 15~25도의 구릉지에 불규칙한 소규모 필지와 막다른 골목이 얽혀 있으며 차량 접근이 극도로 제한된다. 일제강점기 삼판통(三坂通) 일본인 고급 주택단지로 개발되었다가 해방 후 피란민 등이 정착하며 현재의 저층 고밀 조직으로 변화하였다.
 
-<!-- Language Toggle -->
-<div class="lang-toggle hero-area" id="langToggle">
-  <button class="lang-btn active" onclick="setLang('ko')">KO</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
-</div>
+> A low-rise hillside residential area on the northern slope of Namsan. Irregular small-scale lots and dead-end alleys are intertwined on a slope averaging 15–25°, with extremely limited vehicle access. Originally developed as an upscale Japanese residential district (Samban-tong) during the colonial period, it was subsequently settled by refugees and returnees after liberation, transforming into the current dense low-rise fabric.
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-label">Collaborative Urban Design Workshop — Vienna 2026</div>
-  <h1>
-    <span data-lang="ko">남산 남사면<br>협업 설계 워크샵</span>
-    <span data-lang="en">Namsan South Slope<br><em>Collaborative Design</em></span>
-  </h1>
-  <p class="hero-sub">
-    <span data-lang="ko">용산구 후암동 · 해방촌 · 이태원2동 · 한남동 경계<br>5개 팀 × 7개 설계 스팟 — 남산 남사면 전체를 하나의 시스템으로</span>
-    <span data-lang="en">Yongsan-gu: Huam-dong · Haebangchon · Itaewon 2-dong · Hannam boundary<br>5 teams × 7 design spots — the entire south slope as one interconnected system</span>
-  </p>
-  <div class="hero-teams">
-    <div class="hero-team"><div class="dot" style="background:var(--team-a)"></div>Team A</div>
-    <div class="hero-team"><div class="dot" style="background:var(--team-b)"></div>Team B</div>
-    <div class="hero-team"><div class="dot" style="background:var(--team-c)"></div>Team C</div>
-    <div class="hero-team"><div class="dot" style="background:var(--team-d)"></div>Team D</div>
-    <div class="hero-team"><div class="dot" style="background:var(--team-e)"></div>Team E</div>
-  </div>
-  <div class="scroll-hint">↓ SCROLL</div>
-</section>
+### 최근 계획 현황 · Planning Update (2024)
 
-<!-- Map -->
-<section class="map-section">
-  <h2>
-    <span data-lang="ko">답사 루트 · 설계 스팟</span>
-    <span data-lang="en">Field Route · Design Spots</span>
-  </h2>
-  <div class="sub">7 spots across the Namsan south slope</div>
-  <div class="map-wrap">
-    <img src="map_annotated.png" alt="Annotated map of Namsan south slope with 7 design spots" class="map-img">
-    <div class="map-legend">
-      <div class="legend-item" style="border-color:var(--team-a)">
-        <div>
-          <h4>Team A — <span data-lang="ko-inline">경사지 보행</span><span data-lang="en-inline">Hillside Mobility</span></h4>
-          <p data-lang="ko">108계단 경사형 승강기 + 한남·하얏트 경계부의 수직 접근성 문제</p>
-          <p data-lang="en">Vertical accessibility at the 108 Stairs inclined elevator and the Hannam/Hyatt boundary</p>
-          <div class="spots">Spot 1 + Spot 6</div>
-        </div>
-      </div>
-      <div class="legend-item" style="border-color:var(--team-b)">
-        <div>
-          <h4>Team B — <span data-lang="ko-inline">도시재생 vs 젠트리피케이션</span><span data-lang="en-inline">Regeneration vs Gentrification</span></h4>
-          <p data-lang="ko">해방촌 오거리·신흥시장 — 공공 재생이 촉발한 상업화의 역설</p>
-          <p data-lang="en">Haebangchon 5-way & Sinheung Market — the paradox of public-led regeneration</p>
-          <div class="spots">Spot 2</div>
-        </div>
-      </div>
-      <div class="legend-item" style="border-color:var(--team-c)">
-        <div>
-          <h4>Team C — <span data-lang="ko-inline">경사지 주거정비</span><span data-lang="en-inline">Housing Renewal on Slopes</span></h4>
-          <p data-lang="ko">후암동 노후주거지 — 특별계획구역 내 전면 철거 vs 점진적 재생</p>
-          <p data-lang="en">Huam-dong deteriorated housing — total demolition vs incremental regeneration</p>
-          <div class="spots">Spot 3</div>
-        </div>
-      </div>
-      <div class="legend-item" style="border-color:var(--team-d)">
-        <div>
-          <h4>Team D — <span data-lang="ko-inline">녹지축 · 생태경계</span><span data-lang="en-inline">Green Axis + Ecological Boundary</span></h4>
-          <p data-lang="ko">남산 그린웨이 축 + 소월길 13m 옹벽 — 단절된 생태축 복원</p>
-          <p data-lang="en">Namsan Greenway axis + Sowol-gil 13m retaining wall — restoring the severed green corridor</p>
-          <div class="spots">Spot 4 + Spot 7</div>
-        </div>
-      </div>
-      <div class="legend-item" style="border-color:var(--team-e)">
-        <div>
-          <h4>Team E — <span data-lang="ko-inline">가로 활력 · 용도 전환</span><span data-lang="en-inline">Street Vitality + Use Transition</span></h4>
-          <p data-lang="ko">이태원2동·디지텍고 일대 — 코로나 이후 상권 위축과 빈 점포</p>
-          <p data-lang="en">Itaewon 2-dong area — post-COVID commercial decline and vacant storefronts</p>
-          <div class="spots">Spot 5</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+2024년 9월 서울시 도시·건축공동위원회에서 후암동 특별계획구역 재정비안 수정가결. 대상 면적 32만 1,281㎡에 최고 100m(주거 33층, 상업 20층) 개발 허용. 한강대로 인접 3종 일반주거지역을 준주거지역으로 상향하고, 폭 20m 공공 보행통로 및 용산공원-남산 녹지축 연결 계획 포함.
 
-<!-- Team Details -->
-<div class="content">
-  <div class="section-label">
-    <span data-lang="ko">팀별 설계 브리프</span>
-    <span data-lang="en">Team Design Briefs</span>
-  </div>
+> In September 2024, Seoul's Urban-Architecture Joint Committee approved the revision of the Huam-dong Special Planning Zone. The plan allows development up to 100m (33 floors residential, 20 floors commercial) over 321,281㎡. The area adjacent to Hangangdaero will be rezoned from 3rd-class residential to semi-residential, with a 20m-wide public pedestrian corridor and a planned green axis connecting Yongsan Park and Namsan.
 
-  <!-- Team A -->
-  <div class="team-card">
-    <div class="team-header">
-      <span class="team-badge" style="background:var(--team-a)">TEAM A</span>
-      <span class="team-title-kr" data-lang="ko">경사지 보행</span>
-      <span class="team-title-kr" data-lang="en">Hillside Mobility</span>
-    </div>
-    <div class="team-title-en">
-      <span data-lang="ko">Hillside Mobility</span>
-      <span data-lang="en">경사지 보행</span>
-    </div>
-    <div class="team-spots">
-      <span data-lang="ko">Spot 1 — 108계단 · 경사형 승강기 &nbsp;|&nbsp; Spot 6 — 한남 · 하얏트 경계</span>
-      <span data-lang="en">Spot 1 — 108 Stairs + Inclined Elevator &nbsp;|&nbsp; Spot 6 — Hannam / Grand Hyatt Boundary</span>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="col-label" style="color:var(--team-a)">
-          <span data-lang="ko">핵심 이슈 Core Issue</span>
-          <span data-lang="en">Core Issue 핵심 이슈</span>
-        </div>
-        <div class="issue-kr" data-lang="ko">두 지점 모두 극심한 표고차(108계단: 53m 구간 / 한남 지하차도: 11m 낙차)로 보행 네트워크가 단절된 곳. 1943년 일제 신사 참배길이었던 108계단에는 2018년 서울 주택가 최초의 경사형 승강기(28억원)가 설치됨. 한남 경계부는 하얏트 슈퍼블록이 지역 가로 네트워크를 차단하는 전형적 사례.</div>
-        <div class="issue-kr" data-lang="en">Both spots share extreme elevation gaps severing pedestrian networks. The 108 Stairs — originally a 1943 Japanese shrine path — received Seoul's first residential inclined elevator in 2018 (2.8B KRW). The Hannam boundary shows how the Hyatt superblock fragments the local street grid.</div>
-      </div>
-      <div>
-        <div class="col-label" style="color:var(--team-a)">
-          <span data-lang="ko">설계 질문 Design Questions</span>
-          <span data-lang="en">Design Questions 설계 질문</span>
-        </div>
-        <div class="question-list">
-          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q1</div><div class="q-kr" data-lang="ko">경사형 승강기 모델이 다른 구릉지 마을로 확장 가능한가, 아니면 단발성 개입인가?</div><div class="q-kr" data-lang="en">Can the inclined elevator model scale to other hillside neighborhoods, or is it a one-off intervention?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q2</div><div class="q-kr" data-lang="ko">하얏트 슈퍼블록이 만든 가로 단절을 어떻게 재연결할 수 있는가?</div><div class="q-kr" data-lang="en">How would you reconnect the street grid fragmented by the Hyatt superblock?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-a)">Q3</div><div class="q-kr" data-lang="ko">차량 인프라와 보행자 우선 경사지 설계의 적정 균형점은?</div><div class="q-kr" data-lang="en">What is the right balance between vehicular infrastructure and pedestrian-first hillside design?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="refs">cf. Lisbon — Elevador da Bica &nbsp;|&nbsp; Medellín — Escaleras Eléctricas &nbsp;|&nbsp; Vienna — Strudlhofstiege</div>
-  </div>
+### 도시 문제 · Urban Issues
 
-  <!-- Team B -->
-  <div class="team-card">
-    <div class="team-header">
-      <span class="team-badge" style="background:var(--team-b)">TEAM B</span>
-      <span class="team-title-kr" data-lang="ko">도시재생 vs 젠트리피케이션</span>
-      <span class="team-title-kr" data-lang="en">Regeneration vs Gentrification</span>
-    </div>
-    <div class="team-title-en">
-      <span data-lang="ko">Regeneration vs Gentrification</span>
-      <span data-lang="en">도시재생 vs 젠트리피케이션</span>
-    </div>
-    <div class="team-spots">
-      <span data-lang="ko">Spot 2 — 해방촌 오거리 · 신흥시장</span>
-      <span data-lang="en">Spot 2 — Haebangchon 5-way Intersection & Sinheung Market</span>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="col-label" style="color:var(--team-b)">
-          <span data-lang="ko">핵심 이슈 Core Issue</span>
-          <span data-lang="en">Core Issue 핵심 이슈</span>
-        </div>
-        <div class="issue-kr" data-lang="ko">170억원 투입 도시재생(8대 마중물사업), 신흥시장 클라우드 지붕(2024 서울시 건축상 대상). 그러나 상가 월세 3배 폭등(2015년 50만→2018년 150만원). 2~3층 휴먼스케일은 유지되나, 원주민 상업·주거 이탈 가속. 상생협약(2016) 체결에도 실효성 논란.</div>
-        <div class="issue-kr" data-lang="en">170B KRW public regeneration with 8 anchor projects; Sinheung Market's cloud canopy won the 2024 Seoul Architecture Award. Yet rents tripled (500K→1.5M KRW/month, 2015–2018). Human-scale 2–3 story fabric survives, but original residents/businesses are displaced. Mutual-benefit agreements (2016) face effectiveness questions.</div>
-      </div>
-      <div>
-        <div class="col-label" style="color:var(--team-b)">
-          <span data-lang="ko">설계 질문 Design Questions</span>
-          <span data-lang="en">Design Questions 설계 질문</span>
-        </div>
-        <div class="question-list">
-          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q1</div><div class="q-kr" data-lang="ko">공간설계(정책이 아닌)로 젠트리피케이션을 늦출 수 있는가?</div><div class="q-kr" data-lang="en">Can spatial design (not just policy) slow gentrification — e.g. mixed-use zoning, community land trusts?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q2</div><div class="q-kr" data-lang="ko">시장의 '클라우드 지붕'이 관광 경험과 동네 기능 사이를 어떻게 매개해야 하는가?</div><div class="q-kr" data-lang="en">How should the 'cloud roof' mediate between curated tourist experience and neighborhood functions?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-b)">Q3</div><div class="q-kr" data-lang="ko">공공 재생 사업 종료 후의 자생적 운영 모델은?</div><div class="q-kr" data-lang="en">What does a post-regeneration stewardship model look like when public funding ends?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="refs">cf. Vienna — Brunnenmarkt Regeneration &nbsp;|&nbsp; Berlin — Kreuzberg Anti-displacement &nbsp;|&nbsp; Seoul — Seongsu Sangsaeng Agreement</div>
-  </div>
+- **보행 접근성 단절** — 급경사로 인해 고령자·장애인 이동 불가 구간 다수. 엘리베이터 없는 계단길이 유일한 접근로인 필지 존재.
+  Pedestrian access severed — many sections are impassable for elderly and disabled residents. Some lots are accessible only via stairways with no elevator.
 
-  <!-- Team C -->
-  <div class="team-card">
-    <div class="team-header">
-      <span class="team-badge" style="background:var(--team-c)">TEAM C</span>
-      <span class="team-title-kr" data-lang="ko">경사지 주거정비</span>
-      <span class="team-title-kr" data-lang="en">Housing Renewal on Slopes</span>
-    </div>
-    <div class="team-title-en">
-      <span data-lang="ko">Housing Renewal on Slopes</span>
-      <span data-lang="en">경사지 주거정비</span>
-    </div>
-    <div class="team-spots">
-      <span data-lang="ko">Spot 3 — 후암동 노후주거지 (특별계획구역 2구역)</span>
-      <span data-lang="en">Spot 3 — Huam-dong Deteriorated Housing Zone (Special Planning Zone #2)</span>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="col-label" style="color:var(--team-c)">
-          <span data-lang="ko">핵심 이슈 Core Issue</span>
-          <span data-lang="en">Core Issue 핵심 이슈</span>
-        </div>
-        <div class="issue-kr" data-lang="ko">서울역·남산·용산공원 인접 최고 입지에도 수십 년 정비 부재. 2010년 특별계획구역 지정 후 3개 구역 분할. 동후암 일대는 신속통합기획 대상지 선정(2023). 표고차 극심한 구릉지에 무허가·노후 건물 밀집. 남산 조망축 고도제한이 건축 형태를 제약.</div>
-        <div class="issue-kr" data-lang="en">Despite prime location (Seoul Station, Namsan, future Yongsan Park), decades of planning indecision. Designated Special Planning Zone in 2010, split into 3 sub-districts. East Huam selected for fast-track integrated planning (2023). Steep hillside with unauthorized/deteriorated buildings; Namsan view corridor height limits constrain building form.</div>
-      </div>
-      <div>
-        <div class="col-label" style="color:var(--team-c)">
-          <span data-lang="ko">설계 질문 Design Questions</span>
-          <span data-lang="en">Design Questions 설계 질문</span>
-        </div>
-        <div class="question-list">
-          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q1</div><div class="q-kr" data-lang="ko">경사지에서의 공동주택 설계 — 단면 스테핑, 테라스 중정, 공유 포디움?</div><div class="q-kr" data-lang="en">How do you design collective housing on a slope — stepped sections, terraced courtyards, shared podiums?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q2</div><div class="q-kr" data-lang="ko">'결합개발'이 구릉지 커뮤니티를 진정 보호하는가, 이주를 재배치할 뿐인가?</div><div class="q-kr" data-lang="en">Can 'coupled development' genuinely protect hillside communities, or does it just relocate displacement?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-c)">Q3</div><div class="q-kr" data-lang="ko">극단적 지형 + 고도제한을 만족시키는 건축 유형은?</div><div class="q-kr" data-lang="en">What building typology satisfies both extreme topography AND strict height limits?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="refs">cf. Vienna — Karl-Marx-Hof &nbsp;|&nbsp; Porto — SAAL Housing &nbsp;|&nbsp; Hong Kong — Hillside Escalator Link</div>
-  </div>
+- **기반시설 노후화** — 상하수도·전기 매설 연수 40년 이상 구간 다수. 소방차 진입 불가 골목 비율 높음.
+  Aging infrastructure — water/sewage and electrical lines over 40 years old in many sections. High proportion of alleys inaccessible to fire trucks.
 
-  <!-- Team D -->
-  <div class="team-card">
-    <div class="team-header">
-      <span class="team-badge" style="background:var(--team-d)">TEAM D</span>
-      <span class="team-title-kr" data-lang="ko">녹지축 · 생태경계</span>
-      <span class="team-title-kr" data-lang="en">Green Axis + Ecological Boundary</span>
-    </div>
-    <div class="team-title-en">
-      <span data-lang="ko">Green Axis + Ecological Boundary</span>
-      <span data-lang="en">녹지축 · 생태경계</span>
-    </div>
-    <div class="team-spots">
-      <span data-lang="ko">Spot 4 — 남산 그린웨이 축 &nbsp;|&nbsp; Spot 7 — 소월길 · 남산순환도로 (옹벽 13m)</span>
-      <span data-lang="en">Spot 4 — Namsan Greenway Axis &nbsp;|&nbsp; Spot 7 — Sowol-gil Ring Road (13m Retaining Wall)</span>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="col-label" style="color:var(--team-d)">
-          <span data-lang="ko">핵심 이슈 Core Issue</span>
-          <span data-lang="en">Core Issue 핵심 이슈</span>
-        </div>
-        <div class="issue-kr" data-lang="ko">대구상: 북한산~남산~용산공원~한강을 잇는 남북녹지축(폭 100~190m, 길이 900m). 소월길 건설 시 생긴 13m 옹벽이 남산 녹지와 주거지를 물리적으로 단절. 원래 그린웨이 계획(전면 철거 방식)은 주민 반대로 무산, 도시재생으로 전환. 무허가 건물·토지 세분화가 추가 장벽.</div>
-        <div class="issue-kr" data-lang="en">Grand vision: connect Bugaksan–Namsan–Yongsan Park–Han River as a continuous N-S green corridor (100–190m wide, 900m long). A 13m retaining wall from the Sowol-gil construction severs Namsan greenery from the settlement. Original clearance-based Greenway plan shelved after resident opposition; shifted to regeneration.</div>
-      </div>
-      <div>
-        <div class="col-label" style="color:var(--team-d)">
-          <span data-lang="ko">설계 질문 Design Questions</span>
-          <span data-lang="en">Design Questions 설계 질문</span>
-        </div>
-        <div class="question-list">
-          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q1</div><div class="q-kr" data-lang="ko">전면 철거 그린웨이의 대안은? 생태와 주거가 한 경사면에서 공존 가능한가?</div><div class="q-kr" data-lang="en">What alternatives exist to the shelved clearance greenway — can ecology and settlement coexist on one slope?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q2</div><div class="q-kr" data-lang="ko">13m 콘크리트 옹벽을 생활 가능한 인터페이스로 전환 — 녹화 테라스, 프로그램된 선반, 브릿징?</div><div class="q-kr" data-lang="en">How do you transform a 13m concrete wall into a livable interface — green terracing, programmed ledges, bridging?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-d)">Q3</div><div class="q-kr" data-lang="ko">차량 중심 소월길(남산순환도로)의 보행·생태 우선 전환이 가능한가?</div><div class="q-kr" data-lang="en">Can the car-dominated Sowol-gil be deprioritized for vehicles to restore the ecological corridor?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="refs">cf. Vienna — Gürtel Green Corridor &nbsp;|&nbsp; Seoul — Seun Sangga Green Axis &nbsp;|&nbsp; NYC — High Line (infra → ecology)</div>
-  </div>
+- **개발 압력 vs 원주민 이주** — 특별계획구역 지정으로 지가 상승. 장기 거주 고령 가구의 재정착 가능성 불투명.
+  Development pressure vs. displacement — land values rising after special zone designation. Uncertain resettlement prospects for long-term elderly households.
 
-  <!-- Team E -->
-  <div class="team-card">
-    <div class="team-header">
-      <span class="team-badge" style="background:var(--team-e)">TEAM E</span>
-      <span class="team-title-kr" data-lang="ko">가로 활력 · 용도 전환</span>
-      <span class="team-title-kr" data-lang="en">Street Vitality + Use Transition</span>
-    </div>
-    <div class="team-title-en">
-      <span data-lang="ko">Street Vitality + Use Transition</span>
-      <span data-lang="en">가로 활력 · 용도 전환</span>
-    </div>
-    <div class="team-spots">
-      <span data-lang="ko">Spot 5 — 이태원2동 · 서울디지텍고 일대</span>
-      <span data-lang="en">Spot 5 — Itaewon 2-dong / Seoul Digitech High School Area</span>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="col-label" style="color:var(--team-e)">
-          <span data-lang="ko">핵심 이슈 Core Issue</span>
-          <span data-lang="en">Core Issue 핵심 이슈</span>
-        </div>
-        <div class="issue-kr" data-lang="ko">코로나 이후 이태원 상권 위축이 배후 주거지로 파급. 학교(용암초·서울디지텍고) 밀집으로 주간 통행은 있으나 야간 사각지대. 빈 점포 증가로 가로 활력 저하. 경사지 이면도로 보차혼용, 인도 부재, 만성적 주차 부족. 상주인구 감소 추세.</div>
-        <div class="issue-kr" data-lang="en">Post-COVID Itaewon commercial decline ripples into this residential hinterland. Schools create daytime traffic but evening dead zones. Vacant storefronts accumulate on hillside back streets. Mixed car-pedestrian roads with no sidewalks, chronic parking shortage, declining resident population.</div>
-      </div>
-      <div>
-        <div class="col-label" style="color:var(--team-e)">
-          <span data-lang="ko">설계 질문 Design Questions</span>
-          <span data-lang="en">Design Questions 설계 질문</span>
-        </div>
-        <div class="question-list">
-          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q1</div><div class="q-kr" data-lang="ko">학교 캠퍼스가 수업 시간 외에도 동네 생활 촉매가 될 수 있는가?</div><div class="q-kr" data-lang="en">Can school campuses catalyze neighborhood life beyond school hours — shared facilities, evening programs?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q2</div><div class="q-kr" data-lang="ko">경사지 이면도로를 활성화하는 가로 설계 — 공유공간(Woonerf), 전술적 도시주의, 팝업 마켓?</div><div class="q-kr" data-lang="en">What street design activates hillside back streets — Woonerf, tactical urbanism, pop-up markets?</div></div>
-          <div class="q-item"><div class="q-num" style="color:var(--team-e)">Q3</div><div class="q-kr" data-lang="ko">성장이 아닌 축소에 대응하는 '축소 도시주의' 전략이 여기서 유효한가?</div><div class="q-kr" data-lang="en">Is there a viable 'shrinkage urbanism' strategy — designing for fewer people rather than chasing growth?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="refs">cf. Vienna — Mariahilfer Straße Shared Space &nbsp;|&nbsp; Japan — Shrinking City Strategies &nbsp;|&nbsp; Barcelona — Superilles</div>
-  </div>
+- **공공기여 설계** — 보행통로·공원 기부채납 방식의 실효성. 용산공원-남산 녹지축 연결의 실현 가능성.
+  Design of public contribution — effectiveness of pedestrian corridor and park dedications. Feasibility of realizing the Yongsan Park–Namsan green axis.
 
-  <!-- Inter-team Connections -->
-  <div class="connections">
-    <h3>
-      <span data-lang="ko">팀 간 연결 관계</span>
-      <span data-lang="en">Inter-team Connections</span>
-    </h3>
-    <div class="sub">
-      <span data-lang="ko">남산 남사면 전체를 하나의 시스템으로 — 개별 해법이 아닌 협업 설계</span>
-      <span data-lang="en">The entire south slope as one system — collaborative design, not isolated solutions</span>
-    </div>
-    <div class="conn-grid">
-      <div class="conn-item" style="border-color:var(--team-a)">
-        <div class="kr" data-lang="ko">보행 인프라가 녹지축 접근을 연다</div>
-        <div class="kr" data-lang="en">Mobility infra enables green axis access</div>
-        <div class="link">Team A → Team D</div>
-      </div>
-      <div class="conn-item" style="border-color:var(--team-a)">
-        <div class="kr" data-lang="ko">접근성이 시장 이용자를 결정한다</div>
-        <div class="kr" data-lang="en">Accessibility shapes who can access the market</div>
-        <div class="link">Team A → Team B</div>
-      </div>
-      <div class="conn-item" style="border-color:var(--team-b)">
-        <div class="kr" data-lang="ko">재생 압력이 주거지로 밀려든다</div>
-        <div class="kr" data-lang="en">Regeneration pressure pushes into housing zone</div>
-        <div class="link">Team B → Team C</div>
-      </div>
-      <div class="conn-item" style="border-color:var(--team-b)">
-        <div class="kr" data-lang="ko">상업 유출이 가로활력에 영향</div>
-        <div class="kr" data-lang="en">Commercial spillover affects street vitality</div>
-        <div class="link">Team B → Team E</div>
-      </div>
-      <div class="conn-item" style="border-color:var(--team-d)">
-        <div class="kr" data-lang="ko">녹지축 활성화에 가로 활력 필요</div>
-        <div class="kr" data-lang="en">Green corridor needs active street edges</div>
-        <div class="link">Team D ↔ Team E</div>
-      </div>
-    </div>
-  </div>
-</div>
+### 이해관계자 · Stakeholders
 
-<!-- Footer -->
-<footer>
-  <span data-lang="ko">남산 남사면 협업 설계 워크샵 — 비엔나 2026</span>
-  <span data-lang="en">Namsan South Slope Collaborative Design Workshop — Vienna 2026</span>
-  <br>
-  <span data-lang="ko">용산구 후암동 · 해방촌 · 이태원2동 · 한남동</span>
-  <span data-lang="en">Yongsan-gu: Huam-dong · Haebangchon · Itaewon 2-dong · Hannam-dong</span>
-</footer>
+| 주체 | 내용 |
+|---|---|
+| 장기 거주 원주민 (Long-term residents) | 30~40년 이상 거주 고령 가구 다수. 재개발 시 임대주택 배정 또는 이주지원금 대상이나 인근 재정착 가능성 낮음. |
+| 서울시 / 용산구 (Seoul City / Yongsan-gu) | 지구단위계획 수립 주체. 2024년 재정비안으로 개발 촉진 기조로 전환. |
+| 민간 시행사 / 조합 (Developers / Associations) | 특별계획구역 내 정비사업 추진 주체. 공공기여 협상의 핵심 당사자. |
 
-<script>
-function setLang(lang) {
-  document.body.classList.toggle('en', lang === 'en');
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
-  });
-  localStorage.setItem('lang', lang);
-}
-// Restore saved language
-const saved = localStorage.getItem('lang');
-if (saved) setLang(saved);
-</script>
-</body>
-</html>
+> "Organically grown hillside residential fabric — irregular lot pattern, poor accessibility, and aging infrastructure make this a textbook case for urban morphology analysis."
+
+---
+
+## Spot 2 · 두텁바위로 — 경사 간선도로
+### Duteopbawi-ro: Steep Arterial Road
+
+**키워드** Road Diet · Street Hierarchy · Pedestrian Safety · Last Mile
+
+### 공간 특징 · Spatial Character
+
+남산에서 용산 방향으로 내려오는 대표 경사 간선도로. 왕복 2~4차로로 차량 통행 우선 설계. 보도 폭이 협소하거나 단절된 구간이 존재하며, 경사로 인해 보행자·자전거 이용이 사실상 불가능한 구간 포함. 주변 주거지와 가로를 잇는 이면도로 접속부에서 시야 확보가 안 되어 사고 위험 지점 다수.
+
+> The representative steep arterial road descending from Namsan toward Yongsan. Designed for 2–4 lanes of vehicular priority, with narrow or broken sidewalks. Steep gradient makes cycling and pedestrian use practically impossible in some sections. Multiple accident-prone points at junctions with residential side streets where sightlines are obstructed.
+
+### 도시 문제 · Urban Issues
+
+- **보행-차량 갈등** — 경사 구간에서 차량 속도 증가로 횡단보도 사고 위험. 신호 없는 횡단지점 다수.
+  Pedestrian-vehicle conflict — vehicle speeds increase on downhill sections, raising crosswalk risks. Many unsignalized crossing points.
+
+- **Road Diet 적용 가능성** — 차로 수 축소 및 자전거·PM 전용 구간 설치 검토 대상. 단, 경사로 인한 자전거 이용 한계 존재.
+  Road diet potential — candidate for lane reduction and micro-mobility lanes, though steep gradient limits cycling viability.
+
+- **생활권 단절** — 두텁바위로가 후암동-해방촌 사이의 물리적 장벽 역할. 보행 연속성 미확보.
+  Neighborhood severance — Duteopbawi-ro acts as a physical barrier between Huam-dong and Haebangchon, disrupting pedestrian continuity.
+
+### 이해관계자 · Stakeholders
+
+| 주체 | 내용 |
+|---|---|
+| 보행 주민 / 고령자 | 급경사 구간 보행 중 낙상 위험 및 대중교통 접근 어려움 호소. |
+| 차량 통행자 / 배달 근로자 | 경사지 골목 배달·택배 종사자. 차량 진입 불가 구간 도보 배달 비중 높음. |
+
+> "A steep arterial road designed for vehicles — a prime candidate for road diet and pedestrianization discussion."
+
+---
+
+## Spot 3 · 해방촌 신흥시장 & 골목
+### Haebangchon — Spontaneous Mixed-use Historic Community
+
+**키워드** Spontaneous Mixed-use · Historic Settlement · Urban Regeneration · Multicultural Community
+
+### 공간 특징 · Spatial Character
+
+1945년 해방 후 일본군 시설 철거 부지와 남산 기슭에 피란민·귀환동포가 무허가 정착하며 형성. '해방촌' 지명의 유래. 행정구역상 용산2가동. 2019년 도시재생 뉴딜사업(일반근린형) 지정. 전통시장(신흥시장), 루프탑 카페, 다국적 음식점, 소규모 게스트하우스가 좁은 골목에 공존하는 자연발생 혼합용도의 전형.
+
+> Formed after 1945 as refugees and returnees settled informally on former Japanese military land at the foot of Namsan. The name 'Haebangchon' (Liberation Village) derives from this history. Administratively part of Yongsan 2-ga-dong. Designated as an Urban Regeneration New Deal area in 2019. A textbook case of spontaneous mixed-use: traditional market (Sinheung Market), rooftop cafés, multinational restaurants, and small guesthouses coexist in narrow alleys.
+
+### 인구 현황 · Demographics
+
+| 지표 | 수치 | 출처 |
+|---|---|---|
+| 외국인 거주 비율 | 16% (6명 중 1명꼴) | 2025년 용산2가동 주민센터 |
+| 외국인 증가 추세 | 매년 지속 증가 | 용산구 보고 |
+| 외국인 주요 수요 | 생활정보, 세금·법률 상담, 한국어 교육 | 2025년 수요조사 결과 |
+
+### 도시 문제 · Urban Issues
+
+- **임차인 이동 불안정** — 도시재생 이후 임대료 상승 사례 보고. 상업 임차인의 젠트리피케이션 압력 지속.
+  Tenant instability — reported rent increases following regeneration. Ongoing gentrification pressure on commercial tenants.
+
+- **외국인 주민 행정 접근성** — 외국어 행정 서비스 부족. 2025년 주민센터에서 영어 소통 프로그램 및 1:1 헬퍼 서비스 신설 대응 중.
+  Administrative access for foreign residents — insufficient multilingual services. 2025: community center launched English communication programs and 1:1 helper services.
+
+- **역사경관 보전 vs 재생** — 피란민 정착의 역사성을 살린 재생이냐, 물리적 정비 우선이냐의 방향 갈등.
+  Historic preservation vs. physical renewal — tension between honoring the refugee settlement heritage and pursuing physical improvement.
+
+- **야간 소음·쓰레기** — 관광객 증가로 거주 환경 악화. 외국인 관광객의 쓰레기 배출 방법 미숙지 문제.
+  Night noise and waste — deteriorating residential environment due to tourism growth. Foreign visitors unfamiliar with waste disposal regulations.
+
+### 이해관계자 · Stakeholders
+
+| 주체 | 내용 |
+|---|---|
+| 장기 거주 한국인 주민 | 노후 주거지 개선 요구. 재생사업 참여 및 커뮤니티 유지 의지 보유. |
+| 외국인 거주자 (Expat residents) | 용산2가동 인구의 16%. 생활정보 접근·언어 장벽이 주요 애로사항. |
+| 상업 임차인 (Commercial tenants) | 카페·식당 등 소상공인. 임대료 인상 및 권리금 문제에 취약. |
+| 관광객 (Visitors) | 인스타그램 명소화로 방문객 증가. 거주지와 관광지의 갈등 유발. |
+| 용산2가동 주민센터 | 도시재생 행정 거점. 외국인 소통 프로그램 운영 주체. |
+
+> "Haebangchon is a case of unplanned, spontaneous mixed-use development — traditional market, rooftop cafés, and multicultural residents coexist in a wartime refugee settlement."
+
+---
+
+## Spot 4 · 루프탑 뷰포인트 (Noop Cafe 일대)
+### Rooftop Viewpoint — Scenic Corridor Analysis
+
+**키워드** Scenic View Corridor · Height Limit · Townscape Plan · View Rights
+
+### 공간 특징 · Spatial Character
+
+해방촌 언덕 최상부. 남산타워-이태원-한강을 잇는 조망축을 직접 확인할 수 있는 핵심 지점. 이 일대는 남산 고도지구 적용 구역으로, 건물 최고 높이가 엄격히 제한됨. 루프탑에서 도심의 수직적 스카이라인 변화와 조망권 보호 규제를 한눈에 설명 가능.
+
+> The highest point of Haebangchon hill. A key spot where the visual axis connecting Namsan Tower, Itaewon, and the Han River can be directly observed. This area falls under Namsan's height control district, with strict building height limits. From the rooftop, one can explain the vertical skyline changes and the regulatory logic of scenic corridor protection in a single view.
+
+### 도시 문제 · Urban Issues
+
+- **조망권 규제의 실효성** — 고도지구 지정이 실질적으로 경관을 보전하는지, 인접 구역 개발 압력과의 모순.
+  Effectiveness of view regulations — whether height district designations actually preserve views vs. development pressure in adjacent zones.
+
+- **규제 형평성** — 그랜드하얏트(Spot 10)는 동일 산세에서 예외 적용. 규제의 일관성 문제.
+  Regulatory equity — Grand Hyatt (Spot 10) operates as an exception on the same hillside. Consistency of regulation questioned.
+
+- **공공 조망 접근성** — 최고 조망 지점이 사유 건물 루프탑(카페)에 의존. 공공 전망 공간 부재.
+  Public access to views — best viewpoints depend on privately-owned rooftops (cafés). Absence of public observation spaces.
+
+> "From this rooftop, the visual axis connecting Namsan Tower, Itaewon, and the Han River is clearly visible — a live demonstration of scenic corridor protection and height zoning."
+
+---
+
+## Spot 5 · 용산2가동 주민센터
+### Community Center — Urban Regeneration Hub
+
+**키워드** Public-led Development · Community Participation · Social Infrastructure · PPP
+
+### 공간 특징 · Spatial Character
+
+해방촌 도시재생 뉴딜사업(2019~)의 행정 거점. 주민참여 프로그램, 외국인 소통 서비스, 생활SOC 복합화 사업을 운영하는 공공시설. 소규모 공공시설이 지역 재생의 앵커(Anchor) 역할을 수행하는 국내 도시재생 뉴딜의 실천 사례.
+
+> Administrative hub of the Haebangchon Urban Regeneration New Deal project (2019–). Operates resident participation programs, multilingual services for foreign residents, and consolidated social infrastructure. A practical example of a small public facility serving as an anchor for neighborhood regeneration.
+
+### 도시 문제 · Urban Issues
+
+- **재생 효과의 분배** — 재생사업 이후 혜택이 원주민에게 귀속되는지, 임대료 상승으로 상쇄되는지.
+  Distribution of regeneration benefits — whether improvements benefit original residents or are offset by rising rents.
+
+- **외국인 주민 포용** — 행정동 인구의 16%인 외국인 주민을 거버넌스에 어떻게 포함시킬 것인가.
+  Inclusion of foreign residents — how to incorporate the 16% foreign resident population into local governance.
+
+- **재생 종료 이후** — 뉴딜 사업 기간 종료 후 자생적 커뮤니티 운영 가능성.
+  Post-regeneration sustainability — capacity for self-sustaining community operations after the New Deal project period ends.
+
+### 이해관계자 · Stakeholders
+
+| 주체 | 내용 |
+|---|---|
+| 용산2가동 주민센터 | 재생사업 행정 주체. 2025년 외국인 1:1 헬퍼 프로그램, 직원 영어 동아리 운영. |
+| 지역 주민 조직 | 마을계획단 등 주민 자치 조직. 사업 방향 결정에 참여. |
+| 외국인 커뮤니티 시설 | 'Dialogue 신흥로 31' 등 외국인 커뮤니티 공간. 주민센터와 협업하여 생활정보 거점으로 활용. |
+
+> "The community center anchors the urban regeneration program — a site for public-led development and participatory planning."
+
+---
+
+## Spot 6 · 해방촌 ↔ 이태원 전이구역
+### Transition Zone — Land Use Shift
+
+**키워드** Transitional Zoning · Mixed-use · Organic Land Use Change · Street Character
+
+### 공간 특징 · Spatial Character
+
+저층 주거(해방촌) → 다국적 상업·외국인 거주(이태원)로 전환되는 경계부. 한 블록 사이에서 용도지역 성격, 필지 규모, 가로 성격, 건물 용도가 급격히 변화. 자연발생적 용도 전이와 계획적 용도지역제의 실제 작동 방식 차이를 비교 설명 가능한 최적 지점.
+
+> The boundary zone where low-rise residential (Haebangchon) transitions to multicultural commercial and expat residential (Itaewon). Within a single block, the zoning character, lot scale, street character, and building uses shift dramatically. An ideal location to compare spontaneous land-use transition with the actual operation of formal zoning regulations.
+
+### 도시 문제 · Urban Issues
+
+- **용도 혼재의 갈등** — 주거-상업 경계부에서 야간 영업 소음, 주차 문제, 안전 문제 집중.
+  Mixed-use conflicts — night-time commercial noise, parking, and safety issues concentrated at the residential-commercial boundary.
+
+- **필지 규모 불일치** — 해방촌의 소규모 필지와 이태원 상업지의 대형 필지가 접하는 구간에서 개발 방식 차이 발생.
+  Lot scale mismatch — different development approaches where small-scale Haebangchon lots meet large-scale Itaewon commercial parcels.
+
+> "Within one block, the urban character shifts from low-rise residential to multicultural commercial — a live example of transitional zoning and organic land-use change."
+
+---
+
+## Spot 7 · 보성여자고등학교 일대
+### Bosung Girls' High School — Hillside Lot Density
+
+**키워드** Lot Consolidation · Pedestrian Connectivity · Block Structure · Infrastructure Placement
+
+### 공간 특징 · Spatial Character
+
+경사지 학교 입지의 접근성 문제를 관찰할 수 있는 지점. 학교 부지가 주변 골목 네트워크를 단절시키는 구조. 주변 소규모 필지와 막다른 골목 밀집 지역으로, 합필·획지 재편 논의 가능 구역.
+
+> A site where the accessibility challenges of hillside school placement can be directly observed. The school grounds structurally sever the surrounding alley network. The surrounding area of small-scale lots and dead-end streets is a candidate for lot consolidation and planning unit restructuring.
+
+### 도시 문제 · Urban Issues
+
+- **학교 부지의 보행 단절** — 학교 담장이 주거지 내 보행 통과를 차단. 우회 동선 대폭 증가.
+  School grounds severing pedestrian routes — school walls block through-pedestrian movement within the residential area, significantly increasing detour distances.
+
+- **합필·개발의 어려움** — 소규모 필지 소유권 분산으로 재편 동의 확보 어려움.
+  Difficulty of consolidation — dispersed small-lot ownership makes securing redevelopment consensus difficult.
+
+> "School grounds interrupt pedestrian connectivity — a case for lot consolidation and planning unit restructuring on steep terrain."
+
+---
+
+## Spot 8 · 이태원2동 — 다문화 상업 가로
+### Itaewon 2-dong — Multicultural Commercial Street
+
+**키워드** Mixed-use Development · Street Activation · Post-decline Revitalization · Vertical Mixed-use
+
+### 공간 특징 · Spatial Character
+
+다국적 음식점·상점·외국인 커뮤니티가 밀집한 활성 상업가로. 2022년 이태원 참사 이후 상권 급격 위축, 현재 재편 과정 중. 1층 상업-상층 주거의 수직적 혼합용도가 자연발생적으로 형성된 사례.
+
+> A once-active commercial strip of multinational restaurants, shops, and expat communities. Following the 2022 Itaewon crowd crush, commercial activity contracted sharply and the area is in the process of restructuring. A case of organically formed vertical mixed-use: ground-floor commercial with residential above.
+
+### 인구 현황 · Demographics
+
+이태원1동+2동 합산 외국인 등록 인구 기준 서울 내 최고 수준 외국인 밀집 지역 중 하나. 미군 기지 시대부터 형성된 외국인 상권이 기반.
+
+> One of the highest concentrations of registered foreign residents in Seoul (combined Itaewon 1-dong and 2-dong). The foreign commercial base dates to the U.S. military base era.
+
+### 도시 문제 · Urban Issues
+
+- **2022년 이태원 참사 이후 상권 위축** — 방문객 급감, 공실 증가. 회복세는 2024~2025년부터 부분적으로 나타남.
+  Post-2022 tragedy commercial contraction — sharp visitor decline and rising vacancies. Partial recovery trend emerging from 2024–2025.
+
+- **공공 공간 안전 관리** — 협소 가로에 집중되는 인파 관리. 참사 이후 안전 계획 및 공간 재설계 논의.
+  Public space safety management — crowd management on narrow streets. Post-tragedy safety planning and spatial redesign discussions ongoing.
+
+- **상권 재활성화의 방향** — 기존 다문화 정체성 유지냐, 새로운 상권 유치냐의 방향 선택.
+  Direction of revitalization — whether to maintain the existing multicultural identity or attract a new commercial character.
+
+> "Itaewon 2-dong shows organically formed vertical mixed-use — ground-floor commercial with residential above, now navigating post-decline revitalization."
+
+---
+
+## Spot 9 · 소월로 — 남산 경계 가로
+### Sowol-ro — Green Edge Road
+
+**키워드** Green Network · Green-Urban Interface · Pedestrian Connectivity · Namsan Renaissance
+
+### 공간 특징 · Spatial Character
+
+남산공원과 도시 주거지·상업지 사이를 가르는 경계 가로. 차량 중심 도로로 녹지와 도시 생활권의 물리적 단절을 상징. 서울시 남산 르네상스 계획에서 보행 친화형 가로 전환 및 남산-용산공원 녹지축 연결의 핵심 구간으로 논의 중.
+
+> The boundary road separating Namsan Park from the urban residential and commercial fabric. A vehicle-oriented road that symbolizes the physical disconnection between green space and urban life. In Seoul's Namsan Renaissance plan, this road is discussed as a key section for pedestrian-friendly conversion and connecting the Namsan–Yongsan Park green axis.
+
+### 도시 문제 · Urban Issues
+
+- **녹지 접근 단절** — 소월로가 보행자의 남산 접근을 차단. 횡단시설 부족.
+  Green space access barrier — Sowol-ro blocks pedestrian access to Namsan. Insufficient crossing facilities.
+
+- **남산-용산공원 녹지축 연결** — 용산공원 조성(미군기지 반환) 본격화로 남산-용산공원 연결 녹지축 조성이 서울시 핵심 과제로 부상.
+  Namsan–Yongsan Park green axis — with Yongsan Park development advancing (returned U.S. base), connecting this axis has become a key Seoul City priority.
+
+> "Sowol-ro marks the hard boundary between Namsan's green belt and the urban residential fabric — a key site for green network connectivity proposals."
+
+---
+
+## Spot 10 · 그랜드하얏트 서울
+### Grand Hyatt Seoul — Large-scale Hilltop Development
+
+**키워드** High-density Development · View Rights · Public Benefit · Development Contribution
+
+### 공간 특징 · Spatial Character
+
+남산 사면 최고지대에 입지한 대규모 호텔. 조망권 독점, 공공 접근성 차단, 고도지구 예외 적용 논란의 대표 사례. 인접 해방촌의 소규모 저층 주거지와 극명한 대비를 이루며, 대형 단일 용도 개발이 주변 도시조직과 어떻게 단절되는지 보여주는 사례.
+
+> A large-scale hotel occupying the highest point on the Namsan hillside. The representative case of monopolized views, blocked public access, and contested exceptions to height regulations. It forms a stark contrast with the adjacent small-scale low-rise Haebangchon, illustrating how large single-use developments disconnect from surrounding urban fabric.
+
+### 도시 문제 · Urban Issues
+
+- **조망권 독점** — 남산 최고 지대의 조망을 호텔 투숙객만 향유. 공공 조망 접근 차단.
+  View monopolization — the best views from Namsan's highest point are exclusively accessible to hotel guests. Public access to views is blocked.
+
+- **공공 접근성 차단** — 호텔 부지가 남산 보행로와 주변 주거지 연결을 단절.
+  Public accessibility blocked — hotel grounds sever the connection between Namsan hiking paths and surrounding residential areas.
+
+- **고도지구 예외 적용 논란** — 동일 남산 사면에서 해방촌에는 엄격한 고도 규제가 적용되는 반면 호텔은 예외. 규제 일관성 문제.
+  Disputed height regulation exception — strict height regulations apply to Haebangchon on the same hillside, while the hotel operates as an exception. Regulatory inconsistency questioned.
+
+- **공공기여 부족** — 대규모 개발에서 공공 기반시설 기여가 충분하지 않다는 비판.
+  Insufficient public contribution — criticism that public infrastructure contributions from the large-scale development are inadequate.
+
+### 이해관계자 · Stakeholders
+
+| 주체 | 내용 |
+|---|---|
+| 호텔 운영사 (Hotel operator) | 조망·입지의 배타적 이익 향유. 공공기여 최소화 입장. |
+| 주변 주민 | 공공 접근 차단 및 주변 도시조직 단절에 불만. |
+| 서울시 / 용산구 | 고도지구 규제 예외 적용의 책임 주체. 현재의 규제 일관성 재검토 필요. |
+
+> "The Grand Hyatt occupies the most scenic hillside position — a case study in the tension between private development rights and public accessibility."
+
+---
+
+---
+
+# PART 2. 도시설계·교통 핵심 용어집
+## Urban Design & Transportation Glossary · Vienna Workshop 2025
+
+총 37개 용어 · 분야별 정리
+
+---
+
+## 1. 규제 지표 · Planning Metrics
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 용도지역 | Zoning District | 토지 사용 목적을 법적으로 구분 |
+| 용적률 | Floor Area Ratio (FAR) | 연면적 / 대지면적 × 100 |
+| 건폐율 | Building Coverage Ratio (BCR) | 건축면적 / 대지면적 × 100 |
+| 세트백 | Setback | 건물과 부지 경계선 간 이격 거리 |
+| 최고높이 제한 | Height Limit | 조망·경관 보호 등 목적 |
+| 공공기여 | Development Contribution | 개발이익의 공공 환원 |
+| 입체적 토지이용 | Multi-level Land Use | 지상·지하·공중 복합 활용 |
+
+---
+
+## 2. 필지·획지 · Lot & Unit
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 필지 | Lot / Parcel | 지적 등록 단위 |
+| 합필 | Lot Consolidation | 여러 필지를 하나로 합침 |
+| 분필 | Lot Subdivision | 하나의 필지를 분리 |
+| 획지 | Planning Unit | 계획적 개발 단위, 여러 필지 포함 가능 |
+| 지구단위계획 | District Unit Plan | 소규모 도시설계 수단 |
+| 기반시설 | Infrastructure | 도로·공원·학교 등 공공시설 |
+
+---
+
+## 3. 가로·이동 · Street & Mobility
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 차 없는 거리 (임시) | Temporary Pedestrianization / Open Street | 신촌 차 없는 거리 등 요일제 운영 |
+| 보행자 전용구역 | Pedestrian-only Zone | 상시 차량 통제 |
+| 슈퍼블록 | Superblock | 블록 단위 통과교통 차단 (바르셀로나 모델) |
+| 공유 가로 | Shared Street / Woonerf | 보행·자전거·차량 동등 사용 |
+| 차로 다이어트 | Road Diet | 차로 수 축소 → 보행·자전거 공간 확보 |
+| PM 전용차로 | Micro-mobility Lane / PM Lane | 전동킥보드·자전거 전용 공간 |
+| 퍼스트·라스트 마일 | First / Last Mile Connectivity | 대중교통 접근 전후 구간 연계 |
+| 주차장 공원화 | Parklet | 주차공간을 녹지·공공공간으로 전환 |
+
+---
+
+## 4. TOD·고밀개발 · TOD & Density
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 대중교통 중심 개발 | Transit-Oriented Development (TOD) | 역 반경 500m 내 고밀·복합개발 |
+| 역세권 고밀개발 | Station Area Intensification | 역 인근 용적률 상향 + 복합화 |
+| 역세권 복합개발 | Transit Node Mixed-use Development | 상업·주거·업무 복합 |
+| 15분 도시 | 15-Minute City | 생활 인프라를 도보 15분 내 배치 (파리 모델) |
+| 직주근접 | Jobs-housing Proximity | 주거와 직장의 공간적 근접 |
+| 혼합 용도 개발 | Mixed-use Development | 단일 건물·블록 내 복수 기능 결합 |
+
+---
+
+## 5. 공공공간·경관 · Public Space & Landscape
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 공공공간 | Public Space | 광장·보행로·공원 등 공개된 공간 |
+| 조망권 | View Rights / Scenic View Corridor | 특정 경관 보호를 위한 시각축 |
+| 경관계획 | Landscape / Townscape Plan | 도시 외관·스카이라인 관리 |
+| 녹지 네트워크 | Green Network | 공원·녹도 연결 체계 |
+| 보행 연결성 | Pedestrian Connectivity | 보행 네트워크의 연속성·접근성 |
+| 구릉지 개발 | Hillside Development | 경사지 지형을 고려한 건축·계획 |
+
+---
+
+## 6. 주거·재생 · Housing & Regeneration
+
+| 한국어 | English | 설명 |
+|---|---|---|
+| 도시재생 | Urban Regeneration | 물리·사회·경제적 종합 정비 |
+| 포용적 용도지역제 | Inclusionary Zoning | 일정 비율 공공·임대주택 의무화 |
+| 커뮤니티 토지신탁 | Community Land Trust (CLT) | 토지 공공 보유 + 건물만 민간 소유 |
+| 공공주도 개발 | Public-led Development | 공공이 주도권 갖는 개발방식 |
+| 역사문화환경 | Historic Cultural Environment | 문화재 주변 관리·보전 구역 |
+| 도시재생활성화지역 | Urban Regeneration Activation Area | 국가 지정 재생 집중 지원 구역 |
+
+---
+
+Seoul National University · Dept. of Urban Planning · Vienna Workshop 2025
