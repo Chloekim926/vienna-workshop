@@ -531,13 +531,13 @@ function renderSite(){
   const L={
     ko:{label:'설계 대상지',h1:'대상지',
         map:'대상지 계획도',spotttl:'설계 Spot 개요',
-        maplink:'Google 내 지도에서 전체 대상지 보기 →'},
+        maplink:'Google 내 지도에서 전체 대상지 보기 →', '지도를 확대 및 축소 해가면서 구역별 현황, 주변지역, 대상지 위치를 확인할 수 있습니다.'},
     de:{label:'Entwurfsgebiet',h1:'Entwurfsgebiet',
         map:'Plangebietskarte',spotttl:'Entwurfs-Spots Übersicht',
-        maplink:'Gesamtgebiet in Google Maps ansehen →'},
+        maplink:'Gesamtgebiet in Google Maps ansehen →', 'Durch Vergrößern und Verkleinern der Karte können Sie den aktuellen Stand der einzelnen Bereiche, die Umgebung und die Lage des Entwurfsgebiets einsehen.'},
     en:{label:'Design Site',h1:'Design Site',
         map:'Site Plan',spotttl:'Design Spot Overview',
-        maplink:'View full site on Google My Maps →'},
+        maplink:'View full site on Google My Maps →', 'You can zoom in and out on the map to check the current status of each zone, surrounding areas, and the location of the design site.'},
   }[LANG];
   const cards=SPOTS.map(s=>`<div class="scard" onclick="go('${s.id}')">
     <div class="scard-num">Spot ${s.num}</div>
@@ -558,6 +558,7 @@ function renderSite(){
     <div style="margin-top:12px;">
       <a href="${GMAP_URL}" target="_blank" rel="noopener noreferrer" class="map-ext-btn">⊕ ${L.maplink}</a>
     </div>
+    <p style="margin-top:10px;font-size:11px;color:#888;line-height:1.7;max-width:520px;">${tl(L.mapnote)}</p>
   </div>
   <div class="spots-section" style="padding-top:0;">
     <div class="sec-title">${L.spotttl}</div>
