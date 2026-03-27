@@ -556,11 +556,10 @@ function renderSite(){
     <div class="hero-label">${L.label}</div>
     <h1>${L.h1}</h1>
   </section>
+  <div style="border-bottom:2px solid #000;">
+    <img src="${MURI}" alt="대상지 계획도" style="width:100%;display:block;">
+  </div>
   <div class="map-section">
-    <div class="map-label">${L.map}</div>
-    <div class="map-wrap">
-      <img src="${MURI}" alt="대상지 계획도">
-    </div>
     <div style="margin-top:12px;">
       <a href="${GMAP_URL}" target="_blank" rel="noopener noreferrer" class="map-ext-btn">⊕ ${L.maplink}</a>
     </div>
