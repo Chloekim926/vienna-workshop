@@ -497,7 +497,7 @@ function renderHome(){
       schedtitle:'Full Schedule',detailbtn:'Detailed schedule →'},
   }[LANG];
   const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
-  return `
+   return `
   <section class="hero">
     <div class="hero-label">${L.label}</div>
     <h1>${L.h1}</h1>
@@ -509,18 +509,13 @@ function renderHome(){
     <div class="stat-cell"><div class="sn">82동</div><div class="sl">${L.s3}</div></div>
     <div class="stat-cell"><div class="sn">SNU × TUW</div><div class="sl">${L.s4}</div></div>
   </div>
-    </section>
+  <div>
+    <img src="${POSTERI}" style="width:100%;display:block;" alt="Workshop Poster">
+  </div>
   <div style="max-width:960px;margin:0 auto;padding:28px 40px 0;">
-    <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
-      <div>
-        <div style="font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:10px;">Workshop Poster</div>
-        <img src="${POSTERI}" style="max-width:380px;width:100%;border:2px solid #000;display:block;" alt="SNU × TU Wien 2026 Workshop Poster">
-      </div>
-    </div>
-  <div style="max-width:960px;margin:0 auto;padding:28px 40px 0;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#000;border:1px solid #000;margin-bottom:36px;">
-      <div style="background:#fff;padding:20px 24px;"><div class="clabel">${L.s3}</div><p class="btext">${L.venue}</p></div>
-      <div style="background:#fff;padding:20px 24px;"><div class="clabel">${L.site.split('—')[0].trim()}</div><p class="btext">${L.site.split('—')[1]?.trim()||L.site}</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;">
+      <div style="padding:20px 24px;"><div class="clabel">${L.s3}</div><p class="btext">${L.venue}</p></div>
+      <div style="padding:20px 24px;"><div class="clabel">${L.site.split('—')[0].trim()}</div><p class="btext">${L.site.split('—')[1]?.trim()||L.site}</p></div>
     </div>
   </div>
   <div style="max-width:640px;margin:0 auto;padding:0 40px 12px;"><div class="sec-title">${L.schedtitle}</div></div>
