@@ -256,8 +256,26 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
   <span class="f1">Seoul National University × TU Wien · Urban Planning Workshop 2026</span>
   <span class="f1" id="f-right"></span>
 </footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script>
 let LANG = 'ko';
+
+/* ── Firebase ── */
+firebase.initializeApp({apiKey:"AIzaSyD8ZMyHhrL7tiCNyhTSxBXWdGxqUg8XwF8",authDomain:"routine-ca0ee.firebaseapp.com",projectId:"routine-ca0ee",storageBucket:"routine-ca0ee.firebasestorage.app",messagingSenderId:"845375711200",appId:"1:845375711200:web:b7a68f8963860a26432d85"});
+var fbDb = firebase.firestore();
+var fbNoticesRef = fbDb.collection("snu-tuw-workshop").doc("notices");
+var _notices = [];
+
+/* Real-time listener for notices */
+fbNoticesRef.onSnapshot(function(doc){
+  if(doc.exists && doc.data().items){
+    _notices = doc.data().items;
+  } else {
+    _notices = [];
+  }
+  refreshNotices();
+});
 
 const GMAP_URL = "https://www.google.com/maps/d/u/0/edit?mid=1GBxgoZf-f3D2zfND4zIjyvGGmdyybnc&ll=37.542760030351715%2C126.98602362673266&z=16";
 
@@ -298,29 +316,26 @@ function staffDoLogout(){
 }
 
 function getNotices(){
-  try{ return JSON.parse(localStorage.getItem('snu-tuw-notices')||'[]'); }
-  catch(e){ return []; }
+  return _notices;
 }
 function staffPostNotice(){
   const ta = document.getElementById('notice-ta');
   const text = ta && ta.value.trim();
   if(!text) return;
-  const notices = getNotices();
   const now = new Date();
-  notices.unshift({
+  const newNotice = {
     id: Date.now(),
     text,
     date: now.toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'}),
     time: now.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}),
-  });
-  localStorage.setItem('snu-tuw-notices', JSON.stringify(notices));
+  };
+  const updated = [newNotice].concat(_notices);
+  fbNoticesRef.set({items: updated}).catch(function(e){console.error(e)});
   if(ta) ta.value = '';
-  refreshNotices();
 }
 function staffDeleteNotice(id){
-  const notices = getNotices().filter(n=>n.id!==id);
-  localStorage.setItem('snu-tuw-notices', JSON.stringify(notices));
-  refreshNotices();
+  const updated = _notices.filter(n=>n.id!==id);
+  fbNoticesRef.set({items: updated}).catch(function(e){console.error(e)});
 }
 function refreshNotices(){
   const sl = document.getElementById('staff-notice-list');
@@ -329,14 +344,12 @@ function refreshNotices(){
   if(hb) hb.innerHTML = buildNoticeList(isStaff());
   const hw = document.getElementById('home-notice-wrap');
   if(hw){
-    const notices = getNotices();
-    hw.style.display = (notices.length || isStaff()) ? '' : 'none';
+    hw.style.display = (_notices.length || isStaff()) ? '' : 'none';
   }
 }
 function buildNoticeList(withDel){
-  const notices = getNotices();
-  if(!notices.length) return `<div class="notice-empty">${withDel?'아직 공지가 없습니다.':'—'}</div>`;
-  return notices.map(n=>`<div class="notice-item">
+  if(!_notices.length) return `<div class="notice-empty">${withDel?'아직 공지가 없습니다.':'—'}</div>`;
+  return _notices.map(n=>`<div class="notice-item">
     <div class="notice-item-text">${esc(n.text)}</div>
     <div class="notice-item-meta">${n.date} ${n.time}</div>
     ${withDel?`<button class="notice-del-btn" onclick="staffDeleteNotice(${n.id})" title="삭제">✕</button>`:''}
