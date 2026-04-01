@@ -252,17 +252,17 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
       <div class="contact-card">
         <div class="contact-role" id="ct-role1">Workshop Coordinator (SNU)</div>
         <div class="contact-name">Kim Jeonghye (PhD)</div>
-        <div class="contact-info"><a href="mailto:rlawjdfod@snu.ac.kr">rlawjdfod@snu.ac.kr</a></div>
+        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#0a78666b7d606e6c656e4a79647f246b69246178"><span class="__cf_email__" data-cfemail="1e6c727f69747a78717a5e6d706b307f7d30756c">[email&#160;protected]</span></a></div>
       </div>
       <div class="contact-card">
         <div class="contact-role" id="ct-role2">Workshop Coordinator (TUW)</div>
         <div class="contact-name">Da.Yun Daun (PhD)</div>
-        <div class="contact-info"><a href="mailto:da.yun@tuwien.ac.at">da.yun@tuwien.ac.at</a></div>
+        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#8ce8eda2f5f9e2ccf8f9fbe5e9e2a2edefa2edf8"><span class="__cf_email__" data-cfemail="dbbfbaf5a2aeb59bafaeacb2beb5f5bab8f5baaf">[email&#160;protected]</span></a></div>
       </div>
       <div class="contact-card">
         <div class="contact-role" id="ct-role3">Seongsu Tour</div>
         <div class="contact-name">Kwon Hein (PhD)</div>
-        <div class="contact-info"><a href="mailto:hein93328@snu.ac.kr">hein93328@snu.ac.kr</a></div>
+        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#7f171a1611464c4c4d473f0c110a511e1c51140d"><span class="__cf_email__" data-cfemail="19717c7077202a2a2b21596a776c37787a37726b">[email&#160;protected]</span></a></div>
       </div>
     </div>
   </div>
@@ -272,7 +272,7 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
   <span class="f1" id="f-right"></span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 let LANG = 'ko';
 
 const GMAP_URL = "https://www.google.com/maps/d/u/0/edit?mid=1GBxgoZf-f3D2zfND4zIjyvGGmdyybnc&ll=37.542760030351715%2C126.98602362673266&z=16";
@@ -297,7 +297,7 @@ function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').rep
 /* ─────────────────────────────────────
    STAFF AUTH
 ───────────────────────────────────── */
-const STAFF_PASS = 'usdl26';
+const STAFF_PASS = 'go2026';
 function isStaff(){ return sessionStorage.getItem('snu-tuw-staff')==='1'; }
 function staffDoLogin(){
   const inp = document.getElementById('staff-pw-input');
@@ -640,17 +640,20 @@ function renderHome(){
       desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
       s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'참여 대학',
       venue:'서울대학교 환경대학원 (82동)',site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
-      schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →',noticetitle:'공지사항'},
+      schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →',noticetitle:'공지사항',
+      driveLabel:'자료 업로드',driveDesc:'설계 자료·발표 파일 공유 폴더',driveBtn:'Google Drive 폴더 열기 →'},
     de:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
       desc:'Gemeinsamer Workshop der Seoul National University (GSES) und der TU Wien. Entwurfsgebiet: Namsan-Südhang.',
       s1:'Workshop-Zeitraum',s2:'Stadtexkursion',s3:'Ort',s4:'Partneruniversitäten',
       venue:'SNU Graduate School of Environmental Studies, Gebäude 82',site:'Namsan-Südhang — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
-      schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →',noticetitle:'Ankündigungen'},
+      schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →',noticetitle:'Ankündigungen',
+      driveLabel:'Datei-Upload',driveDesc:'Gemeinsamer Ordner für Entwurfsdateien und Präsentationen',driveBtn:'Google Drive Ordner öffnen →'},
     en:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
       desc:'Joint workshop between Seoul National University (GSES) and TU Wien. Design site: Namsan south slope.',
       s1:'Workshop Period',s2:'Field Trips',s3:'Venue',s4:'Universities',
       venue:'SNU Graduate School of Environmental Studies, Building 82',site:'Namsan South Slope — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
-      schedtitle:'Full Schedule',detailbtn:'Detailed schedule →',noticetitle:'Notices'},
+      schedtitle:'Full Schedule',detailbtn:'Detailed schedule →',noticetitle:'Notices',
+      driveLabel:'File Upload',driveDesc:'Shared folder for design files and presentations',driveBtn:'Open Google Drive folder →'},
   }[LANG];
 
   const notices = getNotices();
@@ -681,6 +684,24 @@ function renderHome(){
     <div class="stat-cell"><div class="sn">SNU × TUW</div><div class="sl">${L.s4}</div></div>
   </div>
   ${noticeBoard}
+  <div style="border-bottom:2px solid #000;">
+    <div style="max-width:640px;margin:0 auto;padding:18px 40px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div>
+          <div style="font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:3px;">${L.driveLabel}</div>
+          <div style="font-size:11px;color:#555;font-weight:400;">${L.driveDesc}</div>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1ABoWz7fgsh15ka27DkapUwWaxalrqxgO?usp=drive_link"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:2px solid #000;background:#fff;font-size:11px;color:#000;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;transition:all .15s;white-space:nowrap;"
+           onmouseover="this.style.background='#000';this.style.color='#fff'"
+           onmouseout="this.style.background='#fff';this.style.color='#000'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          ${L.driveBtn}
+        </a>
+      </div>
+    </div>
+  </div>
   <div style="max-width:960px;margin:0 auto;padding:28px 40px 0;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;">
       <div style="padding:20px 24px;"><div class="clabel">${L.s3}</div><p class="btext">${L.venue}</p></div>
@@ -942,19 +963,4 @@ function render(){
   else if(hash==='site') html=renderSite();
   else if(hash==='gloss') html=renderGloss();
   else if(hash==='sched') html=renderSched();
-  else if(hash==='staff') html=renderStaff();
-  else if(spot) html=renderSpot(spot);
-  else html=renderHome();
-  document.getElementById('app').innerHTML=html;
-  window.scrollTo(0,0);
-  ['home','site','sched','gloss','staff'].forEach(id=>{
-    const el=document.getElementById('dm-'+id);
-    if(el) el.classList.toggle('on',hash===id||(id==='site'&&!!spot));
-  });
-}
-window.addEventListener('hashchange',render);
-const savedLang=localStorage.getItem('snu-tuw-lang')||'ko';
-setLang(savedLang);
-</script>
-</body>
-</html>
+  else
