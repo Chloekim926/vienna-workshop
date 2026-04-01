@@ -369,10 +369,11 @@ function buildNoticeList(withDel){
    CHECKLIST
 ───────────────────────────────────── */
 const STAFF_MEMBERS = [
-  {id:'jeonghye',   name:'Kim Jeonghye',   title:'PhD'},
-  {id:'jiseul',     name:'Yang Jiseul',    title:'PhD'},
+  {id:'jeonghye',   name:'Kim Jeonghye',   title:'PhD · SNU 코디네이터'},
+  {id:'jiseul',     name:'Yang Jiseul',    title:'진행'},
   {id:'kyeongdong', name:'Kim Kyeongdong', title:'PhD'},
   {id:'hyeonju',    name:'Kim Hyeonju',    title:'PhD'},
+  {id:'hein',       name:'Kwon Hein',      title:'PhD · 성수투어'},
 ];
 const DEFAULT_TASKS = {
   jeonghye:[
@@ -408,6 +409,11 @@ const DEFAULT_TASKS = {
     {id:2, text:'4/8(수) 오후 — 스탭',done:false},
     {id:3, text:'4/9(목) 오후 — 스탭',done:false},
     {id:4, text:'4/10(금) 오후 — 스탭',done:false},
+  ],
+  hein:[
+    {id:1, text:'4/3(금) 오후 — 성수동 워킹투어 가이드',done:false},
+    {id:2, text:'성수동 루트 확인 (LCDC → Seoul Forest)',done:false},
+    {id:3, text:'투어 참가자 연락처 취합',done:false},
   ],
 };
 
@@ -575,13 +581,23 @@ const GLOSS=[
 
 /* ── SCHEDULE ── */
 const SCHED_P1=[
- {d:'2',w:{ko:'목',de:'DO',en:'THU'},items:[{t:'PM',type:'field',ko:'경복궁 + 대한민국역사박물관 + 광화문광장',de:'Gyeongbokgung + Nationales Geschichtsmuseum + Gwanghwamun-Platz',en:'Gyeongbokgung + National Museum + Gwanghwamun Plaza'}]},
  {d:'3',w:{ko:'금',de:'FR',en:'FRI'},items:[
-  {t:'PM',type:'field',ko:'성수동 워킹투어 (14:00–16:00)',de:'Seongsu Stadtrundgang (14:00–16:00)',en:'Seongsu walking tour (14:00–16:00)',route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest',contact:'Contact: Kwon Hein · hein93328@snu.ac.kr'},
-  {t:'EVE',type:'field',ko:'경의선숲길 + 홍대',de:'Gyeongui Line Forest + Hongdae',en:'Gyeongui Line Forest + Hongdae'},
+  {t:'AM',type:'field',ko:'청계천 고가도로 철거 및 버스 체계 개편 답사 (광화문역 5번 출구 집합)',de:'Cheonggyecheon: Stadtautobahn-Abriss & Busreform (Gwanghwamun Ausgang 5)',en:'Cheonggyecheon elevated road demolition & bus reform site visit (Gwanghwamun Stn. Exit 5)'},
+  {t:'PM',type:'field',ko:'성수동 도시재생 구역 답사 (14:00–16:00)',de:'Seongsu-dong Stadterneuerungsgebiet (14:00–16:00)',en:'Seongsu-dong urban regeneration area visit (14:00–16:00)',
+   route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest',
+   contact:'Contact: Kwon Hein · hein93328@snu.ac.kr'},
  ]},
- {d:'4',w:{ko:'토',de:'SA',en:'SAT'},items:[{t:'AM',type:'field',ko:'서울역 / 서울로7017 + 청계천',de:'Seoul Station / Seoullo 7017 + Cheonggyecheon',en:'Seoul Station / Seoullo 7017 + Cheonggyecheon'}]},
- {d:'5',w:{ko:'일',de:'SO',en:'SUN'},items:[{t:'',type:'free',ko:'자유 선택: 수원화성 or DMZ',de:'Individuell: Hwaseong-Festung oder DMZ',en:'Individual: Suwon Hwaseong or DMZ'}]},
+ {d:'4',w:{ko:'토',de:'SA',en:'SAT'},items:[
+  {t:'AM',type:'field',ko:'경복궁 방문',de:'Besuch Gyeongbokgung-Palast',en:'Gyeongbokgung Palace visit'},
+  {t:'PM',type:'field',ko:'대한민국역사박물관 방문 + 광화문광장 답사',de:'Nationalmuseum der Zeitgeschichte Koreas + Gwanghwamun-Platz',en:'National Museum of Korean Contemporary History + Gwanghwamun Plaza visit'},
+ ]},
+ {d:'5',w:{ko:'일',de:'SO',en:'SUN'},items:[
+  {t:'',type:'free',ko:'자유 선택: 수원화성 or DMZ',de:'Individuell: Hwaseong-Festung oder DMZ',en:'Individual: Suwon Hwaseong or DMZ'},
+ ]},
+ {d:'6',w:{ko:'월',de:'MO',en:'MON'},items:[
+  {t:'AM',type:'field',ko:'경의선 숲길 및 홍대 일대 답사',de:'Gyeongui Line Forest Park & Hongdae',en:'Gyeongui Line Forest Park & Hongdae area visit'},
+  {t:'PM',type:'field',ko:'서울역 + 서울로 7017 고가 보행길 답사 → 호암교수회관으로 숙소 이동',de:'Seoul Station + Seoullo 7017 → Transfer SNU Hoam Faculty House',en:'Seoul Station + Seoullo 7017 elevated walkway → transfer to SNU Hoam Faculty House'},
+ ]},
 ];
 const SCHED_P2=[
  {d:'7',w:{ko:'화',de:'DI',en:'TUE'},items:[
@@ -697,8 +713,7 @@ function renderHome(){
   }[LANG];
 
   const notices = getNotices();
-  const showBoard = notices.length > 0 || isStaff();
-  const noticeBoard = showBoard ? `
+  const noticeBoard = `
     <div class="notice-board-wrap" id="home-notice-wrap">
       <div class="notice-board">
         <div class="notice-board-label">
@@ -707,7 +722,7 @@ function renderHome(){
         </div>
         <div id="home-notice-list">${buildNoticeList(isStaff())}</div>
       </div>
-    </div>` : `<div id="home-notice-wrap" style="display:none;"></div>`;
+    </div>`;
 
   const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
 
@@ -719,7 +734,7 @@ function renderHome(){
   </section>
   <div class="stats-row">
     <div class="stat-cell"><div class="sn">Apr 7–10</div><div class="sl">${L.s1}</div></div>
-    <div class="stat-cell"><div class="sn">Apr 2–5</div><div class="sl">${L.s2}</div></div>
+    <div class="stat-cell"><div class="sn">Apr 3–6</div><div class="sl">${L.s2}</div></div>
     <div class="stat-cell"><div class="sn">SNU Bldg. 82</div><div class="sl">${L.s3}</div></div>
     <div class="stat-cell"><div class="sn">SNU × TUW</div><div class="sl">${L.s4}</div></div>
   </div>
