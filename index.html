@@ -33,9 +33,6 @@ nav{background:#000;position:sticky;top:0;z-index:200;height:48px;display:flex;a
 .sn{font-size:24px;font-weight:900;letter-spacing:-.03em;margin-bottom:2px;}
 .sl{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#888;font-weight:700;}
 .map-section{max-width:960px;margin:0 auto;padding:0 40px 48px;}
-.map-label{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;padding:28px 0 12px;font-weight:700;}
-.map-wrap{position:relative;display:inline-block;max-width:520px;width:100%;}
-.map-wrap img{width:100%;display:block;border:2px solid #000;}
 .map-ext-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:2px solid #000;background:#fff;font-size:11px;color:#000;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;transition:all .15s;margin-top:10px;}
 .map-ext-btn:hover{background:#000;color:#fff;}
 .spots-section{max-width:960px;margin:0 auto;padding:0 40px 80px;}
@@ -61,10 +58,6 @@ nav{background:#000;position:sticky;top:0;z-index:200;height:48px;display:flex;a
 .crumb span{cursor:pointer;}
 .crumb span:hover{color:#000;}
 .crumb-sep{color:#ccc;}
-.stat-boxes{display:flex;gap:1px;margin-bottom:20px;background:#000;border:1px solid #000;flex-wrap:wrap;}
-.sbox{background:#fff;padding:12px 18px;flex:1;min-width:100px;}
-.sb-n{font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:1px;}
-.sb-l{font-size:8px;color:#888;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:1px;background:#000;}
 .cbox{background:#fff;padding:22px 24px;}
 .cbox-full{background:#fff;border:1px solid #000;padding:22px 24px;margin-bottom:1px;}
@@ -131,13 +124,76 @@ nav{background:#000;position:sticky;top:0;z-index:200;height:48px;display:flex;a
 .dv-date{font-size:16px;font-weight:900;letter-spacing:-.02em;}
 .dv-room{font-size:8px;color:#888;padding:2px 8px;border:1px solid #e0e0e0;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
 .dv-phase-tag{font-size:8px;padding:2px 9px;background:#000;color:#fff;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-left:auto;}
+.dv-host-row{width:100%;font-size:10px;color:#555;font-weight:500;padding-top:6px;margin-top:2px;letter-spacing:.02em;display:flex;flex-wrap:wrap;gap:0 20px;}
+.dv-host-seg{display:flex;align-items:center;gap:5px;}
+.dv-host-lbl{font-size:8px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#888;}
+.dv-host-name{font-size:10px;color:#333;font-weight:400;}
 .dv-block{display:grid;grid-template-columns:100px 1fr;margin-bottom:1px;}
 .dv-time{font-size:9px;color:#888;padding:9px 10px 9px 0;text-align:right;border-right:2px solid #000;line-height:1.4;font-weight:600;letter-spacing:.02em;}
 .dv-info{padding:8px 0 8px 14px;}
 .dv-name{font-size:12.5px;line-height:1.5;font-weight:400;}
-.dv-note{font-size:10px;color:#888;line-height:1.5;margin-top:2px;font-weight:300;}
 .dv-break .dv-time{color:#ccc;}
 .dv-break .dv-name{color:#bbb;font-size:11px;}
+
+/* ── NOTICE BOARD ── */
+.notice-board-wrap{border-bottom:2px solid #000;background:#fafafa;}
+.notice-board{max-width:640px;margin:0 auto;padding:20px 40px 22px;}
+.notice-board-label{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.notice-item{padding:11px 14px;border-left:3px solid #000;background:#fff;margin-bottom:6px;position:relative;}
+.notice-item-text{font-size:12.5px;line-height:1.75;color:#000;font-weight:400;white-space:pre-wrap;padding-right:24px;}
+.notice-item-meta{font-size:9px;color:#aaa;margin-top:5px;font-weight:500;letter-spacing:.04em;}
+.notice-del-btn{position:absolute;top:9px;right:10px;border:none;background:none;cursor:pointer;font-size:11px;color:#ccc;padding:2px 5px;line-height:1;}
+.notice-del-btn:hover{color:#000;}
+.notice-empty{font-size:11px;color:#ccc;padding:8px 0;font-style:italic;}
+.notice-manage-link{font-size:9px;color:#aaa;cursor:pointer;letter-spacing:.04em;text-decoration:underline;text-underline-offset:3px;}
+.notice-manage-link:hover{color:#000;}
+
+/* ── STAFF TOOLS ── */
+.staff-wrap{max-width:640px;margin:0 auto;padding:32px 40px 80px;}
+.staff-login-card{border:2px solid #000;padding:36px 32px;max-width:340px;margin:40px auto;}
+.staff-login-title{font-size:15px;font-weight:900;letter-spacing:-.02em;margin-bottom:4px;}
+.staff-login-sub{font-size:11px;color:#888;margin-bottom:22px;font-weight:400;}
+.staff-pw-row{display:flex;gap:0;}
+.staff-pw-input{flex:1;border:2px solid #000;border-right:none;padding:10px 12px;font-family:'Inter',sans-serif;font-size:12px;outline:none;}
+.staff-pw-btn{padding:10px 18px;border:2px solid #000;background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.staff-pw-btn:hover{background:#333;}
+.staff-pw-error{font-size:10px;color:#c00;margin-top:7px;display:none;font-weight:500;}
+.staff-status-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#f5f5f5;border:1px solid #e0e0e0;margin-bottom:28px;font-size:11px;font-weight:600;}
+.staff-logout-btn{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border:1px solid #000;background:#fff;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;}
+.staff-logout-btn:hover{background:#000;color:#fff;}
+.staff-section{margin-bottom:32px;}
+.staff-sec-hd{font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:16px;color:#000;}
+.notice-textarea{width:100%;border:2px solid #000;padding:10px 12px;font-family:'Inter',sans-serif;font-size:12px;line-height:1.75;outline:none;resize:vertical;min-height:76px;}
+.notice-post-row{display:flex;justify-content:flex-end;margin-top:6px;}
+.notice-post-btn{padding:8px 20px;border:2px solid #000;background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;}
+.notice-post-btn:hover{background:#333;}
+.notice-list-wrap{margin-top:14px;}
+
+/* Checklist */
+.ctabs{display:flex;gap:2px;margin-bottom:14px;flex-wrap:wrap;}
+.ctab{padding:6px 12px;border:1px solid #e0e0e0;font-size:9px;font-weight:700;letter-spacing:.08em;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;color:#888;transition:all .12s;text-transform:uppercase;}
+.ctab.on{background:#000;color:#fff;border-color:#000;}
+.ctab:hover:not(.on){border-color:#000;color:#000;}
+.cl-person-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+.cl-person-role{font-size:10px;color:#888;margin-bottom:10px;font-weight:400;}
+.cl-stats{font-size:9px;color:#888;margin-bottom:8px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:8px;}
+.cl-clear-btn{font-size:8px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:1px solid #ccc;background:#fff;cursor:pointer;font-family:'Inter',sans-serif;color:#888;font-weight:700;}
+.cl-clear-btn:hover{border-color:#000;color:#000;}
+.task-list{display:flex;flex-direction:column;gap:2px;margin-bottom:10px;}
+.task-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid #ebebeb;background:#fff;transition:background .1s;}
+.task-item:hover{background:#fafafa;}
+.task-cb{width:14px;height:14px;cursor:pointer;flex-shrink:0;accent-color:#000;}
+.task-label{font-size:12px;flex:1;line-height:1.5;cursor:pointer;user-select:none;}
+.task-label.done{text-decoration:line-through;color:#bbb;}
+.task-del{border:none;background:none;cursor:pointer;font-size:10px;color:#ddd;padding:2px 4px;flex-shrink:0;line-height:1;}
+.task-del:hover{color:#000;}
+.task-add-row{display:flex;gap:0;}
+.task-add-input{flex:1;border:2px solid #000;border-right:none;padding:9px 12px;font-family:'Inter',sans-serif;font-size:12px;outline:none;}
+.task-add-input::placeholder{color:#ccc;}
+.task-add-btn{padding:9px 16px;border:2px solid #000;background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:300;cursor:pointer;line-height:1;}
+.task-add-btn:hover{background:#333;}
+.task-empty{font-size:11px;color:#ccc;padding:10px 0;font-style:italic;}
+
 .contact-section{border-top:2px solid #000;background:#f5f5f5;padding:28px 40px;}
 .contact-inner{max-width:960px;margin:0 auto;}
 .contact-title{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #d0d0d0;}
@@ -153,13 +209,15 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
 @media(max-width:720px){
   nav{padding:0 16px;}
   .logo{font-size:9px;}
-  .hero,.map-section,.spots-section,.spot-top,.spot-wrap,.dark-hero,.gloss-wrap,.sch-content,footer{padding-left:20px;padding-right:20px;}
+  .hero,.map-section,.spots-section,.spot-top,.spot-wrap,.dark-hero,.gloss-wrap,.sch-content,.staff-wrap,footer{padding-left:20px;padding-right:20px;}
+  .notice-board{padding-left:20px;padding-right:20px;}
   .spots-grid,.two-col{grid-template-columns:1fr;}
   .stat-cell{flex:0 0 50%;}
   .dv-block{grid-template-columns:76px 1fr;}
   .contact-grid{grid-template-columns:1fr;}
   .contact-section{padding-left:20px;padding-right:20px;}
   footer{flex-direction:column;gap:4px;text-align:center;}
+  .ctabs{gap:3px;}
 }
 </style>
 </head>
@@ -182,6 +240,7 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
   <button class="drop-item" id="dm-site"  onclick="menuGo('site')"></button>
   <button class="drop-item" id="dm-sched" onclick="menuGo('sched')"></button>
   <button class="drop-item" id="dm-gloss" onclick="menuGo('gloss')"></button>
+  <button class="drop-item" id="dm-staff" onclick="menuGo('staff')"></button>
 </div>
 
 <div id="app"></div>
@@ -202,7 +261,7 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
       </div>
       <div class="contact-card">
         <div class="contact-role" id="ct-role3">Seongsu Tour</div>
-        <div class="contact-name"> Kwon Hein (PhD)</div>
+        <div class="contact-name">Kwon Hein (PhD)</div>
         <div class="contact-info"><a href="mailto:hein93328@snu.ac.kr">hein93328@snu.ac.kr</a></div>
       </div>
     </div>
@@ -217,12 +276,13 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
 let LANG = 'ko';
 
 const GMAP_URL = "https://www.google.com/maps/d/u/0/edit?mid=1GBxgoZf-f3D2zfND4zIjyvGGmdyybnc&ll=37.542760030351715%2C126.98602362673266&z=16";
-  
+
 const NAV = {
   home:  {ko:'홈',          de:'Start',           en:'Home'},
   site:  {ko:'대상지',      de:'Entwurfsgebiet',  en:'Design Site'},
   gloss: {ko:'용어집',      de:'Glossar',         en:'Glossary'},
   sched: {ko:'일정',        de:'Programm',        en:'Schedule'},
+  staff: {ko:'스탭도구',    de:'Staff-Tools',     en:'Staff'},
 };
 const FOOTER = {ko:'SNU-TUW 2026 Workshop',de:'SNU-TUW 2026 Workshop',en:'SNU-TUW 2026 Workshop'};
 
@@ -232,139 +292,246 @@ function etag(type){
   if(!type||type==='break') return '';
   return `<span class="etag etag-${type}">${labels[type]||type}</span>`;
 }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ─────────────────────────────────────
+   STAFF AUTH
+───────────────────────────────────── */
+const STAFF_PASS = 'usdl26';
+function isStaff(){ return sessionStorage.getItem('snu-tuw-staff')==='1'; }
+function staffDoLogin(){
+  const inp = document.getElementById('staff-pw-input');
+  if(!inp) return;
+  if(inp.value === STAFF_PASS){
+    sessionStorage.setItem('snu-tuw-staff','1');
+    render();
+  } else {
+    const err = document.getElementById('staff-pw-error');
+    if(err) err.style.display = 'block';
+    inp.select();
+  }
+}
+function staffDoLogout(){
+  sessionStorage.removeItem('snu-tuw-staff');
+  render();
+}
+
+/* ─────────────────────────────────────
+   NOTICES
+───────────────────────────────────── */
+function getNotices(){
+  try{ return JSON.parse(localStorage.getItem('snu-tuw-notices')||'[]'); }
+  catch(e){ return []; }
+}
+function staffPostNotice(){
+  const ta = document.getElementById('notice-ta');
+  const text = ta && ta.value.trim();
+  if(!text) return;
+  const notices = getNotices();
+  const now = new Date();
+  notices.unshift({
+    id: Date.now(),
+    text,
+    date: now.toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'}),
+    time: now.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}),
+  });
+  localStorage.setItem('snu-tuw-notices', JSON.stringify(notices));
+  if(ta) ta.value = '';
+  refreshNotices();
+}
+function staffDeleteNotice(id){
+  const notices = getNotices().filter(n=>n.id!==id);
+  localStorage.setItem('snu-tuw-notices', JSON.stringify(notices));
+  refreshNotices();
+}
+function refreshNotices(){
+  const sl = document.getElementById('staff-notice-list');
+  if(sl) sl.innerHTML = buildNoticeList(true);
+  const hb = document.getElementById('home-notice-list');
+  if(hb) hb.innerHTML = buildNoticeList(isStaff());
+  const hw = document.getElementById('home-notice-wrap');
+  if(hw){
+    const notices = getNotices();
+    hw.style.display = (notices.length || isStaff()) ? '' : 'none';
+  }
+}
+function buildNoticeList(withDel){
+  const notices = getNotices();
+  if(!notices.length) return `<div class="notice-empty">${withDel?'아직 공지가 없습니다.':'—'}</div>`;
+  return notices.map(n=>`<div class="notice-item">
+    <div class="notice-item-text">${esc(n.text)}</div>
+    <div class="notice-item-meta">${n.date} ${n.time}</div>
+    ${withDel?`<button class="notice-del-btn" onclick="staffDeleteNotice(${n.id})" title="삭제">✕</button>`:''}
+  </div>`).join('');
+}
+
+/* ─────────────────────────────────────
+   CHECKLIST
+───────────────────────────────────── */
+const STAFF_MEMBERS = [
+  {id:'jeonghye',   name:'Kim Jeonghye',   title:'PhD · SNU 코디네이터'},
+  {id:'jiseul',     name:'Yang Jiseul',    title:'진행'},
+  {id:'kyeongdong', name:'Kim Kyeongdong', title:'PhD'},
+  {id:'hyeonju',    name:'Kim Hyeonju',    title:'PhD'},
+  {id:'hein',       name:'Kwon Hein',      title:'PhD · 성수투어'},
+];
+const DEFAULT_TASKS = {
+  jeonghye:[
+    {id:1,text:'워크샵 전체 코디네이션 준비',done:false},
+    {id:2,text:'4/7 PM — 팀 편성 및 그룹 워크 진행',done:false},
+    {id:3,text:'4/8 PM — 그룹 워크 진행',done:false},
+    {id:4,text:'4/9 PM — 그룹 워크 진행',done:false},
+    {id:5,text:'4/10 AM — 그룹 워크 마무리 진행',done:false},
+    {id:6,text:'4/10 PM — 최종발표 Q&A 진행',done:false},
+  ],
+  jiseul:[
+    {id:1,text:'4/7 09:00 — 프로그램 소개',done:false},
+    {id:2,text:'4/7 09:10 — 환경대학원 소개 (10분)',done:false},
+    {id:3,text:'4/7 12:00 — 설계 대상지 소개',done:false},
+    {id:4,text:'4/10 AM — 그룹 워크 마무리 진행',done:false},
+  ],
+  kyeongdong:[
+    {id:1,text:'4/7 09:10 — 비엔나 공대 소개 (10분)',done:false},
+    {id:2,text:'4/7 09:40 — 참여자 소개 진행',done:false},
+    {id:3,text:'4/7 10:45 — 연구 발표 (35분)',done:false},
+  ],
+  hyeonju:[
+    {id:1,text:'4/9 PM — 멘토링 (SNU GSES) 진행',done:false},
+    {id:2,text:'4/10 PM — 최종발표 Q&A 진행',done:false},
+  ],
+  hein:[
+    {id:1,text:'4/3 PM — 성수동 워킹투어 준비 및 가이드',done:false},
+    {id:2,text:'성수동 루트 확인 (LCDC → Seoul Forest)',done:false},
+    {id:3,text:'투어 참가자 연락처 취합',done:false},
+  ],
+};
+
+let clActivePerson = 'jeonghye';
+
+function getTasks(pid){
+  const key=`snu-tuw-tasks-${pid}`;
+  try{
+    const s=localStorage.getItem(key);
+    if(s) return JSON.parse(s);
+    const defs=(DEFAULT_TASKS[pid]||[]).map(t=>({...t}));
+    localStorage.setItem(key,JSON.stringify(defs));
+    return defs;
+  }catch(e){ return []; }
+}
+function saveTasks(pid,tasks){ localStorage.setItem(`snu-tuw-tasks-${pid}`,JSON.stringify(tasks)); }
+function clSwitch(pid){
+  clActivePerson=pid;
+  const el=document.getElementById('cl-panel');
+  if(el) el.innerHTML=buildCLPanel();
+}
+function clToggle(pid,tid){
+  const tasks=getTasks(pid).map(t=>t.id===tid?{...t,done:!t.done}:t);
+  saveTasks(pid,tasks);
+  const el=document.getElementById('cl-panel');
+  if(el) el.innerHTML=buildCLPanel();
+}
+function clDeleteTask(pid,tid){
+  saveTasks(pid,getTasks(pid).filter(t=>t.id!==tid));
+  const el=document.getElementById('cl-panel');
+  if(el) el.innerHTML=buildCLPanel();
+}
+function clAddTask(pid){
+  const inp=document.getElementById('cl-add-input');
+  const text=inp&&inp.value.trim();
+  if(!text) return;
+  const tasks=getTasks(pid);
+  tasks.push({id:Date.now(),text,done:false});
+  saveTasks(pid,tasks);
+  const el=document.getElementById('cl-panel');
+  if(el) el.innerHTML=buildCLPanel();
+}
+function clClearDone(pid){
+  saveTasks(pid,getTasks(pid).filter(t=>!t.done));
+  const el=document.getElementById('cl-panel');
+  if(el) el.innerHTML=buildCLPanel();
+}
+function buildCLPanel(){
+  const pid=clActivePerson;
+  const tasks=getTasks(pid);
+  const done=tasks.filter(t=>t.done).length;
+  const person=STAFF_MEMBERS.find(m=>m.id===pid);
+  const tabs=STAFF_MEMBERS.map(m=>`<button class="ctab${m.id===pid?' on':''}" onclick="clSwitch('${m.id}')">${m.name.split(' ').pop()}</button>`).join('');
+  const items=tasks.length
+    ? tasks.map(t=>`<div class="task-item">
+        <input type="checkbox" class="task-cb" ${t.done?'checked':''} onchange="clToggle('${pid}',${t.id})">
+        <span class="task-label${t.done?' done':''}" onclick="clToggle('${pid}',${t.id})">${esc(t.text)}</span>
+        <button class="task-del" onclick="clDeleteTask('${pid}',${t.id})" title="삭제">✕</button>
+      </div>`).join('')
+    : `<div class="task-empty">할일이 없습니다.</div>`;
+  return `
+    <div class="ctabs">${tabs}</div>
+    <div class="cl-person-name">${person.name}</div>
+    <div class="cl-person-role">${person.title}</div>
+    <div class="cl-stats">
+      <span>${done}/${tasks.length} 완료</span>
+      ${done>0?`<button class="cl-clear-btn" onclick="clClearDone('${pid}')">완료 삭제</button>`:''}
+    </div>
+    <div class="task-list">${items}</div>
+    <div class="task-add-row">
+      <input id="cl-add-input" class="task-add-input" type="text" placeholder="할일 추가..."
+        onkeydown="if(event.key==='Enter')clAddTask('${pid}')">
+      <button class="task-add-btn" onclick="clAddTask('${pid}')">+</button>
+    </div>`;
+}
 
 /* ── 5 SPOTS ── */
 const SPOTS=[
  {id:'spot1',num:1,
   ko:'후암동 일대',de:'Huam-dong Gebiet',en:'Huam-dong District',
   sub:{ko:'경사 주거지와 역사적 도시 조직',de:'Hanglage & historisches Stadtgefüge',en:'Hillside Residential & Historic Urban Fabric'},
-  tags:{
-    ko:['도시 형태','구릉지 개발','역사 보존','재개발'],
-    de:['Stadtmorphologie','Hangbebauung','Denkmalpflege','Stadtentwicklung'],
-    en:['Urban Morphology','Hillside Development','Heritage Conservation','Redevelopment']},
-  bg:{
-    ko:'남산 북사면에 자리한 후암동 일대는 일제강점기 고급 주거지(삼판통)로 개발된 지역으로, 당시 조성된 적산가옥과 계획적 필지 구획의 흔적이 부분적으로 잔존해 있다. 해방과 전쟁을 거치며 피란민이 대거 정착하면서 기존의 격자 구조 위에 자연발생적인 소규모 필지 분할과 막다른 골목이 중첩되었고, 15~25도의 급경사 지형에 적응한 저층 고밀 주거지로 변화했다. 일제강점기의 도시 조직, 해방 이후 비공식 정착, 근대화 이후 점진적 개량이 켜켜이 쌓인 이 구역은 서울에서 도시 형성의 시간적 층위를 가장 복합적으로 읽을 수 있는 장소 중 하나다.',
-    de:'Das Huam-dong-Gebiet am Nordhang des Namsan wurde in der japanischen Kolonialzeit als gehobenes Wohnviertel (Sampan-tong) angelegt. Nach 1945 siedelten sich Flüchtlinge an und überlagerten das ursprüngliche Raster mit organischen Kleinstparzellen und Sackgassen auf 15–25° Gefälle.',
-    en:'Located on the northern slope of Namsan, Huam-dong was developed as an elite residential area (Sampan-tong) during the Japanese colonial period. Post-liberation refugees layered informal small-lot subdivisions and dead-end alleys onto the original grid, creating today\'s dense low-rise fabric on 15–25° slopes.'},
-  char:{
-    ko:'적산가옥이 남아 있는 골목, 경사에 순응한 불규칙한 필지 조직, 차량 접근이 불가능한 막다른 길이 공존하는 복합적 구조를 갖는다. 이 중 108계단과 계단 상단의 오거리는 구역 전체의 수직 보행을 지탱하는 핵심 결절점이다. 108계단은 차량 진입이 불가능한 상부 필지들을 하부 간선 도로와 연결하는 유일한 동선이며, 경사 구간의 엘리베이터와 함께 이동 약자를 포함한 주민들의 일상 생활을 지탱한다. 오거리는 계획된 적 없는 방식으로 광장 기능을 수행하는 공간으로, 보행자·마을버스·오토바이가 뒤엉키는 혼잡한 결절이자 이 동네의 사회적 중심이다.',
-    de:'Gassen mit erhaltenen Kolonialvillen, unregelmäßige Parzellenstruktur und fahrzeugunzugängliche Sackgassen prägen das Quartier. Die 108 Stufen und die Fünfwegkreuzung an ihrer Spitze sind die zentralen Erschließungsknoten für den vertikalen Fußverkehr.',
-    en:'Alleys with preserved Japanese colonial houses, irregular lot structures, and vehicle-inaccessible dead ends coexist in a complex spatial arrangement. The 108 Steps and the five-way junction at their top are the key nodes sustaining vertical pedestrian movement in the entire district.'},
-  issues:{
-    ko:['특별계획구역 재정비로 최고 100m 높이의 개발이 허용되면서 재개발 압력이 본격화되고 있다.','적산가옥과 비공식 골목 조직으로 구성된 역사 경관의 보존 여부가 핵심 쟁점이다.','재개발에 따른 원주민 이주와 커뮤니티 해체 문제가 제기된다.','급경사 지형에서 소방 접근·보행 안전·이동 약자 접근성 등 현대적 인프라 확보가 과제다.'],
-    de:['Die Genehmigung für 100-m-Bebauung im Sonderbaugebiet erhöht den Entwicklungsdruck erheblich.','Erhalt der historischen Straßenzüge mit Kolonialvillen und informellen Gassen steht auf dem Spiel.','Verdrängung langjähriger Bewohner und Auflösung gewachsener Gemeinschaften drohen.','Sicherstellung moderner Infrastruktur (Feuerwehrzufahrt, Barrierefreiheit) im Steilgelände ist herausfordernd.'],
-    en:['Special planning zone revision permits development up to 100m, intensifying redevelopment pressure.','Preservation of historic streetscapes with colonial houses and informal alley networks is a key issue.','Displacement of long-term residents and community dissolution are raised as central concerns.','Securing modern infrastructure (fire access, pedestrian safety, accessibility) on steep terrain is a major challenge.']},
-  stakeholders:{
-    ko:[{role:'장기 거주 원주민',desc:'30~40년 이상 거주 고령 가구. 재개발 시 임대주택 배정 대상이나 인근 재정착 가능성 낮음.'},{role:'서울시 / 용산구',desc:'지구단위계획 수립 주체. 2024년 재정비안으로 개발 촉진 기조 전환.'},{role:'민간 시행사 / 조합',desc:'특별계획구역 내 정비사업 추진 주체. 공공기여 협상의 핵심 당사자.'}],
-    de:[{role:'Langjährige Bewohner',desc:'Ältere Haushalte (30–40+ Jahre); für Sozialwohnungen vorgesehen, lokale Umsiedlung kaum möglich.'},{role:'Stadt Seoul / Yongsan-gu',desc:'Planungsbehörde; 2024 auf Entwicklungsförderung umgeschwenkt.'},{role:'Privatentwickler / Genossenschaften',desc:'Umsetzungsträger im Sonderbaugebiet; Schlüsselpartner bei Beitragsverhandlungen.'}],
-    en:[{role:'Long-term residents',desc:'Mostly elderly households (30–40+ years); eligible for public rental but local resettlement unlikely.'},{role:'Seoul City / Yongsan-gu',desc:'District unit plan authority; shifted to pro-development stance with 2024 revision.'},{role:'Developers / Associations',desc:'Implementing entities; key parties in public contribution negotiations.'}]},
+  tags:{ko:['도시 형태','구릉지 개발','역사 보존','재개발'],de:['Stadtmorphologie','Hangbebauung','Denkmalpflege','Stadtentwicklung'],en:['Urban Morphology','Hillside Development','Heritage Conservation','Redevelopment']},
+  bg:{ko:'남산 북사면에 자리한 후암동 일대는 일제강점기 고급 주거지(삼판통)로 개발된 지역으로, 당시 조성된 적산가옥과 계획적 필지 구획의 흔적이 부분적으로 잔존해 있다. 해방과 전쟁을 거치며 피란민이 대거 정착하면서 기존의 격자 구조 위에 자연발생적인 소규모 필지 분할과 막다른 골목이 중첩되었고, 15~25도의 급경사 지형에 적응한 저층 고밀 주거지로 변화했다. 일제강점기의 도시 조직, 해방 이후 비공식 정착, 근대화 이후 점진적 개량이 켜켜이 쌓인 이 구역은 서울에서 도시 형성의 시간적 층위를 가장 복합적으로 읽을 수 있는 장소 중 하나다.',de:'Das Huam-dong-Gebiet am Nordhang des Namsan wurde in der japanischen Kolonialzeit als gehobenes Wohnviertel (Sampan-tong) angelegt. Nach 1945 siedelten sich Flüchtlinge an und überlagerten das ursprüngliche Raster mit organischen Kleinstparzellen und Sackgassen auf 15–25° Gefälle.',en:'Located on the northern slope of Namsan, Huam-dong was developed as an elite residential area (Sampan-tong) during the Japanese colonial period. Post-liberation refugees layered informal small-lot subdivisions and dead-end alleys onto the original grid, creating today\'s dense low-rise fabric on 15–25° slopes.'},
+  char:{ko:'적산가옥이 남아 있는 골목, 경사에 순응한 불규칙한 필지 조직, 차량 접근이 불가능한 막다른 길이 공존하는 복합적 구조를 갖는다. 이 중 108계단과 계단 상단의 오거리는 구역 전체의 수직 보행을 지탱하는 핵심 결절점이다.',de:'Gassen mit erhaltenen Kolonialvillen, unregelmäßige Parzellenstruktur und fahrzeugunzugängliche Sackgassen prägen das Quartier.',en:'Alleys with preserved Japanese colonial houses, irregular lot structures, and vehicle-inaccessible dead ends coexist in a complex spatial arrangement.'},
+  issues:{ko:['특별계획구역 재정비로 최고 100m 높이의 개발이 허용되면서 재개발 압력이 본격화되고 있다.','적산가옥과 비공식 골목 조직으로 구성된 역사 경관의 보존 여부가 핵심 쟁점이다.','재개발에 따른 원주민 이주와 커뮤니티 해체 문제가 제기된다.','급경사 지형에서 소방 접근·보행 안전·이동 약자 접근성 등 현대적 인프라 확보가 과제다.'],de:['Die Genehmigung für 100-m-Bebauung im Sonderbaugebiet erhöht den Entwicklungsdruck erheblich.','Erhalt der historischen Straßenzüge mit Kolonialvillen und informellen Gassen steht auf dem Spiel.','Verdrängung langjähriger Bewohner und Auflösung gewachsener Gemeinschaften drohen.','Sicherstellung moderner Infrastruktur im Steilgelände ist herausfordernd.'],en:['Special planning zone revision permits development up to 100m, intensifying redevelopment pressure.','Preservation of historic streetscapes with colonial houses and informal alley networks is a key issue.','Displacement of long-term residents and community dissolution are raised as central concerns.','Securing modern infrastructure on steep terrain is a major challenge.']},
+  stakeholders:{ko:[{role:'장기 거주 원주민',desc:'30~40년 이상 거주 고령 가구. 재개발 시 임대주택 배정 대상이나 인근 재정착 가능성 낮음.'},{role:'서울시 / 용산구',desc:'지구단위계획 수립 주체. 2024년 재정비안으로 개발 촉진 기조 전환.'},{role:'민간 시행사 / 조합',desc:'특별계획구역 내 정비사업 추진 주체. 공공기여 협상의 핵심 당사자.'}],de:[{role:'Langjährige Bewohner',desc:'Ältere Haushalte; für Sozialwohnungen vorgesehen.'},{role:'Stadt Seoul / Yongsan-gu',desc:'Planungsbehörde; 2024 auf Entwicklungsförderung umgeschwenkt.'},{role:'Privatentwickler / Genossenschaften',desc:'Umsetzungsträger im Sonderbaugebiet.'}],en:[{role:'Long-term residents',desc:'Mostly elderly households; eligible for public rental but local resettlement unlikely.'},{role:'Seoul City / Yongsan-gu',desc:'District unit plan authority; shifted to pro-development stance with 2024 revision.'},{role:'Developers / Associations',desc:'Implementing entities; key parties in public contribution negotiations.'}]},
   quote:'"서울에서 도시 형성의 시간적 층위를 가장 복합적으로 읽을 수 있는 장소 — 그리고 100m 개발 허용이 그 층위를 덮어쓸 수 있는 곳."'},
-
  {id:'spot2',num:2,
   ko:'해방촌 신흥시장 일대',de:'Sinheung-Markt Haebangchon',en:'Haebangchon Sinheung Market Area',
   sub:{ko:'자연발생적 혼합 용도와 도시재생',de:'Organische Nutzungsmischung & Stadterneuerung',en:'Spontaneous Mixed-use & Urban Regeneration'},
-  tags:{
-    ko:['자연발생 혼합용도','전통시장','도시재생','젠트리피케이션'],
-    de:['Organische Nutzungsmischung','Traditioneller Markt','Stadterneuerung','Gentrifizierung'],
-    en:['Spontaneous Mixed-use','Traditional Market','Urban Regeneration','Gentrification']},
-  bg:{
-    ko:'해방촌 신흥시장은 1945년 이후 피란민들이 남산 사면에 정착하며 삶의 터전으로 만든 자생적 시장에서 출발한다. 계획된 상업지구가 아니라 생존의 필요에 의해 형성된 공간인 만큼, 건물 구조와 골목의 배치가 불규칙하고 유기적이다. 2000년대 이후 노후화가 심화되면서 전면 철거 방식의 재개발이 논의되었으나, 결국 기존 골조와 공간 구조를 살리는 도시재생의 방법론을 택했다. 이후 오래된 콘크리트 구조물 안에 카페, 다국적 식당, 독립 서점, 게스트하우스 등이 들어서면서 현재와 같은 혼합적 풍경이 만들어졌다.',
-    de:'Der Sinheung-Markt entstand nach 1945 als organischer Selbstversorgermarkt von Flüchtlingssiedlern. Nach Debatten über Totalabriss entschied man sich für Stadterneuerung — heute koexistieren Cafés, internationale Restaurants und Gästehäuser im alten Betongerüst.',
-    en:'The Sinheung Market originated as a spontaneous survival market formed by refugees after 1945. Rather than demolition, urban regeneration preserved the existing structure — today cafés, multinational restaurants, and guesthouses coexist within the old concrete framework.'},
-  char:{
-    ko:'좁고 미로 같은 골목 조직, 낮은 층고와 작은 칸막이로 구성된 점포 구조, 그리고 시장 특유의 열린 동선 체계가 공간의 기본 성격을 이룬다. 2019년 도시재생 뉴딜 사업을 통해 바닥 포장, 간판 정비, 공용 시설 등 가로 환경이 일부 정비되었다. 그러나 이 사업이 오히려 외부에 해방촌을 발견하게 하는 계기가 되면서 임대료 상승과 젠트리피케이션 압력이 함께 심화되었다.',
-    de:'Enge, labyrinthische Gassen, niedrige Deckenhöhen und kleinteilige Ladeneinheiten prägen das Raumgefüge. Das New-Deal-Programm 2019 verbesserte Bodenbelag und Beschilderung — rückte Haebangchon aber auch ins öffentliche Bewusstsein und löste Mietpreisauftrieb aus.',
-    en:'Narrow maze-like alleys, low ceilings, and small shop units define the spatial character. The 2019 Urban Regeneration New Deal improved street surfaces and signage — but also brought Haebangchon to public attention, triggering rent increases and gentrification pressure.'},
-  issues:{
-    ko:['도시재생 사업이 물리적 환경을 개선하면서도 기존 커뮤니티를 밀어내는 구조적 문제를 어떻게 읽을 것인가.','기존 니트 공장 등 가내수공업자와 오랜 원주민이 점차 밀려나고 상업 시설만 남는 현상이 가속화되고 있다.','원주민·영세 상인과 새로운 유입자 사이의 공존 가능성 및 제도적 장치의 필요성이 핵심 논점이다.','좁고 불규칙한 기존 시장 골격을 유지하면서 보행 편의·소방 접근·안전 등 현대적 인프라를 어떻게 확충할 것인가.'],
-    de:['Stadterneuerung verbessert die Umgebung, verdrängt aber gleichzeitig die gewachsene Gemeinschaft.','Heimindustrielle (Strickfabriken) und langjährige Bewohner werden schrittweise verdrängt.','Koexistenz von Alteingesessenen und Neuzugängen braucht räumliche und institutionelle Steuerungsinstrumente.','Erhalt des engen, unregelmäßigen Marktgefüges bei gleichzeitiger Modernisierung der Infrastruktur ist die Kernherausforderung.'],
-    en:['Urban regeneration improving the physical environment while displacing the existing community is the core structural paradox.','Home-industry workers and long-term residents are being gradually pushed out as commercial uses dominate.','Coexistence between original communities and newcomers requires spatial and institutional mechanisms.','Maintaining the narrow irregular market structure while upgrading fire access, safety, and pedestrian amenity is the key challenge.']},
-  stakeholders:{
-    ko:[{role:'신흥시장 상인',desc:'고령 상인 중심. 시장 현대화 및 후계자 부재 문제.'},{role:'가내수공업자 / 원주민',desc:'임대료 상승으로 이탈 압력. 재생 사업 수혜에서 소외.'},{role:'카페·게스트하우스 사업자',desc:'재생 이후 유입된 새 상업 세력. 임대료 상승의 수혜자이자 동인.'}],
-    de:[{role:'Sinheung-Markthändler',desc:'Überwiegend ältere Generation; Modernisierungsdruck und Nachfolgeprobleme.'},{role:'Heimindustrielle / Altbewohner',desc:'Mietpreisanstieg erzeugt Verdrängungsdruck; von Stadterneuerungsleistungen kaum profitiert.'},{role:'Cafés / Gästehäuser',desc:'Post-Regenerationszuzug; profitieren von und treiben Mietdynamik.'}],
-    en:[{role:'Sinheung Market vendors',desc:'Mostly elderly traders; modernization and succession challenges.'},{role:'Home-industry workers / original residents',desc:'Displacement pressure from rising rents; largely excluded from regeneration benefits.'},{role:'Cafés / guesthouses',desc:'Post-regeneration newcomers; beneficiaries and drivers of rent dynamics.'}]},
+  tags:{ko:['자연발생 혼합용도','전통시장','도시재생','젠트리피케이션'],de:['Organische Nutzungsmischung','Traditioneller Markt','Stadterneuerung','Gentrifizierung'],en:['Spontaneous Mixed-use','Traditional Market','Urban Regeneration','Gentrification']},
+  bg:{ko:'해방촌 신흥시장은 1945년 이후 피란민들이 남산 사면에 정착하며 삶의 터전으로 만든 자생적 시장에서 출발한다. 계획된 상업지구가 아니라 생존의 필요에 의해 형성된 공간인 만큼, 건물 구조와 골목의 배치가 불규칙하고 유기적이다. 2000년대 이후 노후화가 심화되면서 전면 철거 방식의 재개발이 논의되었으나, 결국 기존 골조와 공간 구조를 살리는 도시재생의 방법론을 택했다.',de:'Der Sinheung-Markt entstand nach 1945 als organischer Selbstversorgermarkt von Flüchtlingssiedlern. Nach Debatten über Totalabriss entschied man sich für Stadterneuerung.',en:'The Sinheung Market originated as a spontaneous survival market formed by refugees after 1945. Rather than demolition, urban regeneration preserved the existing structure.'},
+  char:{ko:'좁고 미로 같은 골목 조직, 낮은 층고와 작은 칸막이로 구성된 점포 구조, 그리고 시장 특유의 열린 동선 체계가 공간의 기본 성격을 이룬다. 2019년 도시재생 뉴딜 사업이 오히려 외부에 해방촌을 발견하게 하는 계기가 되면서 임대료 상승과 젠트리피케이션 압력이 함께 심화되었다.',de:'Enge Gassen, niedrige Deckenhöhen und kleinteilige Ladeneinheiten prägen das Raumgefüge.',en:'Narrow maze-like alleys, low ceilings, and small shop units define the spatial character.'},
+  issues:{ko:['도시재생 사업이 물리적 환경을 개선하면서도 기존 커뮤니티를 밀어내는 구조적 문제를 어떻게 읽을 것인가.','기존 니트 공장 등 가내수공업자와 오랜 원주민이 점차 밀려나고 있다.','원주민·영세 상인과 새로운 유입자 사이의 공존 가능성 및 제도적 장치의 필요성이 핵심 논점이다.','좁고 불규칙한 기존 시장 골격을 유지하면서 보행 편의·소방 접근·안전 등을 어떻게 확충할 것인가.'],de:['Stadterneuerung verbessert die Umgebung, verdrängt aber gleichzeitig die gewachsene Gemeinschaft.','Heimindustrielle und langjährige Bewohner werden schrittweise verdrängt.','Koexistenz von Alteingesessenen und Neuzugängen braucht institutionelle Steuerungsinstrumente.','Erhalt des Marktgefüges bei Modernisierung der Infrastruktur ist die Kernherausforderung.'],en:['Urban regeneration improving the physical environment while displacing the existing community is the core structural paradox.','Home-industry workers and long-term residents are being gradually pushed out.','Coexistence between original communities and newcomers requires institutional mechanisms.','Maintaining the narrow market structure while upgrading infrastructure is the key challenge.']},
+  stakeholders:{ko:[{role:'신흥시장 상인',desc:'고령 상인 중심. 시장 현대화 및 후계자 부재 문제.'},{role:'가내수공업자 / 원주민',desc:'임대료 상승으로 이탈 압력.'},{role:'카페·게스트하우스 사업자',desc:'재생 이후 유입된 새 상업 세력.'}],de:[{role:'Sinheung-Markthändler',desc:'Überwiegend ältere Generation.'},{role:'Heimindustrielle / Altbewohner',desc:'Mietpreisanstieg erzeugt Verdrängungsdruck.'},{role:'Cafés / Gästehäuser',desc:'Post-Regenerationszuzug.'}],en:[{role:'Sinheung Market vendors',desc:'Mostly elderly traders.'},{role:'Home-industry workers / original residents',desc:'Displacement pressure from rising rents.'},{role:'Cafés / guesthouses',desc:'Post-regeneration newcomers.'}]},
   quote:'"설계 없이 형성된 혼합 용도가 어떻게 작동하는지 — 그리고 재생이 의도치 않게 그것을 해체하는 과정을 동시에 관찰할 수 있는 현장."'},
-
  {id:'spot3',num:3,
   ko:'소월로',de:'Sowol-ro',en:'Sowol-ro',
   sub:{ko:'남산 경계 가로',de:'Grenzstraße am Namsan',en:'Namsan Boundary Road'},
-  tags:{
-    ko:['경계 가로','남산 경관','보행 단절','차로 다이어트'],
-    de:['Grenzstraße','Namsan-Panorama','Fußgängerunterbrechung','Straßenraumreduzierung'],
-    en:['Boundary Road','Namsan Panorama','Pedestrian Severance','Road Diet']},
-  bg:{
-    ko:'소월로는 그랜드하얏트 호텔에서 남산도서관으로 이어지는 왕복 4차선 간선도로로, 남산 산턱을 따라 굽이치며 서울 도심을 향한 파노라마 조망이 펼쳐지는 구간이다. 서울에서 남산 경관 보호를 위한 고도 제한이 가장 엄격하게 적용되는 도로이기도 하다. 역사적으로 산복 도로에서 출발했으나, 시간이 지나면서 차량 흐름을 우선시한 간선 도로 단면이 굳어졌고, 경관 자원으로서의 잠재력은 유지하면서도 보행 환경은 오히려 열악해지는 방향으로 진행되어 왔다.',
-    de:'Sowol-ro ist eine 4-spurige Hauptstraße vom Grand Hyatt Hotel zur Namsan-Bibliothek, die dem Berghang folgt und Panoramablicke auf die Innenstadt bietet. Historisch als Bergstraße angelegt, wurde sie zur fahrzeugdominierten Hauptachse — Landschaftspotenzial erhalten, Fußgängerqualität verschlechtert.',
-    en:'Sowol-ro is a 4-lane arterial from the Grand Hyatt Hotel to the Namsan Library, winding along the mountain slope with panoramic views of central Seoul. Historically a hillside path, it evolved into a vehicle-priority arterial — retaining landscape potential while deteriorating pedestrian conditions.'},
-  char:{
-    ko:'소월로는 현재 남산과 해방촌·이태원 주거지 사이를 물리적으로 가르는 장벽으로 기능한다. 급경사 내리막 구간에서의 차량 과속, 좁고 단절된 보행로, 위험한 횡단 구간이 반복되며, 남산 쪽에서 주거지로 이어지는 수평·수직 보행 연결이 사실상 단절되어 있다. 동시에 이 도로는 서울 도심의 스카이라인을 조망할 수 있는 몇 안 되는 선형 경관축이기도 해서, 차량 통행과 보행 경험, 경관 향유 사이의 긴장이 가장 선명하게 드러나는 구간이다.',
-    de:'Sowol-ro wirkt als physische Barriere zwischen dem Namsan-Park und den Wohngebieten Haebangchon/Itaewon. Bergab-Überschreitungen, schmale unterbrochene Gehwege und gefährliche Querungen kennzeichnen die Strecke. Zugleich ist es eine der wenigen Panoramaachsen Seouls.',
-    en:'Sowol-ro currently functions as a physical barrier separating Namsan from Haebangchon and Itaewon residential areas. Downhill vehicle speeding, narrow disconnected sidewalks, and dangerous crossings recur throughout. Yet it remains one of Seoul\'s few linear panorama corridors.'},
-  issues:{
-    ko:['차량 우선의 도로 단면이 어떻게 남산과 주거지 사이의 보행 단절을 심화시키는지가 핵심 논점이다.','경관과 이동성 사이의 균형, 차로 구성의 재편 가능성을 검토해야 한다.','위(남산)와 아래(주거지)를 잇는 입체적 보행 네트워크의 구성 방안이 필요하다.','소월로가 단순한 통과 도로가 아니라 남산의 녹지와 주거지를 연결하는 공간으로 기능할 수 있는지 검토가 필요하다.'],
-    de:['Wie die fahrzeugpriorisierte Straße die Fußgängerverbindung zwischen Namsan und Wohngebiet unterbricht, ist die Kernfrage.','Balance zwischen Landschaft und Mobilität; Potenzial einer Fahrspurreduzierung ist zu prüfen.','Mehrdimensionales Fußwegenetz zwischen Berg (Namsan) und Tal (Wohngebiet) ist zu entwickeln.','Kann Sowol-ro als Grünraumverbindung statt als bloße Durchfahrtsstraße fungieren?'],
-    en:['How the vehicle-priority cross-section deepens pedestrian severance between Namsan and residential areas is the core question.','Balance between landscape and mobility; feasibility of road diet and lane reconfiguration needs examination.','A multi-level pedestrian network connecting the mountain (Namsan) to the neighborhood below needs to be devised.','Can Sowol-ro function as a green connector rather than a mere through-road?']},
-  stakeholders:{
-    ko:[{role:'보행·등산 이용자',desc:'남산공원 접근 수요. 횡단보도 위치·간격 개선 요구.'},{role:'서울시 (남산 르네상스)',desc:'소월로 보행화·녹지축 연결 정책 수립 주체.'},{role:'인근 건물주',desc:'녹지 접면부 지가 상승 기대와 보행화에 따른 접근 방식 변화 우려 공존.'}],
-    de:[{role:'Fußgänger / Wanderer',desc:'Nachfrage nach Namsan-Zugang; fordern verbesserte Querungen.'},{role:'Stadt Seoul (Namsan Renaissance)',desc:'Zuständig für Fußgängerumgestaltung und Grünachsenplanung.'},{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung durch Grünraumnähe; besorgt um Fahrzeugzufahrt.'}],
-    en:[{role:'Pedestrians / hikers',desc:'Demand Namsan access; request improved crosswalk locations.'},{role:'Seoul City (Namsan Renaissance)',desc:'Policy authority for Sowol-ro pedestrianization and green axis.'},{role:'Adjacent property owners',desc:'Expect value gains; concerned about changed vehicle access.'}]},
+  tags:{ko:['경계 가로','남산 경관','보행 단절','차로 다이어트'],de:['Grenzstraße','Namsan-Panorama','Fußgängerunterbrechung','Straßenraumreduzierung'],en:['Boundary Road','Namsan Panorama','Pedestrian Severance','Road Diet']},
+  bg:{ko:'소월로는 그랜드하얏트 호텔에서 남산도서관으로 이어지는 왕복 4차선 간선도로로, 남산 산턱을 따라 굽이치며 서울 도심을 향한 파노라마 조망이 펼쳐지는 구간이다.',de:'Sowol-ro ist eine 4-spurige Hauptstraße vom Grand Hyatt Hotel zur Namsan-Bibliothek, die dem Berghang folgt.',en:'Sowol-ro is a 4-lane arterial from the Grand Hyatt Hotel to the Namsan Library, winding along the mountain slope with panoramic views of central Seoul.'},
+  char:{ko:'소월로는 현재 남산과 해방촌·이태원 주거지 사이를 물리적으로 가르는 장벽으로 기능한다. 급경사 내리막 구간에서의 차량 과속, 좁고 단절된 보행로, 위험한 횡단 구간이 반복된다.',de:'Sowol-ro wirkt als physische Barriere zwischen dem Namsan-Park und den Wohngebieten.',en:'Sowol-ro currently functions as a physical barrier separating Namsan from Haebangchon and Itaewon residential areas.'},
+  issues:{ko:['차량 우선의 도로 단면이 어떻게 남산과 주거지 사이의 보행 단절을 심화시키는지가 핵심 논점이다.','경관과 이동성 사이의 균형, 차로 구성의 재편 가능성을 검토해야 한다.','위(남산)와 아래(주거지)를 잇는 입체적 보행 네트워크의 구성 방안이 필요하다.','소월로가 단순한 통과 도로가 아니라 남산의 녹지와 주거지를 연결하는 공간으로 기능할 수 있는지 검토가 필요하다.'],de:['Wie die fahrzeugpriorisierte Straße die Fußgängerverbindung unterbricht, ist die Kernfrage.','Balance zwischen Landschaft und Mobilität ist zu prüfen.','Mehrdimensionales Fußwegenetz zwischen Berg und Tal ist zu entwickeln.','Kann Sowol-ro als Grünraumverbindung fungieren?'],en:['How the vehicle-priority cross-section deepens pedestrian severance is the core question.','Balance between landscape and mobility needs examination.','A multi-level pedestrian network connecting the mountain to the neighborhood needs to be devised.','Can Sowol-ro function as a green connector rather than a mere through-road?']},
+  stakeholders:{ko:[{role:'보행·등산 이용자',desc:'남산공원 접근 수요.'},{role:'서울시 (남산 르네상스)',desc:'소월로 보행화·녹지축 연결 정책 수립 주체.'},{role:'인근 건물주',desc:'녹지 접면부 지가 상승 기대.'}],de:[{role:'Fußgänger / Wanderer',desc:'Nachfrage nach Namsan-Zugang.'},{role:'Stadt Seoul',desc:'Zuständig für Fußgängerumgestaltung.'},{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung.'}],en:[{role:'Pedestrians / hikers',desc:'Demand Namsan access.'},{role:'Seoul City (Namsan Renaissance)',desc:'Policy authority for Sowol-ro pedestrianization.'},{role:'Adjacent property owners',desc:'Expect value gains.'}]},
   quote:'"차량 통행과 보행 경험, 경관 향유 사이의 긴장이 가장 선명하게 드러나는 구간 — 그리고 남산-용산공원 녹지축의 핵심 고리."'},
-
  {id:'spot4',num:4,
   ko:'녹사평대로 & 용산공원 접면부',de:'Noksapyeong-daero & Yongsan-Park Randzone',en:'Noksapyeong-daero & Yongsan Park Interface',
   sub:{ko:'공원-도시 전이 공간과 생태 연결',de:'Park-Stadt-Übergang & Ökologische Vernetzung',en:'Park-City Transition & Ecological Connectivity'},
-  tags:{
-    ko:['대규모 공원','녹지-도시 접면','생태 연결','차로 다이어트'],
-    de:['Großpark','Grünraum-Stadt-Interface','Ökologische Vernetzung','Straßenraumreduzierung'],
-    en:['Large-scale Park','Green-Urban Interface','Ecological Connectivity','Road Diet']},
-  bg:{
-    ko:'녹사평역 일대는 향후 조성될 243만㎡ 규모의 용산공원과 기존 고밀 주거·상업지가 만나는 경계부다. 용산 미군기지가 반환되면서 국내 최대 규모의 도심 공원 조성이 본격화되었고, 이 일대는 거대한 자연과 고밀도 도시 사이의 전이 공간으로서 새로운 역할을 부여받았다. 동시에 남산-용산공원-한강으로 이어지는 서울의 핵심 생태축에서 남쪽 관문 역할을 하는 전략적 거점이기도 해, 도시 차원의 녹지 연결 논의가 이 지점을 중심으로 집중되고 있다.',
-    de:'Die Umgebung der Station Noksapyeong ist die Kontaktzone zwischen dem entstehenden Yongsan-Park (2,43 Mio. m²) und bestehenden Wohn- und Gewerbegebieten. Als südliches Tor der Grünraumachse Namsan–Yongsan–Han-Fluss erhält dieser Ort strategische Bedeutung.',
-    en:'The Noksapyeong Station area is where the emerging 2.43 million m² Yongsan Park meets existing high-density residential and commercial areas. As the southern gateway of the Namsan–Yongsan–Han River ecological axis, it holds strategic significance for city-scale green connectivity.'},
-  char:{
-    ko:'지하 수십 미터 깊이까지 자연 채광이 쏟아지는 녹사평역의 거대한 중정(Atrium) 구조는 공원과 도시를 잇는 기념비적 지하-지상 전이 공간으로서 훌륭한 잠재력을 지녔다. 그러나 지상부는 왕복 6~10차선에 달하는 녹사평대로의 넓은 차폭과 복잡한 교차로, 그리고 지형의 단차를 극복하기 위한 육교 중심의 동선이 지배적이다.',
-    de:'Der gigantische Atrium der Station Noksapyeong — natürlich beleuchtet bis in große Tiefen — ist ein monumentaler unterirdisch-oberirdischer Übergangsraum mit großem Potenzial. Oberirdisch dominieren jedoch 6–10 Fahrspuren, komplexe Kreuzungen und Fußgängerbrücken.',
-    en:'Noksapyeong Station\'s massive atrium — flooded with natural light dozens of meters underground — is a monumental underground-to-surface transition space with great potential. However, the surface is dominated by 6–10 lane roads, complex intersections, and overpass-centric pedestrian routing.'},
-  issues:{
-    ko:['대규모 공원이 주변 도시 조직에 어떤 파급 효과를 미치는지, 닫힌 담장과 차량 중심의 경계를 다공성 공간으로 어떻게 재설계할 것인지가 핵심 논점이다.','고립된 지하 역사 인프라부터 지상부의 차로 다이어트, 육교, 공원으로 이어지는 입체적 보행 및 생태 연결 방안이 필요하다.','공원 조성에 따른 주변 부동산 가치 상승과 개발 압력 등 현재 진행형인 도시 변화를 관찰하고 대응해야 한다.','남산-용산공원-한강을 잇는 도시 차원의 생태축 실현을 위한 전략적 연결 방안을 모색해야 한다.'],
-    de:['Wie ein Großpark die umliegende Stadtstruktur transformiert und wie die Grenze von einer Barriere zu einem porösen Raum wird, ist die Kernfrage.','Vom isolierten U-Bahn-Atrium über Road Diet und Brücken bis zum Park — eine integrierte Fußgänger- und Grünraumstrategie ist nötig.','Steigende Grundstückswerte und Entwicklungsdruck durch die Parkanlage müssen beobachtet und gesteuert werden.','Strategie zur Realisierung der gesamtstädtischen Ökologieachse Namsan–Yongsan–Han-Fluss muss entwickelt werden.'],
-    en:['How a large-scale park transforms surrounding urban fabric and how a closed barrier becomes porous space is the core question.','From the isolated underground atrium through road diet and overpasses to the park — an integrated pedestrian and ecological strategy is needed.','Rising property values and development pressure around the park must be observed and managed.','Strategies for realizing the city-scale ecological axis from Namsan through Yongsan Park to the Han River need to be developed.']},
-  stakeholders:{
-    ko:[{role:'인근 주거·상업 건물주',desc:'공원 개방에 따른 지가 상승 기대. 일부는 접근로 변화에 우려.'},{role:'서울시 / 국토부',desc:'용산공원 조성 주체. 주변 지구단위계획과 연계한 접면부 관리 필요.'},{role:'환경·시민단체',desc:'공원의 생태적 기능 유지 및 상업화 방지 촉구.'}],
-    de:[{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung; teils besorgt über geänderte Erschließung.'},{role:'Stadt Seoul / Ministerium',desc:'Träger der Parkentwicklung; Randzonenmanagement mit Bebauungsplänen verknüpfen.'},{role:'Umwelt- und Bürgergruppen',desc:'Fordern Erhalt der Ökologie und Verhinderung der Kommerzialisierung.'}],
-    en:[{role:'Adjacent property owners',desc:'Expect value gains from park proximity; some concerned about changed access.'},{role:'Seoul City / Ministry of Land',desc:'Park development authority; needs interface zone management linked with district plans.'},{role:'Environmental / civic groups',desc:'Demand preservation of ecological function and prevention of commercialization.'}]},
+  tags:{ko:['대규모 공원','녹지-도시 접면','생태 연결','차로 다이어트'],de:['Großpark','Grünraum-Stadt-Interface','Ökologische Vernetzung','Straßenraumreduzierung'],en:['Large-scale Park','Green-Urban Interface','Ecological Connectivity','Road Diet']},
+  bg:{ko:'녹사평역 일대는 향후 조성될 243만㎡ 규모의 용산공원과 기존 고밀 주거·상업지가 만나는 경계부다.',de:'Die Umgebung der Station Noksapyeong ist die Kontaktzone zwischen dem entstehenden Yongsan-Park (2,43 Mio. m²) und bestehenden Gebieten.',en:'The Noksapyeong Station area is where the emerging 2.43 million m² Yongsan Park meets existing high-density residential and commercial areas.'},
+  char:{ko:'지하 수십 미터 깊이까지 자연 채광이 쏟아지는 녹사평역의 거대한 중정(Atrium) 구조는 훌륭한 잠재력을 지녔다. 그러나 지상부는 왕복 6~10차선에 달하는 녹사평대로의 넓은 차폭과 복잡한 교차로가 지배적이다.',de:'Der gigantische Atrium der Station Noksapyeong hat großes Potenzial. Oberirdisch dominieren jedoch 6–10 Fahrspuren und komplexe Kreuzungen.',en:'Noksapyeong Station\'s massive atrium has great potential. However, the surface is dominated by 6–10 lane roads and complex intersections.'},
+  issues:{ko:['대규모 공원이 주변 도시 조직에 어떤 파급 효과를 미치는지가 핵심 논점이다.','고립된 지하 역사 인프라부터 공원으로 이어지는 입체적 보행 및 생태 연결 방안이 필요하다.','공원 조성에 따른 주변 부동산 가치 상승과 개발 압력을 관찰하고 대응해야 한다.','남산-용산공원-한강을 잇는 생태축 실현을 위한 전략적 연결 방안을 모색해야 한다.'],de:['Wie ein Großpark die umliegende Stadtstruktur transformiert, ist die Kernfrage.','Integrierte Fußgänger- und Grünraumstrategie ist nötig.','Steigende Grundstückswerte müssen beobachtet werden.','Strategie zur Realisierung der Ökologieachse muss entwickelt werden.'],en:['How a large-scale park transforms surrounding urban fabric is the core question.','An integrated pedestrian and ecological strategy is needed.','Rising property values and development pressure must be managed.','Strategies for realizing the city-scale ecological axis need to be developed.']},
+  stakeholders:{ko:[{role:'인근 주거·상업 건물주',desc:'공원 개방에 따른 지가 상승 기대.'},{role:'서울시 / 국토부',desc:'용산공원 조성 주체.'},{role:'환경·시민단체',desc:'공원의 생태적 기능 유지 촉구.'}],de:[{role:'Anliegende Eigentümer',desc:'Erwarten Wertsteigerung.'},{role:'Stadt Seoul / Ministerium',desc:'Träger der Parkentwicklung.'},{role:'Umwelt- und Bürgergruppen',desc:'Fordern Erhalt der Ökologie.'}],en:[{role:'Adjacent property owners',desc:'Expect value gains from park proximity.'},{role:'Seoul City / Ministry of Land',desc:'Park development authority.'},{role:'Environmental / civic groups',desc:'Demand preservation of ecological function.'}]},
   quote:'"닫힌 담장과 차량 중심의 경계를 유기적으로 스며드는 다공성 공간으로 어떻게 재설계할 것인가 — 현재 진행형인 도시 변화의 최전선."'},
-
  {id:'spot5',num:5,
   ko:'경리단길 & 이태원로',de:'Gyeongnidan-gil & Itaewon-ro',en:'Gyeongnidan-gil & Itaewon-ro',
   sub:{ko:'자생적 상업 가로의 생애주기와 회복력',de:'Lebenszyklus der organischen Geschäftsstraße & Resilienz',en:'Life Cycle of Organic Commercial Streets & Resilience'},
-  tags:{
-    ko:['소필지 상업가로','젠트리피케이션 이후','도시 형태','재난 후 회복'],
-    de:['Kleinteilige Geschäftsstraße','Post-Gentrifizierung','Stadtmorphologie','Post-Katastrophe-Resilienz'],
-    en:['Small-lot Commercial Street','Post-gentrification','Urban Morphology','Post-disaster Recovery']},
-  bg:{
-    ko:'이태원 메인 상권과는 다른 결을 가진 소필지 기반의 자생적 상업 가로다. 경리단길은 인근 군부대와 외국인 거주자를 배경으로 형성된 골목 상권에서 출발해 2010년대 중반 급격한 상업화를 겪었으나, 이후 젠트리피케이션의 직격탄을 맞으며 현재는 공실화와 업종 전환이 진행 중이다. 해방촌보다 한 사이클 앞선 상업화 이후 단계를 관찰할 수 있어, 자생적 상업 가로의 변이 과정을 추적하기에 적합한 현장이다. 이태원로 일대는 다국적 상점과 커뮤니티가 밀집한 활성 상권으로, 1층 상업과 상층부 주거가 결합한 수직적 혼합 용도가 계획 없이 자연스럽게 형성된 곳이다. 2022년 이태원 참사 이후 상권이 크게 위축되었으나, 2024~2025년을 거치며 부분적 회복세를 보이고 있다.',
-    de:'Gyeongnidan-gil ist eine kleinteilige organische Geschäftsstraße, die nach einem Gentrifizierungsboom in den 2010er-Jahren nun Leerstand und Nutzungswandel erlebt — einen Zyklus vor Haebangchon. Itaewon-ro ist eine aktive multinationale Handelsstraße mit organisch gewachsener vertikaler Nutzungsmischung. Nach dem Unglück 2022 starker Rückgang, seit 2024–25 teilweise Erholung.',
-    en:'Gyeongnidan-gil is a small-lot organic commercial street that peaked with rapid commercialization in the mid-2010s, then suffered the full impact of gentrification — now in post-gentrification vacancy and business turnover, one cycle ahead of Haebangchon. Itaewon-ro is an active multinational strip with organically formed vertical mixed-use. Post-2022 sharp decline, partial recovery from 2024–25.'},
-  char:{
-    ko:'도로를 경계로 필지 규모와 건물 유형이 급변하는 구간이 많아, 도시 형태학적 분석의 좋은 대상이다. 좁고 경사진 골목에 밀집된 상권, 차량과 보행자가 혼재하는 협소 가로, 건물 유형의 급격한 전환이 짧은 거리 안에서 공존한다. 참사 이후 상권 회복 과정에서 이 일대의 물리적 공간이 어떤 방식으로 재편되고 있는지를 현재 진행형으로 관찰할 수 있다.',
-    de:'Zahlreiche Abschnitte mit abruptem Parzellen- und Gebäudetypenwechsel machen den Ort ideal für Stadtmorphologieanalysen. Enge, steile Gassen, Mischverkehr und schnelle Bautypentransitionen auf kurzem Abstand. Post-2022 Erholung des Handelslebens ist direkt beobachtbar.',
-    en:'Many sections with abrupt changes in lot scale and building type make this ideal for urban morphology analysis. Narrow sloped alleys, mixed vehicle-pedestrian traffic, and rapid building-type transitions coexist within short distances. Post-2022 commercial recovery is directly observable in progress.'},
-  issues:{
-    ko:['젠트리피케이션의 사이클을 거쳐 쇠퇴를 겪고 있는 상업 가로의 물리적 환경을 어떻게 읽을 것인지가 논점이다.','수직적 혼합 용도가 밀집한 협소 가로와 경사지에서 보행자 흐름의 분산과 공공 안전 확보가 어떻게 가능한지 검토해야 한다.','이태원 참사 이후 상권 회복 과정에서 공간 설계가 어떤 역할을 할 수 있는지가 핵심 쟁점이다.','경리단길과 이태원로라는 서로 다른 단계에 놓인 두 가로를 비교하며 도시 상업 가로의 생애 주기를 탐색할 수 있다.'],
-    de:['Wie liest man die physische Umgebung einer durch Gentrifizierungszyklen geschwächten Geschäftsstraße?','Wie lässt sich Fußgängerverteilung und öffentliche Sicherheit in engen, geneigten Straßen mit vertikaler Nutzungsmischung gewährleisten?','Welche Rolle kann räumliches Design im Post-Katastrophen-Erholungsprozess spielen?','Vergleich der beiden Straßen auf verschiedenen Zyklenständen ermöglicht Einblicke in den Lebenszyklus von Geschäftsstraßen.'],
-    en:['How to read the physical environment of a commercial street cycling through gentrification and decline is the key question.','How to ensure pedestrian distribution and public safety in narrow, sloped streets with dense vertical mixed-use needs examination.','What role can spatial design play in the post-disaster commercial recovery process is a central issue.','Comparing Gyeongnidan-gil and Itaewon-ro at different cycle stages enables exploration of commercial street life cycles.']},
-  stakeholders:{
-    ko:[{role:'소규모 자영업자',desc:'임대료 부담 및 프랜차이즈 대비 경쟁 열위.'},{role:'이태원 상인연합',desc:'상권 회복 및 이미지 개선 캠페인 추진.'},{role:'외국인 거주·방문객',desc:'이태원 상권의 핵심 수요층. 문화적 다양성 유지 기대.'}],
-    de:[{role:'Kleingewerbetreibende',desc:'Mietlastdruck und Wettbewerbsnachteil gegenüber Franchise.'},{role:'Itaewon Händlerverband',desc:'Kampagnen zur Geschäftsbelebung und Imageverbesserung.'},{role:'Ausländische Bewohner / Besucher',desc:'Kernnachfrage; erwarten Erhalt der kulturellen Vielfalt.'}],
-    en:[{role:'Small business operators',desc:'High rent burden and competitive disadvantage vs. franchises.'},{role:'Itaewon Merchants Association',desc:'Pursuing recovery and image improvement campaigns.'},{role:'Foreign residents / visitors',desc:'Core demand base; expect preservation of cultural diversity.'}]},
+  tags:{ko:['소필지 상업가로','젠트리피케이션 이후','도시 형태','재난 후 회복'],de:['Kleinteilige Geschäftsstraße','Post-Gentrifizierung','Stadtmorphologie','Post-Katastrophe-Resilienz'],en:['Small-lot Commercial Street','Post-gentrification','Urban Morphology','Post-disaster Recovery']},
+  bg:{ko:'경리단길은 인근 군부대와 외국인 거주자를 배경으로 형성된 골목 상권에서 출발해 2010년대 중반 급격한 상업화를 겪었으나, 이후 젠트리피케이션의 직격탄을 맞으며 현재는 공실화와 업종 전환이 진행 중이다. 이태원로 일대는 2022년 이태원 참사 이후 상권이 크게 위축되었으나, 2024~2025년을 거치며 부분적 회복세를 보이고 있다.',de:'Gyeongnidan-gil erlebt nach einem Gentrifizierungsboom nun Leerstand. Itaewon-ro zeigt seit 2024–25 teilweise Erholung nach dem Unglück 2022.',en:'Gyeongnidan-gil is in post-gentrification decline. Itaewon-ro shows partial recovery from 2024–25 after the 2022 tragedy.'},
+  char:{ko:'도로를 경계로 필지 규모와 건물 유형이 급변하는 구간이 많아, 도시 형태학적 분석의 좋은 대상이다.',de:'Zahlreiche Abschnitte mit abruptem Parzellen- und Gebäudetypenwechsel machen den Ort ideal für Stadtmorphologieanalysen.',en:'Many sections with abrupt changes in lot scale and building type make this ideal for urban morphology analysis.'},
+  issues:{ko:['젠트리피케이션의 사이클을 거쳐 쇠퇴를 겪고 있는 상업 가로의 물리적 환경을 어떻게 읽을 것인지가 논점이다.','수직적 혼합 용도가 밀집한 협소 가로와 경사지에서 보행자 흐름의 분산과 공공 안전 확보가 과제다.','이태원 참사 이후 상권 회복 과정에서 공간 설계가 어떤 역할을 할 수 있는지가 핵심 쟁점이다.','경리단길과 이태원로라는 서로 다른 단계에 놓인 두 가로를 비교하며 도시 상업 가로의 생애 주기를 탐색할 수 있다.'],de:['Wie liest man die physische Umgebung einer durch Gentrifizierung geschwächten Geschäftsstraße?','Fußgängersicherheit in engen Straßen ist zu gewährleisten.','Welche Rolle kann räumliches Design im Post-Katastrophen-Erholungsprozess spielen?','Vergleich beider Straßen ermöglicht Einblicke in Lebenszyklen.'],en:['How to read the physical environment of a commercial street in gentrification decline is the key question.','Ensuring pedestrian safety in narrow sloped streets needs examination.','What role spatial design can play in post-disaster recovery is a central issue.','Comparing the two streets enables exploration of commercial street life cycles.']},
+  stakeholders:{ko:[{role:'소규모 자영업자',desc:'임대료 부담 및 프랜차이즈 대비 경쟁 열위.'},{role:'이태원 상인연합',desc:'상권 회복 및 이미지 개선 캠페인 추진.'},{role:'외국인 거주·방문객',desc:'이태원 상권의 핵심 수요층.'}],de:[{role:'Kleingewerbetreibende',desc:'Mietlastdruck.'},{role:'Itaewon Händlerverband',desc:'Kampagnen zur Geschäftsbelebung.'},{role:'Ausländische Bewohner / Besucher',desc:'Kernnachfrage.'}],en:[{role:'Small business operators',desc:'High rent burden vs. franchises.'},{role:'Itaewon Merchants Association',desc:'Pursuing recovery and image improvement.'},{role:'Foreign residents / visitors',desc:'Core demand base.'}]},
   quote:'"자생적 상업 가로의 생애 주기와 물리적 환경 사이의 관계를 두 가로의 비교를 통해 다각도로 탐색할 수 있는 현장."'},
 ];
 
 /* ── GLOSSARY ── */
 const GLOSS=[
  {cat:{ko:'규제 지표',de:'Planungskennwerte',en:'Planning Metrics'},terms:[
-  {ko:'용도지역',de:'Zonengebiet / Bebauungsgebiet',en:'Zoning District',note:{ko:'토지 사용 목적을 법적으로 구분',de:'Gesetzliche Einteilung der Bodennutzungszwecke',en:'Legal classification of land use purpose'}},
+  {ko:'용도지역',de:'Zonengebiet / Bebauungsgebiet',en:'Zoning District',note:{ko:'토지 사용 목적을 법적으로 구분',de:'Gesetzliche Einteilung',en:'Legal classification of land use purpose'}},
   {ko:'용적률',de:'Geschossflächenzahl (GFZ)',en:'Floor Area Ratio (FAR)',note:{ko:'연면적 / 대지면적 × 100',de:'Gesamtgeschossfläche / Grundstücksfläche × 100',en:'Total floor area / site area × 100'}},
   {ko:'건폐율',de:'Grundflächenzahl (GRZ)',en:'Building Coverage Ratio (BCR)',note:{ko:'건축면적 / 대지면적 × 100',de:'Bebaute Fläche / Grundstücksfläche × 100',en:'Building footprint / site area × 100'}},
   {ko:'세트백',de:'Bauwich / Abstandsfläche',en:'Setback',note:{ko:'건물과 부지 경계선 간 이격 거리',de:'Abstand zwischen Gebäude und Grundstücksgrenze',en:'Required distance between building and plot boundary'}},
@@ -401,101 +568,107 @@ const GLOSS=[
  ]},
 ];
 
-/* ── SCHEDULE DATA ── */
-const SCHED_P1 = [
- {d:'2', w:{ko:'목',de:'DO',en:'THU'}, items:[
-  {t:'PM', type:'field', ko:'경복궁 + 대한민국역사박물관 + 광화문광장', de:'Gyeongbokgung + Nationales Geschichtsmuseum + Gwanghwamun-Platz', en:'Gyeongbokgung + National Museum + Gwanghwamun Plaza'},
+/* ── SCHEDULE ── */
+const SCHED_P1=[
+ {d:'2',w:{ko:'목',de:'DO',en:'THU'},items:[{t:'PM',type:'field',ko:'경복궁 + 대한민국역사박물관 + 광화문광장',de:'Gyeongbokgung + Nationales Geschichtsmuseum + Gwanghwamun-Platz',en:'Gyeongbokgung + National Museum + Gwanghwamun Plaza'}]},
+ {d:'3',w:{ko:'금',de:'FR',en:'FRI'},items:[
+  {t:'PM',type:'field',ko:'성수동 워킹투어 (14:00–16:00)',de:'Seongsu Stadtrundgang (14:00–16:00)',en:'Seongsu walking tour (14:00–16:00)',route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest',contact:'Contact: Kwon Hein · hein93328@snu.ac.kr'},
+  {t:'EVE',type:'field',ko:'경의선숲길 + 홍대',de:'Gyeongui Line Forest + Hongdae',en:'Gyeongui Line Forest + Hongdae'},
  ]},
- {d:'3', w:{ko:'금',de:'FR',en:'FRI'}, items:[
-  {t:'PM',  type:'field', ko:'성수동 워킹투어 (14:00–16:00)', de:'Seongsu Stadtrundgang (14:00–16:00)', en:'Seongsu walking tour (14:00–16:00)',
-   route:'LCDC → Daelim Changgo → Musinsa → Olive Young N + Wooran → Dior / Tamburins → Yeonmujang-gil → Cociety → Seoul Forest',
-   contact:'Contact: Kwon Hein · hein93328@snu.ac.kr'},
-  {t:'EVE', type:'field', ko:'경의선숲길 + 홍대', de:'Gyeongui Line Forest + Hongdae', en:'Gyeongui Line Forest + Hongdae'},
+ {d:'4',w:{ko:'토',de:'SA',en:'SAT'},items:[{t:'AM',type:'field',ko:'서울역 / 서울로7017 + 청계천',de:'Seoul Station / Seoullo 7017 + Cheonggyecheon',en:'Seoul Station / Seoullo 7017 + Cheonggyecheon'}]},
+ {d:'5',w:{ko:'일',de:'SO',en:'SUN'},items:[{t:'',type:'free',ko:'자유 선택: 수원화성 or DMZ',de:'Individuell: Hwaseong-Festung oder DMZ',en:'Individual: Suwon Hwaseong or DMZ'}]},
+];
+const SCHED_P2=[
+ {d:'7',w:{ko:'화',de:'DI',en:'TUE'},items:[
+  {t:'AM',type:'intro',ko:'프로그램·학교·참여자 소개 + 연구 발표 + 대상지 소개',de:'Programmvorstellung + Forschungspräsentationen + Gebietseinführung',en:'Program intro + research presentations + site briefing'},
+  {t:'PM',type:'work',ko:'팀 편성 + 주제결정 + 그룹 설계 작업',de:'Teambildung + Themenwahl + Gruppenplanung',en:'Team formation + topic selection + group design work'},
  ]},
- {d:'4', w:{ko:'토',de:'SA',en:'SAT'}, items:[
-  {t:'AM', type:'field', ko:'서울역 / 서울로7017 + 청계천', de:'Seoul Station / Seoullo 7017 + Cheonggyecheon', en:'Seoul Station / Seoullo 7017 + Cheonggyecheon'},
+ {d:'8',w:{ko:'수',de:'MI',en:'WED'},items:[
+  {t:'AM',type:'field',ko:'설계 대상지 조별 답사 (남산 남사면)',de:'Teamweise Geländebegehung (Namsan-Südhang)',en:'Site visit by team (Namsan south slope)'},
+  {t:'PM',type:'work',ko:'그룹 설계 작업 (비엔나팀 세종 KOTI 방문)',de:'Gruppenplanung (TU-Wien-Team: KOTI-Besuch Sejong)',en:'Group design work (Vienna team: KOTI Sejong visit)'},
  ]},
- {d:'5', w:{ko:'일',de:'SO',en:'SUN'}, items:[
-  {t:'', type:'free', ko:'자유 선택: 수원화성 or DMZ', de:'Individuell: Hwaseong-Festung oder DMZ', en:'Individual: Suwon Hwaseong or DMZ'},
+ {d:'9',w:{ko:'목',de:'DO',en:'THU'},items:[
+  {t:'AM',type:'work',ko:'그룹 설계 + 멘토링 (비엔나 공대)',de:'Gruppenplanung + Mentoring (TU Wien)',en:'Group work + mentoring (TU Wien)'},
+  {t:'PM',type:'work',ko:'그룹 설계 + 멘토링 (환경대학원)',de:'Gruppenplanung + Mentoring (SNU GSES)',en:'Group work + mentoring (SNU GSES)'},
+ ]},
+ {d:'10',w:{ko:'금',de:'FR',en:'FRI'},items:[
+  {t:'AM',type:'work',ko:'그룹 설계 작업 (마무리)',de:'Gruppenplanung (Abschluss)',en:'Group work (final push)'},
+  {t:'PM',type:'pres',ko:'최종 발표 + 질의응답 (팀당 35분)',de:'Abschlusspräsentationen + Diskussion (35 min/Team)',en:'Final presentations + Q&A (35 min/team)'},
  ]},
 ];
-const SCHED_P2 = [
- {d:'7', w:{ko:'화',de:'DI',en:'TUE'}, items:[
-  {t:'AM', type:'intro', ko:'프로그램·학교·참여자 소개 + 연구 발표 + 대상지 소개', de:'Programmvorstellung + Forschungspräsentationen + Gebietseinführung', en:'Program intro + research presentations + site briefing'},
-  {t:'PM', type:'work',  ko:'팀 편성 + 주제결정 + 그룹 설계 작업', de:'Teambildung + Themenwahl + Gruppenplanung', en:'Team formation + topic selection + group design work'},
- ]},
- {d:'8', w:{ko:'수',de:'MI',en:'WED'}, items:[
-  {t:'AM', type:'field', ko:'설계 대상지 조별 답사 (남산 남사면)', de:'Teamweise Geländebegehung (Namsan-Südhang)', en:'Site visit by team (Namsan south slope)'},
-  {t:'PM', type:'work',  ko:'그룹 설계 작업 (비엔나팀 세종 KOTI 방문)', de:'Gruppenplanung (TU-Wien-Team: KOTI-Besuch Sejong)', en:'Group design work (Vienna team: KOTI Sejong visit)'},
- ]},
- {d:'9', w:{ko:'목',de:'DO',en:'THU'}, items:[
-  {t:'AM', type:'work', ko:'그룹 설계 + 멘토링 (비엔나 공대)', de:'Gruppenplanung + Mentoring (TU Wien)', en:'Group work + mentoring (TU Wien)'},
-  {t:'PM', type:'work', ko:'그룹 설계 + 멘토링 (환경대학원)', de:'Gruppenplanung + Mentoring (SNU GSES)', en:'Group work + mentoring (SNU GSES)'},
- ]},
- {d:'10', w:{ko:'금',de:'FR',en:'FRI'}, items:[
-  {t:'AM', type:'work', ko:'그룹 설계 작업 (마무리)', de:'Gruppenplanung (Abschluss)', en:'Group work (final push)'},
-  {t:'PM', type:'pres', ko:'최종 발표 + 질의응답 (팀당 35분)', de:'Abschlusspräsentationen + Diskussion (35 min/Team)', en:'Final presentations + Q&A (35 min/team)'},
- ]},
-];
-const SCHED_DETAIL = [
- {d:{ko:'4/7 화',de:'7.4 Di',en:'4/7 Tue'}, room:'82-113',
+const SCHED_DETAIL=[
+ {d:{ko:'4/7 화',de:'7.4 Di',en:'4/7 Tue'},room:'82-113',
   phase:{ko:'인트로 + 설계 시작',de:'Intro + Planungsstart',en:'Intro + design start'},
   blocks:[
-   {t:'09:00–09:10', type:'intro', ko:'프로그램 소개', de:'Programmvorstellung', en:'Program introduction', host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
-   {t:'09:10–09:40', type:'intro', ko:'환경대학원 / 비엔나 공대 소개 (각 10분)', de:'SNU GSES / TU Wien Vorstellung (je 10 Min.)', en:'SNU GSES / TU Wien introduction (10 min each)', host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
-   {t:'09:40–10:30', type:'intro', ko:'참여자 전체 소개', de:'Vorstellungsrunde', en:'All participants self-introduction', host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
-   {t:'10:30–10:45', type:'break', ko:'쉬는시간', de:'Pause', en:'Break'},
-   {t:'10:45–11:55', type:'intro', ko:'환경대학원 / 비엔나 공대 최근 연구 소개 (각 35분)', de:'Forschungspräsentationen (je 35 Min.)', en:'Recent research presentations (35 min each)', host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
-   {t:'12:00–12:30', type:'field', ko:'설계 대상지 소개', de:'Vorstellung des Entwurfsgebiets', en:'Design site briefing', host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
-   {t:{ko:'점심',de:'Mittagessen',en:'Lunch'}, type:'break', ko:'', de:'', en:''},
-   {t:'14:00–17:30', type:'work', ko:'팀별 주제결정 + 그룹 워크 및 설계 작업', de:'Themenwahl + Gruppenplanung', en:'Topic selection + group design work', host:'Kim Jeonghye (PhD)'},
-   {t:'17:30–19:20', type:'break', ko:'저녁식사', de:'Abendessen', en:'Dinner'},
+   {t:'09:00–09:10',type:'intro',ko:'프로그램 소개',de:'Programmvorstellung',en:'Program introduction',host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
+   {t:'09:10–09:40',type:'intro',ko:'환경대학원 / 비엔나 공대 소개 (각 10분)',de:'SNU GSES / TU Wien Vorstellung (je 10 Min.)',en:'SNU GSES / TU Wien introduction (10 min each)',host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
+   {t:'09:40–10:30',type:'intro',ko:'참여자 전체 소개',de:'Vorstellungsrunde',en:'All participants self-introduction',host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
+   {t:'10:30–10:45',type:'break',ko:'쉬는시간',de:'Pause',en:'Break'},
+   {t:'10:45–11:55',type:'intro',ko:'환경대학원 / 비엔나 공대 최근 연구 소개 (각 35분)',de:'Forschungspräsentationen (je 35 Min.)',en:'Recent research presentations (35 min each)',host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
+   {t:'12:00–12:30',type:'field',ko:'설계 대상지 소개',de:'Vorstellung des Entwurfsgebiets',en:'Design site briefing',host:'Yang Jiseul · Kim Kyeongdong (PhD)'},
+   {t:{ko:'점심',de:'Mittagessen',en:'Lunch'},type:'break',ko:'',de:'',en:''},
+   {t:'14:00–17:30',type:'work',ko:'팀별 주제결정 + 그룹 워크 및 설계 작업',de:'Themenwahl + Gruppenplanung',en:'Topic selection + group design work',host:'Kim Jeonghye (PhD)'},
+   {t:'17:30–19:20',type:'break',ko:'저녁식사',de:'Abendessen',en:'Dinner'},
   ]},
- {d:{ko:'4/8 수',de:'8.4 Mi',en:'4/8 Wed'}, room:'82-405',
+ {d:{ko:'4/8 수',de:'8.4 Mi',en:'4/8 Wed'},room:'82-405',
   phase:{ko:'현장 답사일',de:'Geländetag',en:'Site visit day'},
   blocks:[
-   {t:'09:00–13:00', type:'field', ko:'설계 대상지 조별 답사 (남산일대)', de:'Teamweise Geländebegehung', en:'Site visit by team (vicinity of Namsan)'},
-   {t:'14:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업 (비엔나 전문가팀 세종시 KOTI 방문 예정)', de:'Gruppenplanung (TU-Wien-Expertenteam: KOTI-Besuch)', en:'Group design work (Vienna expert team: KOTI visit, Sejong)', host:'Kim Jeonghye (PhD)'},
+   {t:'09:00–13:00',type:'field',ko:'설계 대상지 조별 답사 (남산일대)',de:'Teamweise Geländebegehung',en:'Site visit by team (vicinity of Namsan)'},
+   {t:'14:00–18:00',type:'work',ko:'그룹 워크 및 설계 작업 (비엔나 전문가팀 세종시 KOTI 방문 예정)',de:'Gruppenplanung (TU-Wien-Expertenteam: KOTI-Besuch)',en:'Group design work (Vienna expert team: KOTI visit, Sejong)',host:'Kim Jeonghye (PhD)'},
   ]},
- {d:{ko:'4/9 목',de:'9.4 Do',en:'4/9 Thu'}, room:'82-405',
+ {d:{ko:'4/9 목',de:'9.4 Do',en:'4/9 Thu'},room:'82-405',
   phase:{ko:'집중 설계 + 멘토링',de:'Intensivplanung + Mentoring',en:'Design + mentoring'},
   blocks:[
-   {t:'09:00–11:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 비엔나 공대)', de:'Gruppenplanung + offene Sprechstunde (TU Wien)', en:'Group design work + open mentoring (TU Wien)', host:'Dr. Shibayama · Dr. Shaoo · Mr. Brezina · Mr. Kostka · Ms. Yun'},
-   {t:'13:00–15:00', type:'work', ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 환경대학원)', de:'Gruppenplanung + offene Sprechstunde (SNU GSES)', en:'Group design work + open mentoring (SNU GSES)', host:'Prof. Kim Sehoon · Prof. Lim Justin · Prof. Han Sangjin · Kim Hyeonju (PhD)'},
-   {t:'15:00–18:00', type:'work', ko:'그룹 워크 및 설계 작업', de:'Gruppenplanung', en:'Group design work'},
+   {t:'09:00–11:00',type:'work',ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 비엔나 공대)',de:'Gruppenplanung + offene Sprechstunde (TU Wien)',en:'Group design work + open mentoring (TU Wien)',host:'Dr. Shibayama · Dr. Shaoo · Mr. Brezina · Mr. Kostka · Ms. Yun'},
+   {t:'13:00–15:00',type:'work',ko:'그룹 워크 및 설계 작업 (자율 멘토링 — 환경대학원)',de:'Gruppenplanung + offene Sprechstunde (SNU GSES)',en:'Group design work + open mentoring (SNU GSES)',host:'Prof. Kim Sehoon · Prof. Lim Justin · Prof. Han Sangjin · Kim Hyeonju (PhD)'},
+   {t:'15:00–18:00',type:'work',ko:'그룹 워크 및 설계 작업',de:'Gruppenplanung',en:'Group design work'},
   ]},
- {d:{ko:'4/10 금',de:'10.4 Fr',en:'4/10 Fri'}, room:'82-113',
+ {d:{ko:'4/10 금',de:'10.4 Fr',en:'4/10 Fri'},room:'82-113',
   phase:{ko:'최종 발표',de:'Abschlusspräsentationen',en:'Final presentations'},
   blocks:[
-   {t:'09:00–13:30', type:'work', ko:'그룹 워크 및 설계 작업 (마무리)', de:'Gruppenplanung (Abschluss)', en:'Group design work (wrap-up)', host:'Yang Jiseul · Kim Jeonghye (PhD)'},
-   {t:'14:00–17:00', type:'pres', ko:'각 그룹 최종발표 및 질의응답 (발표 15분 + 질의 20분)', de:'Abschlusspräsentation + Diskussion (15 + 20 Min.)', en:'Final presentations & Q&A (15 min + 20 min = 35 min/team)', host:'Kim Hyeonju · Kim Jeonghye (PhD)'},
+   {t:'09:00–13:30',type:'work',ko:'그룹 워크 및 설계 작업 (마무리)',de:'Gruppenplanung (Abschluss)',en:'Group design work (wrap-up)',host:'Yang Jiseul · Kim Jeonghye (PhD)'},
+   {t:'14:00–17:00',type:'pres',ko:'각 그룹 최종발표 및 질의응답 (발표 15분 + 질의 20분)',de:'Abschlusspräsentation + Diskussion (15 + 20 Min.)',en:'Final presentations & Q&A (15 min + 20 min = 35 min/team)',host:'Kim Hyeonju · Kim Jeonghye (PhD)'},
   ]},
 ];
 
-/* ── RENDER HOME ── */
+/* ─────────────────────────────────────
+   RENDER HOME
+───────────────────────────────────── */
 function renderHome(){
   const L={
-    ko:{label:'SNU × TU Wien · April 2026', h1:'SNU x TUW 2026 Workshop',
+    ko:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
       desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
-      s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'설계 Spots',s5:'참여 대학',
-      venue:'서울대학교 환경대학원 (82동)',
-      site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
-      schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →'},
-    de:{label:'SNU × TU Wien · April 2026', h1:'SNU x TUW 2026 Workshop',
+      s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'참여 대학',
+      venue:'서울대학교 환경대학원 (82동)',site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
+      schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →',noticetitle:'공지사항'},
+    de:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
       desc:'Gemeinsamer Workshop der Seoul National University (GSES) und der TU Wien. Entwurfsgebiet: Namsan-Südhang.',
-      s1:'Workshop-Zeitraum',s2:'Stadtexkursion',s3:'Ort',s4:'Entwurfs-Spots',s5:'Partneruniversitäten',
-      venue:'SNU Graduate School of Environmental Studies, Gebäude 82',
-      site:'Namsan-Südhang — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
-      schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →'},
-    en:{label:'SNU × TU Wien · April 2026', h1:'SNU x TUW 2026 Workshop',
-      desc:'Joint workshop between Seoul National University (GSES) and TU Wien. Design site: Namsan south slope — Huam-dong, Haebangchon, Itaewon, Sowol-ro.',
+      s1:'Workshop-Zeitraum',s2:'Stadtexkursion',s3:'Ort',s4:'Partneruniversitäten',
+      venue:'SNU Graduate School of Environmental Studies, Gebäude 82',site:'Namsan-Südhang — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
+      schedtitle:'Vollständiges Programm',detailbtn:'Detailprogramm →',noticetitle:'Ankündigungen'},
+    en:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
+      desc:'Joint workshop between Seoul National University (GSES) and TU Wien. Design site: Namsan south slope.',
       s1:'Workshop Period',s2:'Field Trips',s3:'Venue',s4:'Universities',
-      venue:'SNU Graduate School of Environmental Studies, Building 82',
-      site:'Namsan South Slope — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
-      schedtitle:'Full Schedule',detailbtn:'Detailed schedule →'},
+      venue:'SNU Graduate School of Environmental Studies, Building 82',site:'Namsan South Slope — Huam-dong → Haebangchon → Itaewon → Sowol-ro',
+      schedtitle:'Full Schedule',detailbtn:'Detailed schedule →',noticetitle:'Notices'},
   }[LANG];
+
+  const notices = getNotices();
+  const showBoard = notices.length > 0 || isStaff();
+  const noticeBoard = showBoard ? `
+    <div class="notice-board-wrap" id="home-notice-wrap">
+      <div class="notice-board">
+        <div class="notice-board-label">
+          <span>${L.noticetitle}</span>
+          ${isStaff()?`<span class="notice-manage-link" onclick="go('staff')">스탭도구에서 관리 →</span>`:''}
+        </div>
+        <div id="home-notice-list">${buildNoticeList(isStaff())}</div>
+      </div>
+    </div>` : `<div id="home-notice-wrap" style="display:none;"></div>`;
+
   const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
-   return `
+
+  return `
   <section class="hero">
     <div class="hero-label">${L.label}</div>
     <h1>${L.h1}</h1>
@@ -507,13 +680,11 @@ function renderHome(){
     <div class="stat-cell"><div class="sn">SNU Bldg. 82</div><div class="sl">${L.s3}</div></div>
     <div class="stat-cell"><div class="sn">SNU × TUW</div><div class="sl">${L.s4}</div></div>
   </div>
-  <div style="border-bottom:2px solid #000;">
-  <img src="${POSTERI}" style="width:100%;display:block;" alt="Workshop Poster">
-</div>
+  ${noticeBoard}
   <div style="max-width:960px;margin:0 auto;padding:28px 40px 0;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;">
       <div style="padding:20px 24px;"><div class="clabel">${L.s3}</div><p class="btext">${L.venue}</p></div>
-      <div style="padding:20px 24px;"><div class="clabel">${L.site.split('—')[0].trim()}</div><p class="btext">${L.site.split('—')[1]?.trim()||L.site}</p></div>
+      <div style="padding:20px 24px;"><div class="clabel">Design Site</div><p class="btext">${L.site.split('—')[1]?.trim()||L.site}</p></div>
     </div>
   </div>
   <div style="max-width:640px;margin:0 auto;padding:0 40px 12px;"><div class="sec-title">${L.schedtitle}</div></div>
@@ -527,21 +698,20 @@ function renderHome(){
   </div>`;
 }
 
-/* ── RENDER SITE ── */
+/* ─────────────────────────────────────
+   RENDER SITE
+───────────────────────────────────── */
 function renderSite(){
   const L={
-    ko:{label:'설계 대상지',h1:'대상지',
-        map:'대상지 계획도',spotttl:'설계 Spot 개요',
+    ko:{label:'설계 대상지',h1:'대상지',spotttl:'설계 Spot 개요',
         maplink:'Google 내 지도에서 전체 대상지 보기 →',
         mapnote:'지도를 확대 및 축소 해가면서 구역별 현황, 주변지역, 대상지 위치를 확인할 수 있습니다.'},
-    de:{label:'Entwurfsgebiet',h1:'Entwurfsgebiet',
-        map:'Plangebietskarte',spotttl:'Entwurfs-Spots Übersicht',
+    de:{label:'Entwurfsgebiet',h1:'Entwurfsgebiet',spotttl:'Entwurfs-Spots Übersicht',
         maplink:'Gesamtgebiet in Google Maps ansehen →',
-        mapnote:'Durch Vergrößern und Verkleinern der Karte können Sie den aktuellen Stand der einzelnen Bereiche, die Umgebung und die Lage des Entwurfsgebiets einsehen.'},
-    en:{label:'Design Site',h1:'Design Site',
-        map:'Site Plan',spotttl:'Design Spot Overview',
+        mapnote:'Durch Vergrößern und Verkleinern der Karte können Sie den aktuellen Stand einsehen.'},
+    en:{label:'Design Site',h1:'Design Site',spotttl:'Design Spot Overview',
         maplink:'View full site on Google My Maps →',
-        mapnote:'You can zoom in and out on the map to check the current status of each zone, surrounding areas, and the location of the design site.'},
+        mapnote:'You can zoom in and out on the map to check the current status of each zone and location.'},
   }[LANG];
   const cards=SPOTS.map(s=>`<div class="scard" onclick="go('${s.id}')">
     <div class="scard-num">Spot ${s.num}</div>
@@ -554,13 +724,8 @@ function renderSite(){
     <div class="hero-label">${L.label}</div>
     <h1>${L.h1}</h1>
   </section>
-  <div style="border-bottom:2px solid #000;">
-    <img src="${MURI}" alt="대상지 계획도" style="width:100%;display:block;">
-  </div>
-  <div class="map-section">
-    <div style="margin-top:12px;">
-      <a href="${GMAP_URL}" target="_blank" rel="noopener noreferrer" class="map-ext-btn">⊕ ${L.maplink}</a>
-    </div>
+  <div class="map-section" style="padding-top:28px;">
+    <a href="${GMAP_URL}" target="_blank" rel="noopener noreferrer" class="map-ext-btn">⊕ ${L.maplink}</a>
     <p style="margin-top:10px;font-size:11px;color:#888;line-height:1.7;max-width:520px;">${L.mapnote}</p>
   </div>
   <div class="spots-section" style="padding-top:0;">
@@ -569,7 +734,9 @@ function renderSite(){
   </div>`;
 }
 
-/* ── RENDER SPOT ── */
+/* ─────────────────────────────────────
+   RENDER SPOT
+───────────────────────────────────── */
 function renderSpot(s){
   const prev=SPOTS[SPOTS.indexOf(s)-1]||null, next=SPOTS[SPOTS.indexOf(s)+1]||null;
   const SD={
@@ -577,11 +744,6 @@ function renderSpot(s){
     de:{bg:'Historischer Hintergrund',char:'Räumliche Charakteristik',iss:'Kernprobleme',sh:'Akteure',act:'Akteur',role:'Rolle & Status',all:'Alle Spots'},
     en:{bg:'Historical Background',char:'Spatial Character',iss:'Key Issues',sh:'Stakeholders',act:'Actor',role:'Role & Status',all:'All Spots'}
   }[LANG];
-  const bg=s.bg[LANG]||s.bg.en;
-  const char=s.char[LANG]||s.char.en;
-  const is=s.issues[LANG]||s.issues.en;
-  const shs=s.stakeholders[LANG]||s.stakeholders.en;
-  const tags=s.tags[LANG];
   const crumbSite={ko:'대상지',de:'Entwurfsgebiet',en:'Design Site'}[LANG];
   return `
   <div style="border-bottom:2px solid #000;">
@@ -589,7 +751,7 @@ function renderSpot(s){
       <div class="spot-badge">${s.num}</div>
       <div class="spot-main">${tl(s)}</div>
       <div class="spot-sub">${tl(s.sub)}</div>
-      <div class="tag-row">${tags.map(t=>`<span class="spot-tag">${t}</span>`).join('')}</div>
+      <div class="tag-row">${s.tags[LANG].map(t=>`<span class="spot-tag">${t}</span>`).join('')}</div>
     </div></div>
   </div>
   <div class="spot-wrap">
@@ -600,31 +762,33 @@ function renderSpot(s){
     </div>
     <div class="two-col">
       <div class="cbox">
-        <div class="clabel">${SD.bg}</div><p class="btext">${bg}</p>
-        <div class="clabel" style="margin-top:18px">${SD.char}</div><p class="btext">${char}</p>
+        <div class="clabel">${SD.bg}</div><p class="btext">${s.bg[LANG]||s.bg.en}</p>
+        <div class="clabel" style="margin-top:18px">${SD.char}</div><p class="btext">${s.char[LANG]||s.char.en}</p>
         <div class="quote">${s.quote}</div>
       </div>
       <div class="cbox">
         <div class="clabel">${SD.iss}</div>
-        <ul class="ilist">${is.map(i=>`<li class="iitem"><div class="idot"></div><div>${i}</div></li>`).join('')}</ul>
+        <ul class="ilist">${(s.issues[LANG]||s.issues.en).map(i=>`<li class="iitem"><div class="idot"></div><div>${i}</div></li>`).join('')}</ul>
       </div>
     </div>
     <div class="cbox-full">
       <div class="clabel">${SD.sh}</div>
       <table class="shtable">
         <thead><tr><th>${SD.act}</th><th>${SD.role}</th></tr></thead>
-        <tbody>${shs.map(sh=>`<tr><td><span class="sh-role">${sh.role}</span></td><td>${sh.desc}</td></tr>`).join('')}</tbody>
+        <tbody>${(s.stakeholders[LANG]||s.stakeholders.en).map(sh=>`<tr><td><span class="sh-role">${sh.role}</span></td><td>${sh.desc}</td></tr>`).join('')}</tbody>
       </table>
     </div>
     <div class="spot-nav">
-      <button class="snbtn ${!prev?'dim':''}" onclick="${prev?`go('${prev.id}')`:''}"">← ${prev?`Spot ${prev.num} · ${tl(prev)}`:''}</button>
+      <button class="snbtn${!prev?' dim':''}" onclick="${prev?`go('${prev.id}')`:''}"">← ${prev?`Spot ${prev.num} · ${tl(prev)}`:''}</button>
       <span class="sncenter" onclick="go('site')">${SD.all}</span>
-      <button class="snbtn ${!next?'dim':''}" onclick="${next?`go('${next.id}')`:''}"" >${next?`Spot ${next.num} · ${tl(next)}`:''} →</button>
+      <button class="snbtn${!next?' dim':''}" onclick="${next?`go('${next.id}')`:''}"" >${next?`Spot ${next.num} · ${tl(next)}`:''} →</button>
     </div>
   </div>`;
 }
 
-/* ── RENDER GLOSS ── */
+/* ─────────────────────────────────────
+   RENDER GLOSS
+───────────────────────────────────── */
 function renderGloss(){
   const L={
     ko:{label:'용어집',h1:'도시설계·교통\n핵심 용어집',intro:'한국어 / 독일어 / 영어 3개 언어 정리',cko:'한국어',cnote:'설명'},
@@ -637,15 +801,30 @@ function renderGloss(){
   <table class="gtable"><thead><tr><th style="width:18%">${L.cko}</th><th style="width:26%">Deutsch</th><th style="width:22%">English</th><th>${L.cnote}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
-/* ── RENDER SCHED ── */
+/* ─────────────────────────────────────
+   RENDER SCHED
+───────────────────────────────────── */
 function renderSched(){
   const SL={
-    ko:{label:'SNU × TU Wien — April 2026',h1:'전체 일정',sub:'4/2–5 서울 도시답사 → 4/7–10 SNU×TUW 공동 워크샵',btn1:'답사 및 전체 워크샵 일정',btn2:'워크샵 상세 일정',ph1:'서울 도시답사',ph2:'SNU × TUW 워크샵',ph1note:'TU Wien 일정 · SNU 학생은 희망자에 한해 참석 가능'},
-    de:{label:'SNU × TU Wien — April 2026',h1:'Vollständiges Programm',sub:'2.–5.4. Seoul Stadtexkursion → 7.–10.4. SNU×TUW Workshop',btn1:'Exkursion + Gesamtprogramm',btn2:'Workshop-Details',ph1:'Seoul Stadtexkursion',ph2:'SNU × TUW Workshop',ph1note:'TU Wien Programm · SNU-Studierende auf freiwilliger Basis willkommen'},
-    en:{label:'SNU × TU Wien — April 2026',h1:'Full Schedule',sub:'4/2–5 Seoul field trips → 4/7–10 SNU×TUW joint workshop',btn1:'Field trips + full schedule',btn2:'Workshop detailed schedule',ph1:'Seoul field trips',ph2:'SNU × TUW Workshop',ph1note:'TU Wien schedule · SNU students may join on a voluntary basis'}
+    ko:{label:'SNU × TU Wien — April 2026',h1:'전체 일정',sub:'4/2–5 서울 도시답사 → 4/7–10 SNU×TUW 공동 워크샵',btn1:'답사 및 전체 워크샵 일정',btn2:'워크샵 상세 일정',ph1:'서울 도시답사',ph2:'SNU × TUW 워크샵',ph1note:'TU Wien 일정 · SNU 학생은 희망자에 한해 참석 가능',amLbl:'오전',pmLbl:'오후'},
+    de:{label:'SNU × TU Wien — April 2026',h1:'Vollständiges Programm',sub:'2.–5.4. Seoul Stadtexkursion → 7.–10.4. SNU×TUW Workshop',btn1:'Exkursion + Gesamtprogramm',btn2:'Workshop-Details',ph1:'Seoul Stadtexkursion',ph2:'SNU × TUW Workshop',ph1note:'TU Wien Programm · SNU-Studierende auf freiwilliger Basis willkommen',amLbl:'Vm',pmLbl:'Nm'},
+    en:{label:'SNU × TU Wien — April 2026',h1:'Full Schedule',sub:'4/2–5 Seoul field trips → 4/7–10 SNU×TUW joint workshop',btn1:'Field trips + full schedule',btn2:'Workshop detailed schedule',ph1:'Seoul field trips',ph2:'SNU × TUW Workshop',ph1note:'TU Wien schedule · SNU students may join on a voluntary basis',amLbl:'AM',pmLbl:'PM'}
   }[LANG];
-  const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''  }${item.contact?`<div class="sv-route" style="color:#555;border-left-color:#888;">📞 ${item.contact}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
-  const mkDetail=()=>SCHED_DETAIL.map(day=>`<div class="dv-day"><div class="dv-head"><span class="dv-date">${tl(day.d)}</span><span class="dv-room">${day.room}</span><span class="dv-phase-tag">${tl(day.phase)}</span></div>${day.blocks.map(b=>`<div class="dv-block${b.type==='break'?' dv-break':''}"><div class="dv-time">${typeof b.t==='object'?tl(b.t):b.t}</div><div class="dv-info"><div class="dv-name">${b.type!=='break'?etag(b.type):''}${tl(b)}</div>${b.host?`<div class="dv-note">👤 ${b.host}</div>`:''}</div></div>`).join('')}</div>`).join('');
+  const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
+  const mkDetail=()=>SCHED_DETAIL.map(day=>{
+    const amH=day.blocks.find(b=>b.host&&typeof b.t==='string'&&parseInt(b.t)<13)?.host||null;
+    const pmH=day.blocks.find(b=>b.host&&typeof b.t==='string'&&parseInt(b.t)>=13)?.host||null;
+    const hostSegs=[
+      amH?`<span class="dv-host-seg"><span class="dv-host-lbl">${SL.amLbl}</span><span class="dv-host-name">${amH}</span></span>`:'',
+      pmH?`<span class="dv-host-seg"><span class="dv-host-lbl">${SL.pmLbl}</span><span class="dv-host-name">${pmH}</span></span>`:'',
+    ].filter(Boolean).join('');
+    return `<div class="dv-day"><div class="dv-head">
+      <span class="dv-date">${tl(day.d)}</span>
+      <span class="dv-room">${day.room}</span>
+      <span class="dv-phase-tag">${tl(day.phase)}</span>
+      ${hostSegs?`<div class="dv-host-row">${hostSegs}</div>`:''}
+    </div>${day.blocks.map(b=>`<div class="dv-block${b.type==='break'?' dv-break':''}"><div class="dv-time">${typeof b.t==='object'?tl(b.t):b.t}</div><div class="dv-info"><div class="dv-name">${b.type!=='break'?etag(b.type):''}${tl(b)}</div></div></div>`).join('')}</div>`;
+  }).join('');
   return `<div class="dark-hero"><div class="hero-label">${SL.label}</div><h1>${SL.h1}</h1><p style="font-size:13px;color:rgba(255,255,255,.45);font-weight:300;margin-top:10px;">${SL.sub}</p></div>
   <div class="sch-content">
     <div class="view-toggle">
@@ -656,7 +835,6 @@ function renderSched(){
     <div id="dv-content" class="dv-wrap">${mkDetail()}</div>
   </div>`;
 }
-
 function schView(v){
   document.getElementById('sv-content').style.display=v==='simple'?'block':'none';
   document.getElementById('dv-content').style.display=v==='detail'?'block':'none';
@@ -664,29 +842,89 @@ function schView(v){
   document.getElementById('dv-btn').classList.toggle('on',v==='detail');
 }
 
-/* ── ROUTER ── */
+/* ─────────────────────────────────────
+   RENDER STAFF
+───────────────────────────────────── */
+function renderStaff(){
+  const L={
+    ko:{label:'스탭 전용',h1:'스탭도구',
+      loginTitle:'스탭 전용 입장',loginSub:'스탭 비밀번호를 입력하세요',loginBtn:'입장',loginErr:'비밀번호가 맞지 않습니다.',
+      statusMsg:'스탭 모드 활성화',logoutBtn:'로그아웃',
+      noticeTitle:'공지 관리',noticePH:'공지 내용 입력 (홈 화면에 즉시 표시됩니다)...',noticeBtn:'홈에 올리기',
+      clTitle:'체크리스트',
+      note:'※ 데이터는 이 브라우저에 저장됩니다.'},
+    de:{label:'Staff',h1:'Staff-Werkzeuge',
+      loginTitle:'Staff-Zugang',loginSub:'Staff-Passwort eingeben',loginBtn:'Eintreten',loginErr:'Falsches Passwort.',
+      statusMsg:'Staff-Modus aktiv',logoutBtn:'Abmelden',
+      noticeTitle:'Ankündigungen verwalten',noticePH:'Ankündigung eingeben...',noticeBtn:'Veröffentlichen',
+      clTitle:'Checkliste',
+      note:'※ Daten werden lokal gespeichert.'},
+    en:{label:'Staff Only',h1:'Staff Tools',
+      loginTitle:'Staff Access',loginSub:'Enter the staff password',loginBtn:'Enter',loginErr:'Incorrect password.',
+      statusMsg:'Staff mode active',logoutBtn:'Log out',
+      noticeTitle:'Notice management',noticePH:'Enter notice text (appears on home page immediately)...',noticeBtn:'Post to home',
+      clTitle:'Checklist',
+      note:'※ Data is stored in this browser only.'},
+  }[LANG];
+
+  if(!isStaff()){
+    return `<div class="dark-hero"><div class="hero-label">${L.label}</div><h1>${L.h1}</h1></div>
+    <div class="staff-wrap">
+      <div class="staff-login-card">
+        <div class="staff-login-title">${L.loginTitle}</div>
+        <div class="staff-login-sub">${L.loginSub}</div>
+        <div class="staff-pw-row">
+          <input id="staff-pw-input" class="staff-pw-input" type="password" placeholder="••••••"
+            onkeydown="if(event.key==='Enter')staffDoLogin()">
+          <button class="staff-pw-btn" onclick="staffDoLogin()">${L.loginBtn}</button>
+        </div>
+        <div id="staff-pw-error" class="staff-pw-error">${L.loginErr}</div>
+      </div>
+    </div>`;
+  }
+
+  return `<div class="dark-hero"><div class="hero-label">${L.label}</div><h1>${L.h1}</h1></div>
+  <div class="staff-wrap">
+    <div class="staff-status-bar">
+      <span>🔓 ${L.statusMsg}</span>
+      <button class="staff-logout-btn" onclick="staffDoLogout()">${L.logoutBtn}</button>
+    </div>
+
+    <div class="staff-section">
+      <div class="staff-sec-hd">${L.noticeTitle}</div>
+      <textarea id="notice-ta" class="notice-textarea" placeholder="${L.noticePH}"></textarea>
+      <div class="notice-post-row">
+        <button class="notice-post-btn" onclick="staffPostNotice()">${L.noticeBtn}</button>
+      </div>
+      <div class="notice-list-wrap" id="staff-notice-list">${buildNoticeList(true)}</div>
+    </div>
+
+    <div class="staff-section">
+      <div class="staff-sec-hd">${L.clTitle}</div>
+      <div id="cl-panel">${buildCLPanel()}</div>
+    </div>
+
+    <div style="font-size:9px;color:#bbb;padding-top:8px;letter-spacing:.04em;">${L.note}</div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────
+   ROUTER
+───────────────────────────────────── */
 function go(id){ location.hash=id; }
 function updateNav(){
-  const DM_ORDER=['home','site','sched','gloss'];
-  DM_ORDER.forEach(k=>{
+  ['home','site','sched','gloss','staff'].forEach(k=>{
     const el=document.getElementById('dm-'+k);
     if(el) el.textContent=NAV[k][LANG]||NAV[k].en;
   });
   document.getElementById('f-right').textContent=FOOTER[LANG]||FOOTER.en;
 }
-function toggleMenu(){
-  document.getElementById('drop-menu').classList.toggle('open');
-}
-function menuGo(id){
-  document.getElementById('drop-menu').classList.remove('open');
-  go(id);
-}
+function toggleMenu(){ document.getElementById('drop-menu').classList.toggle('open'); }
+function menuGo(id){ document.getElementById('drop-menu').classList.remove('open'); go(id); }
 document.addEventListener('click',function(e){
   const menu=document.getElementById('drop-menu');
   const btn=document.getElementById('ham-btn');
-  if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)){
-    menu.classList.remove('open');
-  }
+  if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)) menu.classList.remove('open');
 });
 function setLang(l){
   LANG=l;
@@ -704,13 +942,14 @@ function render(){
   else if(hash==='site') html=renderSite();
   else if(hash==='gloss') html=renderGloss();
   else if(hash==='sched') html=renderSched();
+  else if(hash==='staff') html=renderStaff();
   else if(spot) html=renderSpot(spot);
   else html=renderHome();
   document.getElementById('app').innerHTML=html;
   window.scrollTo(0,0);
-  ['home','site','sched','gloss'].forEach(id=>{
+  ['home','site','sched','gloss','staff'].forEach(id=>{
     const el=document.getElementById('dm-'+id);
-    if(el) el.classList.toggle('on', hash===id||(id==='site'&&!!spot));
+    if(el) el.classList.toggle('on',hash===id||(id==='site'&&!!spot));
   });
 }
 window.addEventListener('hashchange',render);
