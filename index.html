@@ -272,7 +272,7 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
   <span class="f1" id="f-right"></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 let LANG = 'ko';
 
 const GMAP_URL = "https://www.google.com/maps/d/u/0/edit?mid=1GBxgoZf-f3D2zfND4zIjyvGGmdyybnc&ll=37.542760030351715%2C126.98602362673266&z=16";
@@ -1019,4 +1019,43 @@ function render(){
   else if(hash==='site') html=renderSite();
   else if(hash==='gloss') html=renderGloss();
   else if(hash==='sched') html=renderSched();
-  else
+  else if(hash==='staff') html=renderStaff();
+  else if(spot) html=renderSpot(spot);
+  else html=renderHome();
+ 
+  document.getElementById('app').innerHTML=html;
+ 
+  // highlight active nav item
+  ['home','site','sched','gloss','staff'].forEach(k=>{
+    const el=document.getElementById('dm-'+k);
+    if(el) el.classList.toggle('on', hash===k || (k==='site' && !!spot));
+  });
+ 
+  // contact section i18n
+  const ctL={
+    title:{ko:'연락처',de:'Kontakt',en:'Contact'},
+    r1:{ko:'워크샵 코디네이터 (SNU)',de:'Workshop-Koordinatorin (SNU)',en:'Workshop Coordinator (SNU)'},
+    r2:{ko:'워크샵 코디네이터 (TUW)',de:'Workshop-Koordinatorin (TUW)',en:'Workshop Coordinator (TUW)'},
+    r3:{ko:'성수 투어',de:'Seongsu-Tour',en:'Seongsu Tour'},
+  };
+  document.getElementById('contact-title').textContent=ctL.title[LANG];
+  document.getElementById('ct-role1').textContent=ctL.r1[LANG];
+  document.getElementById('ct-role2').textContent=ctL.r2[LANG];
+  document.getElementById('ct-role3').textContent=ctL.r3[LANG];
+ 
+  window.scrollTo(0,0);
+}
+ 
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', function(){
+  const saved = localStorage.getItem('snu-tuw-lang');
+  if(saved && ['ko','de','en'].includes(saved)){
+    setLang(saved);
+  } else {
+    updateNav();
+    render();
+  }
+});
+</script>
+</body>
+</html>
