@@ -252,17 +252,17 @@ footer{border-top:2px solid #000;background:#fff;padding:16px 40px;display:flex;
       <div class="contact-card">
         <div class="contact-role" id="ct-role1">Workshop Coordinator (SNU)</div>
         <div class="contact-name">Kim Jeonghye (PhD)</div>
-        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#0a78666b7d606e6c656e4a79647f246b69246178"><span class="__cf_email__" data-cfemail="1e6c727f69747a78717a5e6d706b307f7d30756c">[email&#160;protected]</span></a></div>
+        <div class="contact-info">rlawjdfod@snu.ac.kr</div>
       </div>
       <div class="contact-card">
         <div class="contact-role" id="ct-role2">Workshop Coordinator (TUW)</div>
         <div class="contact-name">Da.Yun Daun (PhD)</div>
-        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#8ce8eda2f5f9e2ccf8f9fbe5e9e2a2edefa2edf8"><span class="__cf_email__" data-cfemail="dbbfbaf5a2aeb59bafaeacb2beb5f5bab8f5baaf">[email&#160;protected]</span></a></div>
+        <div class="contact-info">da.yun@tuwien.ac.at</div>
       </div>
       <div class="contact-card">
         <div class="contact-role" id="ct-role3">Seongsu Tour</div>
         <div class="contact-name">Kwon Hein (PhD)</div>
-        <div class="contact-info"><a href="/cdn-cgi/l/email-protection#7f171a1611464c4c4d473f0c110a511e1c51140d"><span class="__cf_email__" data-cfemail="19717c7077202a2a2b21596a776c37787a37726b">[email&#160;protected]</span></a></div>
+        <div class="contact-info">hein93328@snu.ac.kr</div>
       </div>
     </div>
   </div>
@@ -373,6 +373,7 @@ const STAFF_MEMBERS = [
   {id:'jiseul',     name:'Yang Jiseul',    title:'진행'},
   {id:'kyeongdong', name:'Kim Kyeongdong', title:'PhD'},
   {id:'hyeonju',    name:'Kim Hyeonju',    title:'PhD'},
+  {id:'hein',       name:'Kwon Hein',      title:'PhD · 성수투어'},
 ];
 const DEFAULT_TASKS = {
   jeonghye:[
@@ -408,6 +409,11 @@ const DEFAULT_TASKS = {
     {id:2, text:'4/8(수) 오후 — 스탭',done:false},
     {id:3, text:'4/9(목) 오후 — 스탭',done:false},
     {id:4, text:'4/10(금) 오후 — 스탭',done:false},
+  ],
+  hein:[
+    {id:1, text:'4/3(금) 오후 — 성수동 워킹투어 가이드',done:false},
+    {id:2, text:'성수동 루트 확인 (LCDC → Seoul Forest)',done:false},
+    {id:3, text:'투어 참가자 연락처 취합',done:false},
   ],
 };
 
@@ -602,7 +608,7 @@ const SCHED_P2=[
  ]},
 ];
 const SCHED_DETAIL=[
- // ── Phase 1: Seoul Field Trips(TUW schedule) ──
+ // ── Phase 1: Seoul Field Trips ──
  {d:{ko:'4/3 금',de:'3.4 Fr',en:'4/3 Fri'},room:'현장 답사',
   phase:{ko:'서울 도시답사 1일차',de:'Seoul Exkursion Tag 1',en:'Seoul Field Trip Day 1'},
   blocks:[
@@ -677,7 +683,7 @@ const SCHED_DETAIL=[
 function renderHome(){
   const L={
     ko:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
-      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵.',
+      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
       s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'참여 대학',
       venue:'서울대학교 환경대학원 (82동)',site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
       schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →',noticetitle:'공지사항',
