@@ -373,36 +373,41 @@ const STAFF_MEMBERS = [
   {id:'jiseul',     name:'Yang Jiseul',    title:'진행'},
   {id:'kyeongdong', name:'Kim Kyeongdong', title:'PhD'},
   {id:'hyeonju',    name:'Kim Hyeonju',    title:'PhD'},
-  {id:'hein',       name:'Kwon Hein',      title:'PhD · 성수투어'},
 ];
 const DEFAULT_TASKS = {
   jeonghye:[
-    {id:1,text:'워크샵 전체 코디네이션 준비',done:false},
-    {id:2,text:'4/7 PM — 팀 편성 및 그룹 워크 진행',done:false},
-    {id:3,text:'4/8 PM — 그룹 워크 진행',done:false},
-    {id:4,text:'4/9 PM — 그룹 워크 진행',done:false},
-    {id:5,text:'4/10 AM — 그룹 워크 마무리 진행',done:false},
-    {id:6,text:'4/10 PM — 최종발표 Q&A 진행',done:false},
+    {id:1, text:'포스터 및 운영 공문 준비',done:false},
+    {id:2, text:'참여자 선발 및 공지',done:false},
+    {id:3, text:'스케줄 정리 및 공유',done:false},
+    {id:4, text:'그룹 멘토링 교수님 섭외',done:false},
+    {id:5, text:'수업 빠지는 인원 유계결석계 준비',done:false},
+    {id:6, text:'한국팀 팀원 구성 및 팀장 선정 (설계 대상지 답사 안내) 사전 진행',done:false},
+    {id:7, text:'성수동 / 비엔나공대 답사 일정 참여인원 조사',done:false},
+    {id:8, text:'4/7(화) 오후 — 강의실 정리',done:false},
+    {id:9, text:'4/9(목) 오후 — 강의실 정리',done:false},
+    {id:10,text:'4/10(금) 오전 — 스탭',done:false},
+    {id:11,text:'4/10(금) 오후 — 스탭',done:false},
   ],
   jiseul:[
-    {id:1,text:'4/7 09:00 — 프로그램 소개',done:false},
-    {id:2,text:'4/7 09:10 — 환경대학원 소개 (10분)',done:false},
-    {id:3,text:'4/7 12:00 — 설계 대상지 소개',done:false},
-    {id:4,text:'4/10 AM — 그룹 워크 마무리 진행',done:false},
+    {id:1, text:'식사 장소 예약',done:false},
+    {id:2, text:'식사 메뉴 조사 및 예약',done:false},
+    {id:3, text:'워크샵 기간 음료/간식 준비',done:false},
+    {id:4, text:'4/7(화) 오전 — 스탭',done:false},
+    {id:5, text:'4/10(금) 오전 — 스탭',done:false},
   ],
   kyeongdong:[
-    {id:1,text:'4/7 09:10 — 비엔나 공대 소개 (10분)',done:false},
-    {id:2,text:'4/7 09:40 — 참여자 소개 진행',done:false},
-    {id:3,text:'4/7 10:45 — 연구 발표 (35분)',done:false},
+    {id:1, text:'중견연구결제 챙기기',done:false},
+    {id:2, text:'비엔나 공대 기념품 준비',done:false},
+    {id:3, text:'공용 랩탑 준비',done:false},
+    {id:4, text:'워크샵 기간 음료/간식 준비',done:false},
+    {id:5, text:'4/7(화) 오전 — 스탭',done:false},
+    {id:6, text:'4/9(목) 오전 — 스탭',done:false},
   ],
   hyeonju:[
-    {id:1,text:'4/9 PM — 멘토링 (SNU GSES) 진행',done:false},
-    {id:2,text:'4/10 PM — 최종발표 Q&A 진행',done:false},
-  ],
-  hein:[
-    {id:1,text:'4/3 PM — 성수동 워킹투어 준비 및 가이드',done:false},
-    {id:2,text:'성수동 루트 확인 (LCDC → Seoul Forest)',done:false},
-    {id:3,text:'투어 참가자 연락처 취합',done:false},
+    {id:1, text:'기념품 구매 및 자리 셋팅 (양지슬 선생님과 함께)',done:false},
+    {id:2, text:'4/8(수) 오후 — 스탭',done:false},
+    {id:3, text:'4/9(목) 오후 — 스탭',done:false},
+    {id:4, text:'4/10(금) 오후 — 스탭',done:false},
   ],
 };
 
@@ -597,6 +602,41 @@ const SCHED_P2=[
  ]},
 ];
 const SCHED_DETAIL=[
+ // ── Phase 1: Seoul Field Trips(TUW schedule) ──
+ {d:{ko:'4/3 금',de:'3.4 Fr',en:'4/3 Fri'},room:'현장 답사',
+  phase:{ko:'서울 도시답사 1일차',de:'Seoul Exkursion Tag 1',en:'Seoul Field Trip Day 1'},
+  blocks:[
+   {t:'08:50',       type:'field',ko:'호텔 로비 집합 (라마다 바이 윈덤 서울 동대문 호텔)',de:'Treffpunkt Hotellobby (Ramada by Wyndham Seoul Dongdaemun)',en:'Hotel lobby meeting point (Ramada by Wyndham Seoul Dongdaemun)'},
+   {t:'09:30–12:00', type:'field',ko:'청계천 고가도로 철거 및 버스 체계 개편 답사 (광화문역 5번 출구 집합)',de:'Cheonggyecheon: Stadtautobahn-Abriss & Busreform (Gwanghwamun Ausgang 5)',en:'Cheonggyecheon elevated road demolition & bus reform site visit (Gwanghwamun Stn. Exit 5)'},
+   {t:{ko:'12:00 점심',de:'12:00 Mittagessen',en:'12:00 Lunch'},type:'break',ko:'',de:'',en:''},
+   {t:'14:00–16:00', type:'field',ko:'성수동 도시재생 구역 답사',de:'Seongsu-dong Stadterneuerungsgebiet',en:'Seongsu-dong urban regeneration area visit',host:'Kwon Hein (PhD)'},
+  ]},
+ {d:{ko:'4/4 토',de:'4.4 Sa',en:'4/4 Sat'},room:'현장 답사',
+  phase:{ko:'서울 도시답사 2일차',de:'Seoul Exkursion Tag 2',en:'Seoul Field Trip Day 2'},
+  blocks:[
+   {t:'09:30',       type:'field',ko:'호텔에서 출발 (라마다 바이 윈덤 서울 동대문 호텔)',de:'Abfahrt vom Hotel (Ramada by Wyndham Seoul Dongdaemun)',en:'Departure from hotel (Ramada by Wyndham Seoul Dongdaemun)'},
+   {t:'10:00–12:00', type:'field',ko:'경복궁 방문',de:'Besuch Gyeongbokgung-Palast',en:'Gyeongbokgung Palace visit'},
+   {t:{ko:'12:00 점심',de:'12:00 Mittagessen',en:'12:00 Lunch'},type:'break',ko:'',de:'',en:''},
+   {t:'15:00–18:00', type:'field',ko:'대한민국역사박물관 방문',de:'Nationalmuseum der Zeitgeschichte Koreas',en:'National Museum of Korean Contemporary History visit'},
+   {t:'18:00–19:00', type:'field',ko:'광화문광장 (세종대왕 동상 앞) 답사',de:'Gwanghwamun-Platz (König-Sejong-Statue)',en:'Gwanghwamun Plaza (King Sejong statue) visit'},
+  ]},
+ {d:{ko:'4/5 일',de:'5.4 So',en:'4/5 Sun'},room:'선택 참여',
+  phase:{ko:'선택적 문화 방문',de:'Optionale Kulturbesuche',en:'Optional Cultural Visits'},
+  blocks:[
+   {t:'08:50',         type:'free',ko:'호텔 로비 집합 후 투어 시작',de:'Hotellobby Treffpunkt — Tourstart',en:'Hotel lobby meeting — tour start'},
+   {t:'11:00',         type:'free',ko:'[DMZ 선택 시] 임진각에서 가이드 미팅 및 셔틀버스 투어 시작',de:'[DMZ] Führertreffen in Imjingak & Shuttlebus-Tourstart',en:'[DMZ option] Guide meeting at Imjingak & shuttle bus tour start'},
+   {t:'16:10 / 17:45', type:'free',ko:'[DMZ 선택 시] 복귀 기차 탑승',de:'[DMZ] Rückfahrt mit dem Zug',en:'[DMZ option] Return train departure'},
+  ]},
+ {d:{ko:'4/6 월',de:'6.4 Mo',en:'4/6 Mon'},room:'현장 답사',
+  phase:{ko:'서울 도시답사 3일차',de:'Seoul Exkursion Tag 3',en:'Seoul Field Trip Day 3'},
+  blocks:[
+   {t:'09:00',       type:'field',ko:'호텔에서 출발 (라마다 바이 윈덤 서울 동대문 호텔)',de:'Abfahrt vom Hotel (Ramada by Wyndham Seoul Dongdaemun)',en:'Departure from hotel (Ramada by Wyndham Seoul Dongdaemun)'},
+   {t:'09:30–12:00', type:'field',ko:'경의선 숲길 및 홍대 일대 답사',de:'Gyeongui Line Forest Park & Hongdae',en:'Gyeongui Line Forest Park & Hongdae area visit'},
+   {t:{ko:'12:00 점심',de:'12:00 Mittagessen',en:'12:00 Lunch'},type:'break',ko:'',de:'',en:''},
+   {t:'14:00–16:00', type:'field',ko:'서울역 및 서울로 7017 고가 보행길 답사',de:'Seoul Station & Seoullo 7017 Hochgehweg',en:'Seoul Station & Seoullo 7017 elevated walkway visit'},
+   {t:'17:00–18:00', type:'field',ko:'서울대학교 호암교수회관으로 숙소 이동',de:'Transfer zur Unterkunft (SNU Hoam Faculty House)',en:'Transfer to accommodation (SNU Hoam Faculty House)'},
+  ]},
+ // ── Phase 2: SNU × TUW Workshop ──
  {d:{ko:'4/7 화',de:'7.4 Di',en:'4/7 Tue'},room:'82-113',
   phase:{ko:'인트로 + 설계 시작',de:'Intro + Planungsstart',en:'Intro + design start'},
   blocks:[
@@ -637,7 +677,7 @@ const SCHED_DETAIL=[
 function renderHome(){
   const L={
     ko:{label:'SNU × TU Wien · April 2026',h1:'SNU x TUW 2026 Workshop',
-      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵. 남산 남사면 — 후암동·해방촌·이태원·소월로를 대상지로, 경사 주거지·자연발생 혼합용도·녹지 단절·다문화 상업가로를 주제로 한 팀 기반 설계.',
+      desc:'서울대학교 환경대학원 × 비엔나 공과대학교 공동 워크샵.',
       s1:'워크샵 기간',s2:'도시 답사',s3:'장소',s4:'참여 대학',
       venue:'서울대학교 환경대학원 (82동)',site:'남산 남사면 — 후암동 → 해방촌 → 이태원 → 소월로',
       schedtitle:'전체 일정',detailbtn:'워크샵 상세 일정 →',noticetitle:'공지사항',
@@ -832,14 +872,15 @@ function renderSched(){
     en:{label:'SNU × TU Wien — April 2026',h1:'Full Schedule',sub:'4/2–5 Seoul field trips → 4/7–10 SNU×TUW joint workshop',btn1:'Field trips + full schedule',btn2:'Workshop detailed schedule',ph1:'Seoul field trips',ph2:'SNU × TUW Workshop',ph1note:'TU Wien schedule · SNU students may join on a voluntary basis',amLbl:'AM',pmLbl:'PM'}
   }[LANG];
   const mkPhase=(label,pill,rows)=>`<div class="sv-phase"><div class="sv-phase-label"><span class="sv-pill">${pill}</span>${label}</div>${rows.map(row=>`<div class="sv-row"><div class="sv-day"><div class="sv-d">${row.d}</div><div class="sv-w">${tl(row.w)}</div></div><div class="sv-body">${row.items.map(item=>`<div class="sv-line"><div class="sv-t">${item.t}</div><div class="sv-c">${etag(item.type)}${tl(item)}${item.route?`<div class="sv-route">${item.route}</div>`:''}</div></div>`).join('')}</div></div>`).join('')}</div>`;
-  const mkDetail=()=>SCHED_DETAIL.map(day=>{
+  const mkDetail=()=>SCHED_DETAIL.map((day,i)=>{
+    const phaseSep=i===0?`<div class="sv-phase-label" style="margin-top:16px;"><span class="sv-pill">Phase 1</span>${SL.ph1}</div>`:i===4?`<div class="sv-phase-label" style="margin-top:40px;"><span class="sv-pill">Phase 2</span>SNU × TUW Workshop</div>`:'';
     const amH=day.blocks.find(b=>b.host&&typeof b.t==='string'&&parseInt(b.t)<13)?.host||null;
     const pmH=day.blocks.find(b=>b.host&&typeof b.t==='string'&&parseInt(b.t)>=13)?.host||null;
     const hostSegs=[
       amH?`<span class="dv-host-seg"><span class="dv-host-lbl">${SL.amLbl}</span><span class="dv-host-name">${amH}</span></span>`:'',
       pmH?`<span class="dv-host-seg"><span class="dv-host-lbl">${SL.pmLbl}</span><span class="dv-host-name">${pmH}</span></span>`:'',
     ].filter(Boolean).join('');
-    return `<div class="dv-day"><div class="dv-head">
+    return phaseSep+`<div class="dv-day"><div class="dv-head">
       <span class="dv-date">${tl(day.d)}</span>
       <span class="dv-room">${day.room}</span>
       <span class="dv-phase-tag">${tl(day.phase)}</span>
