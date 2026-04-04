@@ -265,7 +265,9 @@ let LANG = 'ko';
 firebase.initializeApp({apiKey:"AIzaSyD8ZMyHhrL7tiCNyhTSxBXWdGxqUg8XwF8",authDomain:"routine-ca0ee.firebaseapp.com",projectId:"routine-ca0ee",storageBucket:"routine-ca0ee.firebasestorage.app",messagingSenderId:"845375711200",appId:"1:845375711200:web:b7a68f8963860a26432d85"});
 var fbDb = firebase.firestore();
 var fbNoticesRef = fbDb.collection("snu-tuw-workshop").doc("notices");
+var fbChecklistRef = fbDb.collection("snu-tuw-workshop").doc("checklists");
 var _notices = [];
+var _allTasks = {};
 
 /* Real-time listener for notices */
 fbNoticesRef.onSnapshot(function(doc){
@@ -276,6 +278,21 @@ fbNoticesRef.onSnapshot(function(doc){
   }
   refreshNotices();
 });
+
+/* Real-time listener for checklists — syncs across all devices */
+fbChecklistRef.onSnapshot(function(doc){
+  if(doc.exists && doc.data()){
+    _allTasks = doc.data();
+  } else {
+    _allTasks = {};
+  }
+  refreshChecklist();
+});
+
+function refreshChecklist(){
+  var el = document.getElementById('cl-panel');
+  if(el) el.innerHTML = buildCLPanel();
+}
 
 const GMAP_URL = "https://www.google.com/maps/d/u/0/edit?mid=1GBxgoZf-f3D2zfND4zIjyvGGmdyybnc&ll=37.542760030351715%2C126.98602362673266&z=16";
 
@@ -401,47 +418,46 @@ const DEFAULT_TASKS = {
 
 let clActivePerson = 'jeonghye';
 
+/* ── Checklist: Firebase-synced (replaces localStorage) ── */
 function getTasks(pid){
-  const key=`snu-tuw-tasks-${pid}`;
-  try{
-    const s=localStorage.getItem(key);
-    if(s) return JSON.parse(s);
-    const defs=(DEFAULT_TASKS[pid]||[]).map(t=>({...t}));
-    localStorage.setItem(key,JSON.stringify(defs));
-    return defs;
-  }catch(e){ return []; }
+  if(_allTasks[pid] && _allTasks[pid].length){
+    return _allTasks[pid].map(function(t){ return {id:t.id, text:t.text, done:!!t.done}; });
+  }
+  return (DEFAULT_TASKS[pid]||[]).map(function(t){ return {id:t.id, text:t.text, done:!!t.done}; });
 }
-function saveTasks(pid,tasks){ localStorage.setItem(`snu-tuw-tasks-${pid}`,JSON.stringify(tasks)); }
+function saveTasks(pid, tasks){
+  _allTasks[pid] = tasks;
+  var payload = {};
+  Object.keys(_allTasks).forEach(function(k){ payload[k] = _allTasks[k]; });
+  /* also ensure default tasks for members not yet written */
+  STAFF_MEMBERS.forEach(function(m){
+    if(!payload[m.id]) payload[m.id] = (DEFAULT_TASKS[m.id]||[]).map(function(t){ return {id:t.id,text:t.text,done:!!t.done}; });
+  });
+  fbChecklistRef.set(payload).catch(function(e){ console.error(e); });
+}
+
 function clSwitch(pid){
   clActivePerson=pid;
-  const el=document.getElementById('cl-panel');
+  var el=document.getElementById('cl-panel');
   if(el) el.innerHTML=buildCLPanel();
 }
 function clToggle(pid,tid){
-  const tasks=getTasks(pid).map(t=>t.id===tid?{...t,done:!t.done}:t);
+  var tasks=getTasks(pid).map(function(t){ return t.id===tid?{id:t.id,text:t.text,done:!t.done}:t; });
   saveTasks(pid,tasks);
-  const el=document.getElementById('cl-panel');
-  if(el) el.innerHTML=buildCLPanel();
 }
 function clDeleteTask(pid,tid){
-  saveTasks(pid,getTasks(pid).filter(t=>t.id!==tid));
-  const el=document.getElementById('cl-panel');
-  if(el) el.innerHTML=buildCLPanel();
+  saveTasks(pid,getTasks(pid).filter(function(t){return t.id!==tid;}));
 }
 function clAddTask(pid){
-  const inp=document.getElementById('cl-add-input');
-  const text=inp&&inp.value.trim();
+  var inp=document.getElementById('cl-add-input');
+  var text=inp&&inp.value.trim();
   if(!text) return;
-  const tasks=getTasks(pid);
-  tasks.push({id:Date.now(),text,done:false});
+  var tasks=getTasks(pid);
+  tasks.push({id:Date.now(),text:text,done:false});
   saveTasks(pid,tasks);
-  const el=document.getElementById('cl-panel');
-  if(el) el.innerHTML=buildCLPanel();
 }
 function clClearDone(pid){
-  saveTasks(pid,getTasks(pid).filter(t=>!t.done));
-  const el=document.getElementById('cl-panel');
-  if(el) el.innerHTML=buildCLPanel();
+  saveTasks(pid,getTasks(pid).filter(function(t){return !t.done;}));
 }
 function buildCLPanel(){
   const pid=clActivePerson;
@@ -599,7 +615,7 @@ const SCHED_DETAIL=[
    {t:'15:00–18:00',type:'work',ko:'그룹 워크 및 설계 작업',de:'Gruppenplanung',en:'Group design work'},
  ]},
  {d:{ko:'4/10 금',de:'10.4 Fr',en:'4/10 Fri'},room:'82-113',phase:{ko:'최종 발표',de:'Abschlusspräsentationen',en:'Final presentations'},blocks:[
-   {t:'09:00–13:30',type:'work',ko:'그룹 워크 및 설계 작업 (마무리)',de:'Gruppenplanung (Abschluss)',en:'Group design work (wrap-up)',host:'Yang Jiseul · Kim Jeonghye (PhD)'},
+   {t:'09:00–13:30',type:'work',ko:'그룹 워크 및 설계 작업 (마무리)',de:'Gruppenplanung (Abschluss)',en:'Group work (wrap-up)',host:'Yang Jiseul · Kim Jeonghye (PhD)'},
    {t:'14:00–17:00',type:'pres',ko:'각 그룹 최종발표 및 질의응답 (발표 15분 + 질의 20분)',de:'Abschlusspräsentation + Diskussion (15 + 20 Min.)',en:'Final presentations & Q&A (15 min + 20 min = 35 min/team)',host:'Kim Hyeonju · Kim Jeonghye (PhD)'},
  ]},
 ];
@@ -797,9 +813,9 @@ function renderSched(){
 
 function renderStaff(){
   const L={
-    ko:{label:'스탭 전용',h1:'스탭도구',loginTitle:'스탭 전용 입장',loginSub:'스탭 비밀번호를 입력하세요',loginBtn:'입장',loginErr:'비밀번호가 맞지 않습니다.',statusMsg:'스탭 모드 활성화',logoutBtn:'로그아웃',noticeTitle:'공지 관리',noticePH:'공지 내용 입력 (홈 화면에 즉시 표시됩니다)...',noticeBtn:'홈에 올리기',clTitle:'체크리스트',note:'※ 데이터는 이 브라우저에 저장됩니다.'},
-    de:{label:'Staff',h1:'Staff-Werkzeuge',loginTitle:'Staff-Zugang',loginSub:'Staff-Passwort eingeben',loginBtn:'Eintreten',loginErr:'Falsches Passwort.',statusMsg:'Staff-Modus aktiv',logoutBtn:'Abmelden',noticeTitle:'Ankündigungen verwalten',noticePH:'Ankündigung eingeben...',noticeBtn:'Veröffentlichen',clTitle:'Checkliste',note:'※ Daten werden lokal gespeichert.'},
-    en:{label:'Staff Only',h1:'Staff Tools',loginTitle:'Staff Access',loginSub:'Enter the staff password',loginBtn:'Enter',loginErr:'Incorrect password.',statusMsg:'Staff mode active',logoutBtn:'Log out',noticeTitle:'Notice management',noticePH:'Enter notice text (appears on home page immediately)...',noticeBtn:'Post to home',clTitle:'Checklist',note:'※ Data is stored in this browser only.'},
+    ko:{label:'스탭 전용',h1:'스탭도구',loginTitle:'스탭 전용 입장',loginSub:'스탭 비밀번호를 입력하세요',loginBtn:'입장',loginErr:'비밀번호가 맞지 않습니다.',statusMsg:'스탭 모드 활성화',logoutBtn:'로그아웃',noticeTitle:'공지 관리',noticePH:'공지 내용 입력 (홈 화면에 즉시 표시됩니다)...',noticeBtn:'홈에 올리기',clTitle:'체크리스트',note:'※ 체크리스트는 실시간 동기화됩니다 (모든 기기에서 동일하게 보입니다).'},
+    de:{label:'Staff',h1:'Staff-Werkzeuge',loginTitle:'Staff-Zugang',loginSub:'Staff-Passwort eingeben',loginBtn:'Eintreten',loginErr:'Falsches Passwort.',statusMsg:'Staff-Modus aktiv',logoutBtn:'Abmelden',noticeTitle:'Ankündigungen verwalten',noticePH:'Ankündigung eingeben...',noticeBtn:'Veröffentlichen',clTitle:'Checkliste',note:'※ Die Checkliste wird in Echtzeit synchronisiert (sichtbar auf allen Geräten).'},
+    en:{label:'Staff Only',h1:'Staff Tools',loginTitle:'Staff Access',loginSub:'Enter the staff password',loginBtn:'Enter',loginErr:'Incorrect password.',statusMsg:'Staff mode active',logoutBtn:'Log out',noticeTitle:'Notice management',noticePH:'Enter notice text (appears on home page immediately)...',noticeBtn:'Post to home',clTitle:'Checklist',note:'※ Checklist syncs in real-time across all devices.'},
   }[LANG];
   if(!isStaff()){
     return `<div class="dark-hero"><div class="hero-label">${L.label}</div><h1>${L.h1}</h1></div>
